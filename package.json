@@ -1,0 +1,15 @@
+{
+  "name": "audimall",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Audiso global marketing site (EN / ZH / JA) — Vercel static deploy",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-locales.mjs && node scripts/build.mjs",
+    "dev": "npx serve dist -l 3456",
+    "preview": "npm run build && npm run dev"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
