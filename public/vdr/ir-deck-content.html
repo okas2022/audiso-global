@@ -203,21 +203,454 @@
     .compare-row { display: flex; gap: 6mm; margin: 3mm 0; }
     .compare-col { flex: 1; }
     .compare-col h3 { font-size: 8.5pt; margin-bottom: 2mm; }
+    .cover-logo { height: 20mm; width: auto; margin: 10mm 0 5mm; display: block; }
+    .hdr-logo { height: 5.5mm; width: auto; vertical-align: middle; margin-right: 2mm; }
+    .hdr-brand { display: flex; align-items: center; }
+    .k-bio-banner {
+      background: linear-gradient(90deg, #fce4ec 0%, #fff8e1 55%, #e8f5e9 100%);
+      border-left: 4px solid #c9a227;
+      padding: 3mm 4mm;
+      margin: 0 0 3mm;
+      font-size: 8pt;
+      line-height: 1.45;
+    }
+    .k-bio-banner strong { color: #0b3d5c; }
+    .product-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5mm;
+      margin: 3mm 0;
+    }
+    .product-strip img {
+      width: 100%;
+      height: 34mm;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 1px solid #d8e4ec;
+    }
+    .spec-strip {
+      margin: 3mm 0;
+      text-align: center;
+    }
+    .hardware-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 3mm 0;
+      align-items: end;
+    }
+    .hardware-photos figure {
+      margin: 0;
+      text-align: center;
+      overflow: visible;
+    }
+    /* Full-bleed within cell — never crop left/right (object-fit: contain) */
+    .hardware-photos img {
+      width: 100%;
+      height: auto;
+      max-height: 72mm;
+      object-fit: contain;
+      object-position: center;
+      border: 1px solid #d8e4ec;
+      border-radius: 3px;
+      background: #fff;
+    }
+    .hardware-photos figcaption {
+      font-size: 7pt;
+      color: #5a6a78;
+      margin-top: 1.5mm;
+      line-height: 1.3;
+    }
+    .spec-strip img {
+      width: 100%;
+      max-height: 40mm;
+      object-fit: contain;
+      border-radius: 3px;
+      border: 1px solid #d8e4ec;
+      background: #fff;
+    }
+    .mindtone-card { margin: 3mm 0; }
+    .mindtone-card img {
+      width: 100%;
+      max-height: 58mm;
+      object-fit: contain;
+      border-radius: 4px;
+      border: 1px solid #d8e4ec;
+    }
+    .peacetop-mindtone-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4mm;
+      margin-top: 2mm;
+    }
+
+    .ocean-trio {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 3mm 0;
+      font-size: 7.5pt;
+    }
+    .ocean-card {
+      padding: 3.5mm;
+      border-radius: 3px;
+      min-height: 32mm;
+    }
+    .ocean-card .tag {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5mm;
+      display: block;
+    }
+    .ocean-legacy { background: #f8ecec; border-top: 3px solid #b05a5a; }
+    .ocean-struggle { background: #f7f3e8; border-top: 3px solid #c9a227; }
+    .ocean-audiso { background: #e8f2f8; border-top: 3px solid #0b3d5c; }
+    .ocean-card strong { display: block; color: #0b3d5c; font-size: 8.5pt; margin-bottom: 1.5mm; }
+    table.matrix th.audiso-col, table.matrix td.audiso-col {
+      background: #eaf4fb;
+      font-weight: 600;
+    }
+    table.matrix td.audiso-col { color: #0b3d5c; }
+    .eq-row {
+      display: flex;
+      align-items: stretch;
+      gap: 2mm;
+      margin: 3mm 0;
+      flex-wrap: wrap;
+    }
+    .eq-pill {
+      flex: 1;
+      min-width: 42mm;
+      background: #0b3d5c;
+      color: #fff;
+      padding: 3mm;
+      border-radius: 3px;
+      font-size: 7.5pt;
+    }
+    .eq-pill .lbl {
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 1mm;
+    }
+    .eq-op {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      color: #c9a227;
+      font-size: 14pt;
+      padding: 0 1mm;
+    }
+    .flow-arrows {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 2mm;
+      align-items: center;
+      margin: 3mm 0;
+      font-size: 7.5pt;
+    }
+    .flow-box {
+      background: #f4f8fb;
+      border: 1px solid #d8e4ec;
+      padding: 3mm;
+      border-radius: 3px;
+      text-align: center;
+    }
+    .flow-box strong { display: block; color: #0b3d5c; margin-bottom: 1mm; }
+    .flow-arr { color: #0b3d5c; font-weight: 700; font-size: 14pt; }
+    .build-buy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 3mm 0;
+    }
+    .bb-card {
+      padding: 4mm;
+      border-radius: 3px;
+      font-size: 8pt;
+    }
+    .bb-pain { background: #f8ecec; border-left: 4px solid #b05a5a; }
+    .bb-win { background: #e8f5e9; border-left: 4px solid #2e7d4f; }
+    .bb-card h3 { margin-top: 0; font-size: 9pt; }
+    .bb-bars { display: flex; gap: 4mm; margin-top: 3mm; align-items: flex-end; height: 28mm; }
+    .bb-bar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center;
+      font-size: 6.5pt;
+    }
+    .bb-bar .fill {
+      background: #b05a5a;
+      color: #fff;
+      padding: 2mm 1mm;
+      border-radius: 2px 2px 0 0;
+    }
+    .bb-bar .fill.gold { background: #0b3d5c; }
+    .roadmap {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 3mm 0;
+    }
+    .rm-step {
+      background: #f4f8fb;
+      padding: 3mm;
+      border-top: 3px solid #0b3d5c;
+      font-size: 7.5pt;
+    }
+    .rm-step .when {
+      font-size: 7pt;
+      color: #c9a227;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1mm;
+    }
+    .rm-step strong { display: block; color: #0b3d5c; margin-bottom: 1mm; font-size: 8.5pt; }
+    .gear-row {
+      display: flex;
+      gap: 2mm;
+      margin: 2mm 0 0;
+      flex-wrap: wrap;
+    }
+    .gear {
+      flex: 1;
+      min-width: 28mm;
+      background: #0b3d5c;
+      color: #fff;
+      text-align: center;
+      padding: 2.5mm 2mm;
+      border-radius: 50px;
+      font-size: 7pt;
+      font-weight: 600;
+    }
+
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
+  
+    .fin-sub {
+      font-size: 8.5pt;
+      color: #5a6a78;
+      margin: -2mm 0 3mm;
+    }
+    .fin-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4mm;
+      margin: 2mm 0;
+      align-items: start;
+    }
+    .tier-engine {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5mm;
+      margin: 2mm 0 3mm;
+    }
+    .tier-card {
+      border-radius: 3px;
+      padding: 3mm;
+      font-size: 6.8pt;
+      line-height: 1.35;
+      min-height: 42mm;
+      position: relative;
+      overflow: hidden;
+    }
+    .tier-card::before {
+      content: "";
+      position: absolute;
+      right: -6mm;
+      top: -6mm;
+      width: 22mm;
+      height: 22mm;
+      border-radius: 50%;
+      border: 2.5px solid rgba(255,255,255,0.45);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.12);
+    }
+    .tier-cash { background: #0b3d5c; color: #fff; }
+    .tier-arr { background: #1a5f7a; color: #fff; }
+    .tier-asset { background: #c9a227; color: #1a1200; }
+    .tier-card .tier-tag {
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 1mm;
+    }
+    .tier-card strong {
+      display: block;
+      font-size: 8.2pt;
+      margin-bottom: 1.5mm;
+      line-height: 1.2;
+    }
+    .tier-metric {
+      font-size: 12pt;
+      font-weight: 700;
+      margin: 1.5mm 0 0.5mm;
+      letter-spacing: -0.02em;
+    }
+    .tier-card .muted-on {
+      opacity: 0.88;
+      font-size: 6.3pt;
+    }
+    .fin-gears {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5mm;
+      margin: 1mm 0 2.5mm;
+      font-size: 7pt;
+      font-weight: 700;
+    }
+    .fin-gear {
+      width: 18mm;
+      height: 18mm;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.15;
+      border: 2.5px dashed rgba(11,61,92,0.35);
+      background: #f4f8fb;
+      color: #0b3d5c;
+      padding: 1mm;
+    }
+    .fin-gear.g2 { background: #e8f2f8; border-color: #1a5f7a; }
+    .fin-gear.g3 { background: #f7f0d8; border-color: #c9a227; color: #5a4608; }
+    .fin-gear-arr { color: #0b3d5c; font-size: 10pt; opacity: 0.5; }
+    .fin-curve-box {
+      border: 1px solid #d5dde5;
+      border-radius: 3px;
+      padding: 2.5mm;
+      background: #fafcfe;
+    }
+    .fin-curve-box h3 { margin-top: 0; font-size: 8pt; }
+    .fin-curve-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5mm;
+      font-size: 6pt;
+      margin: 1mm 0 0;
+      color: #5a6a78;
+    }
+    .fin-curve-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 3.5mm;
+      height: 1.2mm;
+      margin-right: 1mm;
+      vertical-align: middle;
+      border-radius: 1px;
+    }
+    .leg-hw::before { background: #0b3d5c; }
+    .leg-arr::before { background: #1a5f7a; }
+    .leg-data::before { background: #c9a227; }
+    .fin-quote {
+      font-size: 7pt;
+      line-height: 1.4;
+      border-left: 2.5px solid #c9a227;
+      padding: 1.5mm 0 1.5mm 2.5mm;
+      margin: 2mm 0 0;
+      color: #333;
+    }
+    .fin-arr-table td, .fin-arr-table th {
+      text-align: center;
+      font-size: 7.5pt;
+      padding: 1.6mm 1.5mm;
+    }
+    .fin-note {
+      font-size: 6.3pt;
+      color: #5a6a78;
+      margin-top: 2mm;
+      line-height: 1.35;
+    }
+    .acronym-box {
+      background: #f4f8fb;
+      border: 1px solid #d5dde5;
+      border-radius: 3px;
+      padding: 2.5mm 3mm;
+      font-size: 7.2pt;
+      line-height: 1.4;
+      margin: 2mm 0 0;
+    }
+    .acronym-box strong { color: #0b3d5c; }
+
+    /* Cover badges (Option A) */
+    .cover-badges { display: flex; flex-wrap: wrap; gap: 3mm; margin-top: 10mm; }
+    .cover-badge {
+      font-size: 9pt; font-weight: 700; letter-spacing: 0.01em;
+      padding: 2.5mm 4.5mm; border-radius: 20mm;
+      border: 1.5px solid rgba(201,162,39,0.85);
+      background: rgba(201,162,39,0.14);
+      color: #f4e4b8;
+    }
+    .cover-congress { font-size: 7.5pt; opacity: 0.8; margin-top: 6mm; line-height: 1.55; }
+
+    /* Deployment network slide */
+    .partner-logos { text-align: center; margin: 3mm 0; }
+    .partner-logos img { max-width: 100%; max-height: 36mm; object-fit: contain; }
+    .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin: 2mm 0; }
+    .uc-cell { background: #f4f8fb; border-left: 3px solid #0b3d5c; padding: 2.5mm 3mm; font-size: 7.4pt; line-height: 1.35; }
+    .uc-cell strong { display: block; color: #0b3d5c; font-size: 8pt; margin: 0.5mm 0; }
+    .uc-tag { font-size: 6.3pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c9a227; }
+
+    /* Full-cycle platform slide */
+    .fc-sub { font-size: 9pt; color: #333; margin-bottom: 3mm; line-height: 1.45; }
+    .cycle-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 1.5mm; align-items: stretch; margin: 3mm 0 1mm;
+    }
+    .cyc-node { border-radius: 4px; padding: 3mm; font-size: 7.3pt; line-height: 1.35; color: #fff; }
+    .cyc-node .cyc-step { display: block; font-size: 6.3pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.92; margin-bottom: 1mm; }
+    .cyc-node strong { display: block; font-size: 8.3pt; margin-bottom: 1mm; }
+    .cyc-node.n1 { background: #0b3d5c; }
+    .cyc-node.n2 { background: #155e7d; }
+    .cyc-node.n3 { background: #c9a227; color: #241a00; }
+    .cyc-node.n3 .cyc-step { opacity: 0.8; }
+    .cyc-node.n4 { background: #1a7a5f; }
+    .cyc-arr { display: flex; align-items: center; justify-content: center; color: #0b3d5c; font-size: 13pt; font-weight: 700; }
+    .cycle-loop {
+      text-align: center; font-size: 7.3pt; font-weight: 700; color: #0b3d5c;
+      background: #eef5fa; border: 1px dashed #9bb8cc; border-radius: 3px;
+      padding: 1.8mm; margin: 0 0 2mm;
+    }
+    .modality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 2mm 0; }
+    .modality-card { display: flex; gap: 3mm; background: #f4f8fb; border-top: 3px solid #0b3d5c; border-radius: 3px; padding: 3mm; }
+    .modality-card img { width: 26mm; height: 26mm; object-fit: contain; border-radius: 3px; border: 1px solid #d8e4ec; background: #fff; flex: 0 0 auto; }
+    .modality-card .mod-tag { display: block; font-size: 6.3pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #c9a227; margin-bottom: 1mm; }
+    .modality-card strong { display: block; font-size: 9pt; color: #0b3d5c; margin-bottom: 1mm; }
+    .modality-card p { font-size: 7.3pt; line-height: 1.35; margin: 0; }
+    .fc-quote { font-size: 7.9pt; line-height: 1.45; font-style: italic; color: #333; border-left: 3px solid #c9a227; padding: 2mm 0 2mm 3mm; margin-top: 2mm; }
+
   </style>
 <section data-vdr-slide="cover" class="page cover">
   <div>
     <div class="cover-top">Confidential · Investor &amp; Partnership Relations</div>
-    <div class="cover-brand">Audiso</div>
+    <img class="cover-logo" src="ir_assets/audiso_logo.png" alt="Audiso — 오디에스오">
     <div class="cover-tagline">
-      Total Hearing Health Platform
+      Audiso : The Future of Unmanned Audiology
     </div>
     <div class="cover-sub">
-      Professor-led · National reference data · KOLAS ISO/IEC 17025 · Four-layer ecosystem<br>
-      Screen → Understand · Nourish → Rehabilitate<br>
-      <strong style="color:#c9a227;">CES · KIMES · WCA 2026</strong>
+      Beyond the limits of human specialists — the unmanned AI clinical platform completing the
+      <strong style="color:#c9a227;">Digital Transformation (DX)</strong> of the global hearing-aid market.
+    </div>
+    <div class="cover-badges">
+      <span class="cover-badge">1,000K+ Clinical Records</span>
+      <span class="cover-badge">KOLAS (ISO/IEC 17025) Accredited</span>
+      <span class="cover-badge">On-device AI</span>
+    </div>
+    <div class="cover-congress">
+      <strong style="color:#c9a227;">CES · KIMES · WCA 2026</strong>&nbsp; · &nbsp;CES (Consumer Electronics Show, Las Vegas) · KIMES (Korea International Medical &amp; Hospital Equipment Show) · WCA (World Congress of Audiology)
     </div>
   </div>
   <div class="cover-footer">
@@ -225,6 +658,125 @@
     audimall.vercel.app · audiso.co.kr · For qualified OEM, distributor &amp; strategic partner review
   </div>
   <span class="pg-num" style="color:rgba(255,255,255,0.5);">1</span>
+</section>
+<section data-vdr-slide="financial_impact" class="page">
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Executive Summary · Financial Impact</span></div>
+  <h1>Why Audiso's Unit Economics Win in the Hearing Industry</h1>
+  <p class="fin-sub">
+    A three-tier engine built on clinical technology: <strong>Cash · ARR · Asset</strong> —
+    hardware funds the runway, subscriptions lock in the network, data compounds the M&amp;A moat.
+  </p>
+
+  <div class="fin-gears" aria-hidden="true">
+    <div class="fin-gear">Cash<br>Hardware</div>
+    <span class="fin-gear-arr">→</span>
+    <div class="fin-gear g2">ARR<br>Subscription</div>
+    <span class="fin-gear-arr">→</span>
+    <div class="fin-gear g3">Asset<br>Data Moat</div>
+  </div>
+
+  <div class="fin-layout">
+    <div>
+      <div class="tier-engine">
+        <div class="tier-card tier-cash">
+          <span class="tier-tag">Tier 1 · Initial Cash</span>
+          <strong>WithHear kiosk sale</strong>
+          Immediate cash flow · gate into hospitals &amp; public health
+          <div class="tier-metric">$7.2K–$21.7K</div>
+          <div class="muted-on">list ASP / unit · v2 $7.2K (≈₩10M) · v3 $21.7K (≈₩30M) · target contribution ≥50% GM at volume</div>
+        </div>
+        <div class="tier-card tier-arr">
+          <span class="tier-tag">Tier 2 · Recurring ARR</span>
+          <strong>Center CRM package</strong>
+          Sticky software revenue · platform lock-in
+          <div class="tier-metric">$72 / mo</div>
+          <div class="muted-on">/ center (≈₩100k) · remote-managed subscription · SaaS-class gross margin ≥80%</div>
+        </div>
+        <div class="tier-card tier-asset">
+          <span class="tier-tag">Tier 3 · Strategic Asset</span>
+          <strong>Clinical hearing dataset</strong>
+          AI learning fuel · global M&amp;A rationale
+          <div class="tier-metric">1,000K+</div>
+          <div class="muted-on">structured records · peer-reviewed AI &amp; ISO-aligned norms</div>
+        </div>
+      </div>
+
+      <h3>ARR scale simulation ($72 / center / month · ≈₩100k)</h3>
+      <table class="fin-arr-table">
+        <tr>
+          <th>Partner centers</th>
+          <th>30 (live KR mesh)</th>
+          <th>100</th>
+          <th>300</th>
+        </tr>
+        <tr>
+          <td><strong>Monthly</strong></td>
+          <td>~$2.2K</td>
+          <td>~$7.2K</td>
+          <td>~$21.7K</td>
+        </tr>
+        <tr>
+          <td><strong>ARR (USD)</strong></td>
+          <td>~$26K</td>
+          <td>~$87K</td>
+          <td>~$261K</td>
+        </tr>
+        <tr>
+          <td><strong>≈ KRW ARR</strong></td>
+          <td>₩36M</td>
+          <td>₩120M</td>
+          <td>₩360M</td>
+        </tr>
+      </table>
+      <p class="fin-note">
+        FX illustrative at ~₩1,380/USD. Subscription is a <strong>remote-managed, ops-efficiency tool</strong>
+        (lead routing + chart automation + remote kiosk management) — negotiable, designed for low churn once the CRM workflow embeds.
+      </p>
+    </div>
+
+    <div>
+      <div class="fin-curve-box">
+        <h3>Value curve · Cash → ARR → Data J-curve</h3>
+        <svg viewBox="0 0 220 120" width="100%" height="105" role="img" aria-label="Growth curves for hardware, ARR, and data asset">
+          <rect x="0" y="0" width="220" height="120" fill="#fafcfe"/>
+          <!-- axes -->
+          <line x1="28" y1="10" x2="28" y2="100" stroke="#8a9aab" stroke-width="1"/>
+          <line x1="28" y1="100" x2="210" y2="100" stroke="#8a9aab" stroke-width="1"/>
+          <text x="2" y="18" font-size="7" fill="#5a6a78">Value</text>
+          <text x="180" y="112" font-size="7" fill="#5a6a78">Time</text>
+          <!-- Hardware: steep early -->
+          <path d="M28,88 C55,70 80,45 120,32 L200,22" fill="none" stroke="#0b3d5c" stroke-width="2.4"/>
+          <!-- ARR: stepped staircase -->
+          <path d="M28,92 L55,92 L55,82 L90,82 L90,70 L130,70 L130,55 L175,55 L175,42 L200,42"
+                fill="none" stroke="#1a5f7a" stroke-width="2.2"/>
+          <!-- Data: J-curve -->
+          <path d="M28,95 C70,94 110,90 140,72 C165,52 185,28 200,12"
+                fill="none" stroke="#c9a227" stroke-width="2.6"/>
+          <circle cx="200" cy="12" r="2.5" fill="#c9a227"/>
+        </svg>
+        <div class="fin-curve-legend">
+          <span class="leg-hw">Hardware cash (front-loaded)</span>
+          <span class="leg-arr">Subscription ARR (step-up)</span>
+          <span class="leg-data">Data asset (J-curve after AI scale)</span>
+        </div>
+      </div>
+
+      <p class="fin-quote">
+        <strong>Cash:</strong> Per-kiosk margin self-funds Audiso runway and is the fastest gate into
+        nationwide public-health and hospital networks.<br>
+        <strong>ARR:</strong> ₩100k/mo is priced as a cost-reduction CRM — efficiency-led retention, not lead spam.<br>
+        <strong>Data:</strong> 1,000K+ curated records train monthly AI upgrades and give Tier-1 OEMs a concrete M&amp;A thesis.
+      </p>
+    </div>
+  </div>
+
+  <p class="fin-note">
+    Hardware ASP from KR commercial list — WithHear <strong>v2 ≈$7.2K (₩10M)</strong> (KFDA Class II · GMP · ISO 13485 · Innovation-Procurement listed)
+    and <strong>v3 ≈$21.7K (₩30M)</strong> (adds otoscope + AI hearing-prediction). Contribution/GM figures are
+    <strong>scale design targets for partner diligence</strong>, not audited historical GAAP.
+    Live footprint: 30+ CRM-linked centers (Korean Air, KT, Davich, Severance, Cochlear, Wonju City…) · 1,000,000+ structured hearing records · peer-reviewed AI (J Clin Med 2025).
+  </p>
+  <span class="pg-num">2</span>
 </section>
 <section data-vdr-slide="executive_summary" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Executive Summary</span></div>
@@ -238,7 +790,7 @@
     <div class="thesis-card">
       <strong>1. Data moat</strong>
       Director, Korean Hearing Reference Data Center. 1,089 PTA + 72 ABR normative standards.
-      100,000+ structured hearing records. ISO TC43 WG1 participation. Peer-reviewed AI audiometry
+      1,000,000+ structured hearing records. ISO TC43 WG1 participation. Peer-reviewed AI audiometry
       (J Clin Med 2025; Am J Audiol 2026).
     </div>
     <div class="thesis-card">
@@ -248,24 +800,25 @@
     </div>
     <div class="thesis-card">
       <strong>3. Global-ready validation</strong>
-      CES 2026 · KIMES 2026 · WCA 2026 Seoul dedicated booth. 30+ Korean hearing-center CRM network.
+      CES 2026 (Las Vegas consumer-tech stage) · KIMES 2026 (Seoul medical-device trade fair) · WCA 2026 Seoul dedicated booth (World Congress of Audiology — global audiologist peer congress). 30+ Korean hearing-center CRM network (Korean Air, KT, Davich, Severance, Cochlear…).
       EN/JA/ZH B2B showroom (AudiMall). Active US/EU outbound to Tier-1 OEM ICP.
     </div>
   </div>
   <div class="stat-row">
     <div class="stat"><span class="num">4</span><span class="lbl">Integrated product layers</span></div>
     <div class="stat"><span class="num">1,089</span><span class="lbl">Korean PTA reference standards</span></div>
-    <div class="stat"><span class="num">100K+</span><span class="lbl">Structured hearing records</span></div>
+    <div class="stat"><span class="num">1,000K+</span><span class="lbl">Structured hearing records</span></div>
     <div class="stat"><span class="num">50+</span><span class="lbl">SCI/SCIE publications</span></div>
     <div class="stat"><span class="num">30+</span><span class="lbl">Partner hearing centers (KR)</span></div>
   </div>
   <h2>Why global leaders should care</h2>
   <ul>
+    <li><strong>Strategic narrative:</strong> Capability gap matrix · 30+ partner economics · build-vs-buy must-have positioning for Tier-1 OEM M&amp;A.</li>
     <li><strong>Asia execution gap:</strong> Western OEMs announce DTx and kiosk strategies — Audiso offers KOLAS-backed deployment infrastructure already live in Korea.</li>
     <li><strong>Open innovation fit:</strong> White-label AI screening, SaMD rehab modules, and calibration IP — not commodity hardware resale.</li>
     <li><strong>Professor credibility:</strong> CEO Young Joon Seo, MD, PhD — 1,350+ ENT surgeries; Minister of Health &amp; Welfare Award (2025); MOTIE Awards (2019, 2024).</li>
   </ul>
-  <span class="pg-num">2</span>
+  <span class="pg-num">3</span>
 </section>
 <section data-vdr-slide="research_infrastructure" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Research &amp; Data Infrastructure</span></div>
@@ -300,20 +853,25 @@
       <br><a href="https://www.smilesnail.org/audiso">smilesnail.org/audiso</a>
     </div>
   </div>
+  <h2>CES 2026 global debut</h2>
   <div class="img-row">
-    <div class="img-cell">
-      <img src="https://static.wixstatic.com/media/b8629b_68bf2f6a23b14a9d848577abec2c79cef000.jpg" alt="Hearing Rehabilitation Research Institute facility">
+    <div class="img-cell" style="flex:1.25;">
+      <img src="ir_assets/ces2026_seo_kiosk.png" alt="Prof. Young Joon Seo presenting the WithHear AI kiosk at CES 2026, Gangwon State pavilion, Las Vegas">
     </div>
-    <div class="img-cell" style="font-size:8pt;">
-      <h3>Research–business fusion</h3>
+    <div class="img-cell" style="font-size:8pt;flex:1;">
+      <p style="margin-bottom:2mm;">
+        At <strong>CES 2026</strong> (Las Vegas), Institute Director <strong>Prof. Young Joon Seo</strong> personally
+        unveiled the WithHear AI kiosk on the Gangwon State pavilion — presenting
+        <em>"WithHearing — AI-based Kiosk Audiometry"</em> and <em>"Audiology with ISO"</em> to a global audience.
+      </p>
       <ul>
-        <li><strong>Publications:</strong> 50+ SCI/SCIE papers — peer-reviewed validation, not pitch-deck claims</li>
-        <li><strong>Patents &amp; IP:</strong> Audiogram digitization, AI audiometry, screening kiosk stack</li>
-        <li><strong>Tech transfer:</strong> National reference data → WithHear norms → Modoo consumer funnel → MindTone rehab pathway</li>
+        <li><strong>Global validation:</strong> unmanned AI screening demonstrated on the world's largest consumer-tech stage</li>
+        <li><strong>Research–business fusion:</strong> 50+ SCI/SCIE papers · IP in audiogram digitization &amp; AI audiometry</li>
+        <li><strong>Tech transfer:</strong> national reference data → WithHear norms → Modoo funnel → MindTone rehab</li>
       </ul>
     </div>
   </div>
-  <span class="pg-num">3</span>
+  <span class="pg-num">4</span>
 </section>
 <section data-vdr-slide="market" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Market Opportunity</span></div>
@@ -369,7 +927,7 @@
       </ul>
     </div>
   </div>
-  <span class="pg-num">4</span>
+  <span class="pg-num">5</span>
 </section>
 <section data-vdr-slide="platform" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Platform Vision</span></div>
@@ -416,7 +974,92 @@
     <tr><td>Co-development</td><td>Asia clinical validation · ISO reference data integration</td><td>Director Innovation</td></tr>
     <tr><td>M&amp;A / strategic</td><td>Four-layer IP portfolio + KOLAS lab + data center</td><td>Director M&amp;A</td></tr>
   </table>
-  <span class="pg-num">5</span>
+  <span class="pg-num">6</span>
+</section>
+<section data-vdr-slide="competitive_gap" class="page">
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Strategy · Competitive Gap</span></div>
+  <h1>The Audiso Advantage — Closing Audiology's Digital Gap</h1>
+  <p class="muted" style="font-size:8.5pt;margin-bottom:2mm;">
+    Why incumbent DX still stops at hearing-aid hardware sales — and where Audiso sits instead.
+  </p>
+
+  <h2>The structural pain point</h2>
+  <p style="font-size:8.5pt;">
+    <strong>Why has global hearing DX remained stuck at device sell-through?</strong>
+    Tier-1 OEMs are optimized for <em>fitting and shipping hardware</em>. A staff-free, preventive screening system
+    that resolves demand <em>before</em> the clinic visit is economically awkward for a P&amp;L that grows with
+    device units. Prevention that keeps patients out of the store looks like self-cannibalization —
+    so product roadmaps stay hardware-first, with apps bolted on as accessories.
+  </p>
+  <p class="quote" style="font-size:8.5pt;">
+    Incumbents are built to sell hearing aids. Audiso is built to own the diagnostic data layer that decides
+    <em>who</em> needs care — and when — before the aid is ever opened.
+  </p>
+
+  <h2>Capability matrix</h2>
+  <table class="matrix">
+    <tr>
+      <th>Dimension</th>
+      <th>Global HW OEMs<br><span class="muted" style="font-weight:400;">Starkey · Sonova · GN · Demant</span></th>
+      <th>Typical hearing AI startups</th>
+      <th class="audiso-col">Audiso</th>
+    </tr>
+    <tr>
+      <td>Clinical / trust data</td>
+      <td>Western / catalog norms; limited Asia population adaptation</td>
+      <td>Small cohorts · often unpublished</td>
+      <td class="audiso-col">KOLAS lab + 1,089 Korean PTA norms · ISO 7029 peer comparison</td>
+    </tr>
+    <tr>
+      <td>Core asset</td>
+      <td>Manufacturing &amp; channel for devices</td>
+      <td>Fragmented apps / models</td>
+      <td class="audiso-col">Data + hardware + software in one value chain</td>
+    </tr>
+    <tr>
+      <td>Diagnostic infrastructure</td>
+      <td>Hospital / franchise clinic-centric</td>
+      <td>Online screening only</td>
+      <td class="audiso-col">WithHear unmanned kiosk net + Modoo funnel + CRM</td>
+    </tr>
+    <tr>
+      <td>Medical grounding</td>
+      <td>Brand / marketing validity</td>
+      <td>Tech narrative, thin clinical ownership</td>
+      <td class="audiso-col">Professor-run institute · 50+ SCI · ~1,000k structured records</td>
+    </tr>
+  </table>
+
+  <h2>Where value pools sit</h2>
+  <div class="ocean-trio">
+    <div class="ocean-card ocean-legacy">
+      <span class="tag">Legacy · Red ocean</span>
+      <strong>Hardware-optimized OEMs</strong>
+      Sonova · Starkey · GN · Demant — world-class devices, weak incentive to build population-scale preventive DX that reduces walk-in volume.
+    </div>
+    <div class="ocean-card ocean-struggle">
+      <span class="tag">Fragmented attempts</span>
+      <strong>Hearing AI / consumer apps</strong>
+      Speed and UX without accredited calibration, national norms, or a professor-owned care network — hard to survive diligence.
+    </div>
+    <div class="ocean-card ocean-audiso">
+      <span class="tag">Audiso · Full stack</span>
+      <strong>Data-first preventive ecosystem</strong>
+      Three gears locked: KOLAS metrology · national clinical data · deployable AI (WithHear / Modoo / MindTone).
+      <div class="gear-row">
+        <div class="gear">KOLAS</div>
+        <div class="gear">Clinical data</div>
+        <div class="gear">AI stack</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="quote" style="margin-top:3mm;font-size:8pt;">
+    Global leaders are extraordinary at selling hearing aids. They do not yet own the standard for
+    <em>pre-visit</em> care. Audiso's KOLAS-backed diagnostic layer is why an acquisition or deep license
+    is strategic — not optional — for Asia execution.
+  </p>
+  <span class="pg-num">7</span>
 </section>
 <section data-vdr-slide="withhear" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Product · WithHear 2.0</span></div>
@@ -424,46 +1067,91 @@
     <h1 style="margin:0;">WithHear 2.0 — AI Hearing Screening Kiosk</h1>
     <p style="margin:2mm 0 0;" class="muted">Staff-free · 3-minute · Built on KOLAS-calibrated national hearing data</p>
   </div>
-  <div class="img-row">
-    <div class="img-cell">
-      <img src="https://cdn.sixshop.io/commerce/public/stores/audiso/products/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%EC%A0%9C%ED%92%88%EC%83%B7_1781740631391.png" alt="WithHear 2.0 kiosk product">
-    </div>
-    <div class="img-cell" style="font-size:8pt;">
-      <div class="badges" style="margin-top:0;">
-        <span class="badge">ISO/IEC 17025 data</span>
-        <span class="badge">CES 2026</span>
-        <span class="badge">KIMES 2026</span>
-        <span class="badge">WCA 2026 Seoul</span>
-      </div>
-      <p style="margin-top:2mm;">
-        WithHear transforms any site into a <strong>self-service hearing screening node</strong> —
-        generating qualified leads without audiologist time on every visit. Age- and sex-matched
-        comparison against 1,089 Korean national PTA reference standards.
-      </p>
-    </div>
+  <div class="badges" style="margin-top:0;">
+    <span class="badge">ISO/IEC 17025 data</span>
+    <span class="badge">CES 2026</span>
+    <span class="badge">KIMES 2026</span>
+    <span class="badge">WCA 2026 Seoul</span>
   </div>
-  <h2>Deployment verticals (Korea)</h2>
-  <div class="deploy-grid">
-    <div class="deploy-cell"><strong>Hospitals &amp; ENT clinics</strong> — outpatient screening nodes</div>
-    <div class="deploy-cell"><strong>Public health &amp; senior welfare</strong> — community health centers</div>
-    <div class="deploy-cell"><strong>Schools &amp; universities</strong> — youth hearing surveillance</div>
-    <div class="deploy-cell"><strong>Military &amp; occupational health</strong> — workforce screening programs</div>
-    <div class="deploy-cell"><strong>Airlines &amp; transport</strong> — crew &amp; operator hearing checks</div>
-    <div class="deploy-cell"><strong>Oriental medicine &amp; multi-specialty</strong> — integrated wellness clinics</div>
-    <div class="deploy-cell"><strong>Hearing-aid retail &amp; franchises</strong> — pre-fitting triage</div>
-    <div class="deploy-cell"><strong>Corporate workplace wellness</strong> — employee health programs</div>
-  </div>
-  <p class="muted" style="font-size:8pt;margin-top:3mm;">
-    <em>Active installations and pilot conversions expanding nationwide across Korea.</em>
+  <p style="font-size:8.5pt;margin:2mm 0;">
+    WithHear transforms any site into a <strong>self-service hearing screening node</strong> —
+    age- and sex-matched comparison against 1,089 Korean national PTA reference standards.
   </p>
-  <h2>Commercial model</h2>
-  <ul>
-    <li><strong>B2G pilot → purchase:</strong> Proven public-sector deployment pathway with conversion from pilot installation to procurement</li>
-    <li><strong>Modular SaaS add-ons:</strong> AI eardrum analysis, risk prediction models, cloud reports, printer integration</li>
-    <li><strong>Partner value:</strong> White-label kiosk stack with nationally governed normative data — not brochureware AI</li>
-  </ul>
-  <p class="muted" style="font-size:8pt;">Live: audimall.vercel.app/en/withhear/ · xr.audiso.co.kr/product/</p>
-  <span class="pg-num">6</span>
+  <h2>Hardware &amp; soundproof booth</h2>
+  <div class="hardware-photos">
+    <figure>
+      <img src="ir_assets/withhear_kiosk_photo.png" alt="WithHear kiosk — floor-standing 21.5-inch FHD touch, headphones, thermal printer">
+      <figcaption>WithHear kiosk · 21.5″ FHD · stand-alone · KO/EN UI</figcaption>
+    </figure>
+    <figure>
+      <img src="ir_assets/withhear_booth_photo.png" alt="WithHear 3.0 BNJ-3000 — AI-powered hearing screening booth, full product frame">
+      <figcaption>WithHear 3.0 · BNJ-3000 · Hearing Screening Kiosk</figcaption>
+    </figure>
+  </div>
+  <p class="muted" style="font-size:7.5pt;margin-top:1mm;">
+    Thermal printer · professional otoscope · closed-back headphones · KO/EN/MN UI.
+    Booth: tempered glass · flame-retardant interior · ventilation · built-in seating.
+  </p>
+  <h2>Kiosk editions &amp; pricing (USD)</h2>
+  <table style="font-size:7.5pt;">
+    <tr>
+      <th style="width:18%;">Edition</th>
+      <th>WithHear v2 · Class II</th>
+      <th>WithHear v3 · Premium</th>
+    </tr>
+    <tr>
+      <td><strong>Price / unit</strong></td>
+      <td><strong>$7.2K</strong> <span style="color:#5a6a78;">(≈₩10M)</span></td>
+      <td><strong>$21.7K</strong> <span style="color:#5a6a78;">(≈₩30M)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Diagnostics</strong></td>
+      <td>AI pure-tone screening · KOLAS-calibrated national norms</td>
+      <td>All of v2 <strong>+ professional otoscope + AI hearing-prediction diagnosis</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Regulatory</strong></td>
+      <td>KFDA Class II · GMP · ISO 13485 · Innovation-Procurement listed</td>
+      <td>Premium diagnostic build on the certified v2 base</td>
+    </tr>
+    <tr>
+      <td><strong>Operations</strong></td>
+      <td colspan="2">Remote-managed — <strong>monthly subscription available</strong> (terms negotiable), converting CAPEX into predictable OPEX for partners.</td>
+    </tr>
+  </table>
+  <p class="muted" style="font-size:7.5pt;margin-top:2mm;">
+    B2G pilot→purchase · modular SaaS (AI eardrum, risk models, cloud reports) · white-label kiosk + national norm data.
+    Live: audimall.vercel.app/en/withhear/
+  </p>
+  <span class="pg-num">8</span>
+</section>
+<section data-vdr-slide="deployment_network" class="page">
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">WithHear · Deployment Network</span></div>
+  <h1>Field-proven across Korea's most demanding environments</h1>
+  <p style="font-size:8.5pt;">
+    WithHear is not a lab prototype. It is deployed with <strong>flagship enterprises, tertiary hospitals and public
+    institutions</strong> — and each vertical generates a distinct stream of structured, real-world hearing data that
+    continuously sharpens Audiso's AI.
+  </p>
+  <div class="partner-logos">
+    <img src="ir_assets/deployment_partners_logos.png" alt="Deployment partners including Korean Air, KT, Cochlear, Wonju City, Wonju Severance Christian Hospital and hearing-health institutions">
+  </div>
+  <h2>Deployment partners by use-case</h2>
+  <div class="usecase-grid">
+    <div class="uc-cell"><span class="uc-tag">Noise-exposed workforce</span><strong>Korean Air · Asiana Airlines</strong>Crew &amp; ground-staff hearing surveillance in high-noise operations</div>
+    <div class="uc-cell"><span class="uc-tag">Corporate welfare</span><strong>KT</strong>Employee hearing-health benefit deployed at enterprise scale</div>
+    <div class="uc-cell"><span class="uc-tag">Senior-friendly retail</span><strong>Davich Optical</strong>Elderly-accessible screening across a national optical chain</div>
+    <div class="uc-cell"><span class="uc-tag">Hearing-loss patients</span><strong>Severance · Seoul Asan Medical Center</strong>Tertiary-hospital outpatient screening pathways</div>
+    <div class="uc-cell"><span class="uc-tag">Cochlear-implant care</span><strong>Cochlear</strong>Candidate identification &amp; implant follow-up screening</div>
+    <div class="uc-cell"><span class="uc-tag">Public / civil service</span><strong>Wonju City Hall</strong>Walk-in screening for general citizens &amp; civil-service visitors</div>
+    <div class="uc-cell"><span class="uc-tag">Student hearing health</span><strong>Yonsei Univ. Health Lounge</strong>Campus screening for youth hearing surveillance</div>
+    <div class="uc-cell"><span class="uc-tag">Global outreach</span><strong>Mongolia First Hospital</strong>Overseas hearing-health program &amp; export beachhead</div>
+  </div>
+  <p class="fin-note">
+    Each vertical is a different data stream — occupational, geriatric, clinical, pediatric and cross-border —
+    compounding into the <strong>1,000,000+ record moat</strong> that no single-channel competitor can replicate.
+  </p>
+  <span class="pg-num">9</span>
 </section>
 <section data-vdr-slide="modoo" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Product · Modoo Hearing</span></div>
@@ -523,50 +1211,70 @@
     Live: moduhearingaids.vercel.app ·
     apps.apple.com/kr/app/모두의-보청기/id6476432937
   </p>
-  <span class="pg-num">7</span>
+  <span class="pg-num">10</span>
 </section>
 <section data-vdr-slide="peacetop_mindtone" class="page">
-  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Products · Peacetop &amp; MindTone</span></div>
-  <div class="two-col">
-    <div>
-      <div class="product-hero">
-        <h3 style="margin:0;">Peacetop Triple Care</h3>
-        <p class="muted" style="font-size:8pt;margin-top:1mm;">Layer 3 · Nourish</p>
-      </div>
-      <div class="badges"><span class="badge">KFDA functional food</span><span class="badge">4.9★ Naver</span></div>
-      <p style="font-size:8.5pt;">
-        Proprietary ear-vascular-nerve wellness nutrition: CoQ10, Ginkgo biloba, Vitamins D, B6, B12, Magnesium.
-        Positioned as the <strong>daily care SKU</strong> after screening — differentiated from commodity supplements.
-      </p>
-      <p class="muted" style="font-size:8pt;">peacetop.store · audimall.vercel.app/en/peacetop/</p>
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">The Full-Cycle Platform</span></div>
+  <h1 style="margin-bottom:1.5mm;">Completing the Care Cycle — from diagnosis to treatment</h1>
+  <p class="fc-sub">
+    On a <strong>completed AI diagnostic infrastructure</strong>, Audiso layers its own proprietary clinical
+    <strong>Treatment Modalities</strong> — turning a diagnosis platform into a full-cycle, telemedicine-ready hearing solution.
+  </p>
+
+  <div class="cycle-flow">
+    <div class="cyc-node n1">
+      <span class="cyc-step">Step 1 · Diagnosis</span>
+      <strong>Completed infrastructure</strong>
+      WithHear 2.0 &amp; Modoo — unmanned AI screening on KOLAS-accredited data drives patient inflow.
     </div>
-    <div>
-      <div class="product-hero">
-        <h3 style="margin:0;">MindTone T Care</h3>
-        <p class="muted" style="font-size:8pt;margin-top:1mm;">Layer 4 · Rehabilitate</p>
-      </div>
-      <div class="badges"><span class="badge">SaMD pathway</span><span class="badge">App + device</span></div>
-      <p style="font-size:8.5pt;">
-        Digital tinnitus &amp; hearing rehabilitation: structured sound therapy via app + sensory device
-        (sound, light, vibration). ~10 minutes/day at home. Designed for layered care with Peacetop.
-      </p>
-      <p class="muted" style="font-size:8pt;">App Store · Google Play · audimall.vercel.app/en/mindtone/</p>
+    <div class="cyc-arr">➔</div>
+    <div class="cyc-node n2">
+      <span class="cyc-step">Step 2 · Prediction</span>
+      <strong>The AI brain</strong>
+      1,000K+ clinical records &amp; AI models forecast the progression of hearing loss &amp; tinnitus.
+    </div>
+    <div class="cyc-arr">➔</div>
+    <div class="cyc-node n3">
+      <span class="cyc-step">Step 3 · Treatment</span>
+      <strong>Expanding modalities</strong>
+      Two self-developed clinical therapeutics, built on ENT-specialist know-how, complete telemedicine.
+    </div>
+    <div class="cyc-arr">➔</div>
+    <div class="cyc-node n4">
+      <span class="cyc-step">Step 4 · Management</span>
+      <strong>Data virtuous cycle</strong>
+      Prognosis data from treatment apps &amp; devices returns to Audiso's cloud to refine the algorithm.
     </div>
   </div>
-  <h2>Why layers 3 &amp; 4 matter for OEM partners</h2>
-  <p>
-    Global hearing companies are expanding beyond devices into <strong>adjacent revenue streams</strong>
-    (wellness, DTx, subscription rehab). Audiso offers ready-made SKUs and SaMD-ready software —
-    accelerating your portfolio without years of internal R&amp;D.
+  <div class="cycle-loop">↻ Prognosis data feeds back into the AI brain — once a patient enters, the value chain never lets them leave</div>
+
+  <h2>Treatment modalities — Clinical Therapeutics &amp; Rehabilitation</h2>
+  <div class="modality-grid">
+    <div class="modality-card">
+      <img src="ir_assets/mindtone_ir_card.png" alt="MindTone+ — 3-sensory digital rehabilitation device and app">
+      <div>
+        <span class="mod-tag">Modality A · Digital Therapeutics (DTx / SaMD)</span>
+        <strong>MindTone+</strong>
+        <p>3-sensory (sound · light · vibration) digital rehabilitation device and software medical device for tinnitus &amp; hearing-loss patients, with MINDbot AI insights.</p>
+      </div>
+    </div>
+    <div class="modality-card">
+      <img src="ir_assets/peacetop_box.png" alt="Peacetop Triple Care — GMP-certified clinical nutrition modality">
+      <div>
+        <span class="mod-tag">Modality B · Clinical Nutrition Therapy</span>
+        <strong>Peacetop Triple Care</strong>
+        <p>A GMP-certified nutrition modality — not commodity vitamins — linked at the prescription stage to concentrate hearing, nerve &amp; blood-circulation care after screening.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="fc-quote">
+    "A diagnostic AI alone cannot beat the global giants — a true platform needs the answer to <em>treatment</em>.
+    On top of our completed unmanned diagnosis &amp; prediction infrastructure, Audiso adds MindTone (DTx) and
+    Peacetop (clinical nutrition) as treatment modalities, so patients experience the entire cycle — diagnosis,
+    personalized treatment and follow-up — without ever visiting a hospital."
   </p>
-  <h2>Clinical research anchor</h2>
-  <ul>
-    <li>Lee HS et al., <em>Otol Neurotol</em> 2026 — Osia 2 prospective audiological outcomes (WCA 2024 Paris presentation lineage)</li>
-    <li>Yoon CY et al., <em>J Clin Med</em> 2025 — AI-based bone conduction prediction from air-conduction audiometry</li>
-    <li>Lee D et al., <em>Am J Audiol</em> 2026 — Korean normative thresholds ages 20–79 vs. ISO 7029:2017</li>
-    <li>MindTone: software medical device classification path — diligence pack available on qualified inbound</li>
-  </ul>
-  <span class="pg-num">8</span>
+  <span class="pg-num">11</span>
 </section>
 <section data-vdr-slide="data_moat" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Data &amp; Clinical Moat</span></div>
@@ -581,7 +1289,7 @@
     <tr><th>Asset</th><th>Audiso</th><th>Typical hearing AI startup</th></tr>
     <tr><td>Pure-tone audiometry norms</td><td><strong>1,089</strong> reference standards</td><td>Limited or synthetic datasets</td></tr>
     <tr><td>ABR reference standards</td><td><strong>72</strong> norms</td><td>Not available</td></tr>
-    <tr><td>Structured hearing records</td><td><strong>100,000+</strong> (3-year lifelog project)</td><td>Small proprietary samples</td></tr>
+    <tr><td>Structured hearing records</td><td><strong>1,000,000+</strong> (multi-year lifelog platform)</td><td>Small proprietary samples</td></tr>
     <tr><td>KOLAS calibration lab</td><td><strong>Yes</strong> — ISO/IEC 17025</td><td>No accredited lab</td></tr>
     <tr><td>ISO TC43 participation</td><td><strong>Yes</strong> — WG1 member</td><td>No standards governance</td></tr>
     <tr><td>Audiogram digitization</td><td>Proprietary conversion software</td><td>Manual or absent</td></tr>
@@ -594,7 +1302,7 @@
       <h3 class="navy">Audiso</h3>
       <div class="bar-chart">
         <div class="bar" style="height:100%;"><span>PTA norms<br>1,089</span></div>
-        <div class="bar" style="height:95%;"><span>Records<br>100K+</span></div>
+        <div class="bar" style="height:95%;"><span>Records<br>1,000K+</span></div>
         <div class="bar" style="height:100%;"><span>KOLAS<br>Lab</span></div>
         <div class="bar" style="height:100%;"><span>ISO<br>TC43</span></div>
       </div>
@@ -618,7 +1326,7 @@
   <p style="font-size:8pt;" class="muted">
     <strong>Audiogram digitization pipeline:</strong> Proprietary software converts audiogram image files into structured data for reference-standard comparison — enabling legacy paper records to enter the national data cluster.
   </p>
-  <span class="pg-num">9</span>
+  <span class="pg-num">12</span>
 </section>
 <section data-vdr-slide="kolas_quality" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">KOLAS &amp; Quality</span></div>
@@ -662,26 +1370,105 @@
     <li>WithHear English product catalog PDF</li>
     <li>MindTone technical dossier (on request)</li>
   </ul>
-  <span class="pg-num">10</span>
+  <span class="pg-num">13</span>
+</section>
+<section data-vdr-slide="partner_economics" class="page">
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Economics · Partner Network</span></div>
+  <h1>The Audiso Business Engine — 30+ Clinical Partners</h1>
+  <p class="muted" style="font-size:8.5pt;">
+    Not a box supplier: a revenue engine that compounds inside hearing centers —
+    live with partners such as Korean Air, Asiana, KT, Davich Optical, Severance, Seoul Asan, Cochlear, Wonju City &amp; Mongolia First Hospital.
+  </p>
+
+  <h2>Partnership success equation</h2>
+  <div class="eq-row">
+    <div class="eq-pill">
+      <span class="lbl">Pre-qualified leads</span>
+      Modoo app/web + WithHear nodes push scored intake into Audiso CRM — partners receive journey-aware demand, not cold walk-ins.
+    </div>
+    <div class="eq-op">×</div>
+    <div class="eq-pill">
+      <span class="lbl">Clinical efficiency</span>
+      Unmanned screening compresses intake toward a ~3-minute self-service cycle so clinicians stay on counseling &amp; fitting.
+    </div>
+    <div class="eq-op">×</div>
+    <div class="eq-pill">
+      <span class="lbl">Retention / LTV</span>
+      MindTone + Peacetop subscription bridges keep post-fit touchpoints alive beyond the device SKU.
+    </div>
+  </div>
+  <p style="font-size:8pt;text-align:center;margin:1mm 0 3mm;">
+    <strong class="navy">Audiso Partnership Value = Leads × Efficiency × Retention</strong>
+  </p>
+
+  <h2>Impact snapshot (network operating model)</h2>
+  <table>
+    <tr><th>Lever</th><th>What partners experience</th><th>Evidence posture</th></tr>
+    <tr>
+      <td><strong>Lead quality</strong></td>
+      <td>Platform-sourced visitors arrive after digital screening / intent signals — higher consult readiness vs. cold advertising traffic</td>
+      <td>Modoo 4.9★ funnel · CRM routing to 30+ centers</td>
+    </tr>
+    <tr>
+      <td><strong>Intake time</strong></td>
+      <td>WithHear self-service screening targets ~70% less staffed intake time vs. a traditional chair-side first pass</td>
+      <td>3-min design cycle · kiosk/booth deployment verticals</td>
+    </tr>
+    <tr>
+      <td><strong>Lifetime value</strong></td>
+      <td>HA sale becomes the mid-point: rehab device + functional nutrition reopen visits and recurring revenue</td>
+      <td>MindTone SaMD path · Peacetop D2C 4.9★ store</td>
+    </tr>
+  </table>
+
+  <h2>Data → clinic monetization loop</h2>
+  <div class="flow-arrows">
+    <div class="flow-box">
+      <strong>App / Web / Kiosk</strong>
+      Modoo · WithHear intake
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-box">
+      <strong>Audiso CRM</strong>
+      Score · route · follow-up
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-box">
+      <strong>Partner center P&amp;L</strong>
+      Fitting + LTV SKUs
+    </div>
+  </div>
+
+  <div class="stat-row" style="margin-top:2mm;">
+    <div class="stat"><span class="num">30+</span><span class="lbl">CRM-linked hearing centers (KR)</span></div>
+    <div class="stat"><span class="num">~3 min</span><span class="lbl">Target unmanned screening cycle</span></div>
+    <div class="stat"><span class="num">4 layers</span><span class="lbl">Screen → understand → nourish → rehab</span></div>
+  </div>
+
+  <p class="quote" style="font-size:8pt;">
+    When partners earn more per chair-hour, Audiso earns with them. That win-win is the lock-in —
+    switching means losing both lead supply and post-fit SKU rails.
+  </p>
+  <span class="pg-num">14</span>
 </section>
 <section data-vdr-slide="traction" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Traction &amp; Validation</span></div>
   <h1>Global stage · Local network · Active pipeline</h1>
   <h2>Congress &amp; exhibition validation</h2>
   <div class="stat-row">
-    <div class="stat"><span class="num">CES</span><span class="lbl">2026 Las Vegas · multimodal AI</span></div>
-    <div class="stat"><span class="num">KIMES</span><span class="lbl">2026 Korea med-tech</span></div>
-    <div class="stat"><span class="num">WCA</span><span class="lbl">2026 Seoul dedicated booth</span></div>
+    <div class="stat"><span class="num">CES</span><span class="lbl">2026 Las Vegas · Consumer Electronics Show</span></div>
+    <div class="stat"><span class="num">KIMES</span><span class="lbl">2026 Seoul · Asia medical-device fair</span></div>
+    <div class="stat"><span class="num">WCA</span><span class="lbl">2026 Seoul · World Congress of Audiology</span></div>
   </div>
   <div class="img-row">
     <div class="img-cell" style="max-width:70mm;">
       <img src="https://postfiles.pstatic.net/MjAyNjA2MDRfMjgx/MDAxNzgwNTU5ODc1NTQ2.uAgMkS70zPj2AB7EdnLPrwH6pqpf2a7VuCthRClF7LAg.-ZBrsenT2fo9DkNIIC92rvLrnre_SnCtIvh6AJPMSQ0g.JPEG/IMG_5147.jpeg" alt="WCA 2026 Seoul exhibition booth">
     </div>
     <div class="img-cell" style="font-size:8pt;">
-      <p class="muted">WCA 2024 Paris — Osia 2 outcomes · Innovation Session · global audiology peer network</p>
+      <p class="muted"><strong>WCA</strong> = World Congress of Audiology (ISA) — the field's premier biennial scientific meeting. WCA 2024 Paris: Osia 2 outcomes · Innovation Session. <strong>KIMES</strong> = Korea International Medical &amp; Hospital Equipment Show (Asia hospital/device buyers).</p>
       <h3 style="margin-top:3mm;">Commercial footprint (Korea)</h3>
       <ul>
-        <li><strong>30+ hearing centers</strong> on Audiso CRM referral network</li>
+        <li><strong>30+ hearing centers</strong> on Audiso CRM network — incl. Korean Air, KT, Davich, Severance, Cochlear, Wonju City</li>
         <li><strong>Modoo</strong> — 4.9★ App Store rating · active free-user funnel</li>
         <li><strong>WithHear</strong> — B2G installations · hospital &amp; public-sector pilots</li>
         <li><strong>Peacetop</strong> — 4.9★ Naver Smart Store · D2C channel</li>
@@ -700,7 +1487,7 @@
     Minister of Health and Welfare Award (2025) · MOTIE Awards (2019, 2024) ·
     Yonsei University Research Excellence Award · National science &amp; technology honoree dossier (2025)
   </p>
-  <span class="pg-num">11</span>
+  <span class="pg-num">15</span>
 </section>
 <section data-vdr-slide="leadership" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Leadership</span></div>
@@ -712,7 +1499,7 @@
   <p>
     Global hearing M&amp;A and licensing deals fail when the counterparty is a sales team without clinical depth.
     Prof. Seo personally leads Audiso's product architecture, reference-data science, and partnership conversations —
-    the same credibility presented at WCA 2026 Seoul to international audiologists.
+    the same credibility presented at the <strong>World Congress of Audiology (WCA) 2026 Seoul</strong> to international audiologists — not a local trade-only booth.
   </p>
   <h2>Credentials summary</h2>
   <ul>
@@ -731,8 +1518,69 @@
     <tr><td>United Kingdom</td><td>Published normative data &amp; clinical AI — evidence for NHS/private network diligence</td></tr>
     <tr><td>Japan</td><td>National hearing reference center + university hospital R&amp;D — JA AudiMall &amp; PR Times ready</td></tr>
   </table>
-  <p class="muted" style="font-size:8pt;">xr.audiso.co.kr · okas2000@gmail.com</p>
-  <span class="pg-num">12</span>
+  <p class="muted" style="font-size:8pt;">xr.audiso.co.kr · audiso.seo@gmail.com</p>
+  <span class="pg-num">16</span>
+</section>
+<section data-vdr-slide="strategic_musthave" class="page">
+  <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Exit · Strategic Must-Have</span></div>
+  <h1>Why We Are a Must-Have Layer for Global Leaders</h1>
+  <p class="muted" style="font-size:8.5pt;">
+    Audiso is the intelligence and Asia evidence layer that completes the next decade of OEM platforms —
+    not another catalog SKU.
+  </p>
+
+  <h2>Build vs. buy</h2>
+  <div class="build-buy">
+    <div class="bb-card bb-pain">
+      <h3>Internal R&amp;D (OEM alone)</h3>
+      Recreate a KOLAS-grade metrology stack, population norms for Asia, and a commercially shipping AI screening/rehab engine:
+      <strong>multi-year timelines</strong> and <strong>clinical CAPEX on the order of $70M+ (₩100B+)</strong> —
+      with still-unproven partner-clinic adoption.
+      <div class="bb-bars">
+        <div class="bb-bar"><div class="fill" style="height:92%;">5+ years · $70M+</div><span>Internal build</span></div>
+      </div>
+    </div>
+    <div class="bb-card bb-win">
+      <h3>Audiso partnership / acquire</h3>
+      University-hospital research line already translated into products:
+      ~20 years of clinical leadership · ~1,000,000 structured hearing records · peer-reviewed AI &amp; ISO 7029 work · live KR network.
+      <div class="bb-bars">
+        <div class="bb-bar"><div class="fill gold" style="height:28%;">Ship-ready stack</div><span>Partner / buy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Strategic moat — not “just software”</h2>
+  <p style="font-size:8.5pt;">
+    When hardware growth slows, OEMs need a digital clinic and intelligent consultation layer that does not
+    dilute brand clinical risk. Audiso packages that layer with accredited calibration, national norms, and CEO-professor ownership —
+    the diligence surface Sonova-class buyers actually need.
+  </p>
+
+  <h2>Visionary path</h2>
+  <div class="roadmap">
+    <div class="rm-step">
+      <span class="when">2026–2027 · Validate</span>
+      <strong>Clinical &amp; network proof</strong>
+      Data standardization in the field · 30+ partner CRM mesh stress-tested · global congress presence: CES (Las Vegas consumer tech) / KIMES (Asia medical-device show, Seoul) / WCA (World Congress of Audiology).
+    </div>
+    <div class="rm-step">
+      <span class="when">2027–2028 · Plugin</span>
+      <strong>Default OEM module</strong>
+      Diagnosis / fitting-assist / consultation AI embedded into Tier-1 global channel as a default Asia/DX plugin.
+    </div>
+    <div class="rm-step">
+      <span class="when">Exit window</span>
+      <strong>Integrate HW + SW</strong>
+      M&amp;A or deep strategic partnership that fuses Audiso's intelligence layer into the OEM platform end-to-end.
+    </div>
+  </div>
+
+  <div class="cta-box" style="margin-top:4mm;">
+    We are not merely a supplier.<br>
+    <strong>We are the intelligence layer that can define the next decade of global hearing health.</strong>
+  </div>
+  <span class="pg-num">17</span>
 </section>
 <section data-vdr-slide="contact" class="page">
   <div class="hdr"><span class="hdr-brand">Audiso</span><span class="hdr-meta">Next Steps</span></div>
@@ -751,7 +1599,7 @@
     </tr>
     <tr>
       <td>Distribution &amp; partnerships</td>
-      <td><a href="mailto:audiso@audiso.co.kr">audiso@audiso.co.kr</a></td>
+      <td><a href="mailto:audiso.seo@gmail.com">audiso.seo@gmail.com</a></td>
       <td>audimall.vercel.app/en/partners/</td>
     </tr>
     <tr>
@@ -780,5 +1628,5 @@
     specialized research institute operating plan (hwpx) · AudiMall EN/JA/ZH site (live) · KOLAS/ISO pack ·
     WithHear IP-R&amp;D report · product knowledge base · WCA/CES/KIMES validation records · Apollo ICP pipeline snapshot Jul 2026.
   </p>
-  <span class="pg-num">13</span>
+  <span class="pg-num">18</span>
 </section>

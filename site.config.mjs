@@ -68,7 +68,7 @@ export const PAGE_META = {
     },
     'vdr-ir-deck': {
       title: 'Audiso IR Deck — Interactive Virtual Data Room',
-      description: 'Confidential 12-slide investor & partnership overview with clinical data moat, MindTone SaMD path, and global traction.',
+      description: 'Confidential 18-slide investor & partnership overview with unit economics, clinical data moat, MindTone SaMD path, and global traction.',
     },
   },
   zh: {
@@ -79,6 +79,10 @@ export const PAGE_META = {
     about: {
       title: '关于 Audiso — 使命、愿景与耳部护理生态',
       description: 'Audiso 是 KOLAS 认证的 AI 听力医疗企业，连接筛查、理解、营养与数字康复。',
+    },
+    partners: {
+      title: 'Audiso 合作 — 独家分销与 B2B',
+      description: '面向美欧的 WithHear、Modoo Hearing、Peacetop、MindTone 分销与联合开发 — 临床根基的 K 听力学生态。',
     },
     withhear: {
       title: 'WithHear 2.0 — AI 听力检测 kiosk',
@@ -100,6 +104,14 @@ export const PAGE_META = {
       title: '联系 Audiso — 合作与咨询',
       description: 'WithHear 部署、企业合作与产品咨询。韩国商城：peacetop.store。',
     },
+    whitepaper: {
+      title: '免费白皮书 — 韩国听力常模数据与 ISO 7029',
+      description: '下载 Audiso 技术简报：1,089 项韩国 PTA 参考标准、ISO 7029 对比、KOLAS 校准听力科学，面向全球 OEM 与临床伙伴。',
+    },
+    'vdr-ir-deck': {
+      title: 'Audiso IR 演示 — 互动虚拟资料室',
+      description: '机密 18 页投资者与合作概览：单位经济模型、临床数据护城河、MindTone SaMD 路径与全球进展。',
+    },
   },
   ja: {
     index: {
@@ -109,6 +121,10 @@ export const PAGE_META = {
     about: {
       title: 'Audiso について — ミッション・ビジョンと耳ケアエコシステム',
       description: 'KOLAS認証のAI聴力ヘルスケア企業。検査・理解・栄養・デジタルリハビリをつなぎます。',
+    },
+    partners: {
+      title: 'Audisoパートナーシップ — 独占販売とB2B',
+      description: '米欧向けWithHear・Modoo Hearing・Peacetop・MindToneの販売と共同開発 — 臨床基盤のK-Audiologyエコシステム。',
     },
     withhear: {
       title: 'WithHear 2.0 — AI聴力検査キオスク',
@@ -129,6 +145,14 @@ export const PAGE_META = {
     contact: {
       title: 'Audiso お問い合わせ — パートナーシップ・製品相談',
       description: 'WithHear導入、企業パートナーシップ、製品に関するお問い合わせ。韓国ストア：peacetop.store。',
+    },
+    whitepaper: {
+      title: '無料ホワイトペーパー — 韓国規範的聴力データとISO 7029',
+      description: 'Audisoの技術ブリーフをダウンロード：1,089の韓国PTA参照基準、ISO 7029比較、KOLAS校正聴力科学。グローバルOEM・臨床パートナー向け。',
+    },
+    'vdr-ir-deck': {
+      title: 'Audiso IRデッキ — インタラクティブVDR',
+      description: '機密18スライドの投資家・パートナー概要。ユニットエコノミクス、臨床データモート、MindTone SaMDパス、グローバルトラクション。',
     },
   },
 };
