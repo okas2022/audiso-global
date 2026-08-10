@@ -403,6 +403,34 @@ a { color: inherit; }
 .ag-fig img { width: 100%; border-radius: 12px; border: 1px solid var(--ad-border); box-shadow: var(--ad-shadow); }
 .ag-fig figcaption { margin-top: 8px; font-size: 12px; color: var(--ad-text-sub); text-align: center; line-height: 1.5; }
 
+/* MindTone+ IR card — native ~473px wide; avoid upscaling in wide layout */
+.ag-promo-card {
+  margin: 0 auto 28px;
+  max-width: 520px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.ag-promo-card picture,
+.ag-promo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 473px;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid var(--ad-border);
+  box-shadow: var(--ad-shadow);
+}
+.ag-promo-card figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ad-text-sub);
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 8px;
+}
+
 .ag-video {
   position: relative;
   width: 100%;
@@ -530,4 +558,27 @@ a { color: inherit; }
   .ag-shot-pair { grid-template-columns: 1fr; }
   .ag-download-strip { flex-direction: column; align-items: stretch; }
   .ag-store-btn { justify-content: center; }
+  .ag-promo-card {
+    max-width: min(360px, 92vw);
+    padding: 0 12px;
+    margin-bottom: 22px;
+  }
+  .ag-promo-card picture,
+  .ag-promo-card img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .ag-promo-card figcaption {
+    font-size: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .ag-promo-card {
+    max-width: min(320px, 94vw);
+    padding: 0 8px;
+    margin-bottom: 18px;
+  }
+  .ag-promo-card figcaption {
+    font-size: 11px;
+  }
 }

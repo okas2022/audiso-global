@@ -166,11 +166,4 @@ export const JA_EXTRA = [
   ['← WithHear', '← WithHear'],
   ['Peacetop →', 'Peacetop →'],
   ['← Peacetop', '← Peacetop'],
-  ['Technology licensing &amp; M&amp;A', 'Technology licensing &amp; M&amp;A · 技術ライセンス・M&amp;A'],
-  ['Licensing / M&amp;A inquiry', 'Licensing / M&amp;A inquiry · ライセンス/M&amp;Aお問い合わせ'],
-  ['Download 1-page licensing brief', '1ページライセンス概要をダウンロード'],
-  [
-    'portfolio-level IP review.\n      </p>\n      <div class="ag-cta-row" style="justify-content:flex-start;margin-top:16px">',
-    'portfolio-level IP review.\n      </p>\n      <p>\n        流通パートナーシップに加え、<strong>技術ライセンス</strong>および<strong>M&amp;A</strong>の\n        ご相談を歓迎します（ISO/IEC 17025校正聴力AI・SaMDリハビリモジュール・IPレビュー）。\n      </p>\n      <div class="ag-cta-row" style="justify-content:flex-start;margin-top:16px">',
-  ],
 ];

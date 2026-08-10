@@ -3,6 +3,7 @@
  * Product names (WithHear, Modoo, Peacetop, MindTone) stay in English.
  */
 import { JA_EXTRA } from './locale-strings-ja-extra.mjs';
+import { ZH_B2B, JA_B2B } from './locale-strings-b2b-extra.mjs';
 
 export const LOCALE_STRINGS = {
   zh: [
@@ -439,7 +440,8 @@ export const LOCALE_STRINGS = {
   ],
 };
 
-LOCALE_STRINGS.ja.push(...JA_EXTRA);
+LOCALE_STRINGS.zh.push(...ZH_B2B);
+LOCALE_STRINGS.ja.push(...JA_EXTRA, ...JA_B2B);
 
 // Sort longest-first when applying
 for (const locale of Object.keys(LOCALE_STRINGS)) {
