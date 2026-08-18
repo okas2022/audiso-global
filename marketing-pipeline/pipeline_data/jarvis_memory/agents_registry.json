@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-18T09:34:00Z",
+  "policy": "zero_capability_loss",
+  "unified_entry": "cloud-mobile-pro",
+  "orchestrator": "jarvis",
+
+  "agents": [
+    {
+      "id": "jarvis",
+      "name": "Jarvis",
+      "role": "CEO chief of staff · orchestrator",
+      "cloud": "full",
+      "mac_delegate": null,
+      "capabilities": [
+        "route_all_agents",
+        "ceo_vision",
+        "jarvis_memory",
+        "mac_task_queue",
+        "episode_logging"
+      ],
+      "paths": {
+        "memory": "pipeline_data/jarvis_memory/",
+        "mac_tasks": "pipeline_data/jarvis_memory/mac_tasks/"
+      },
+      "invoke": "Direct — this Cloud prompt window"
+    },
+    {
+      "id": "steve",
+      "name": "Steve Jobs",
+      "role": "Marketing creative agent",
+      "cloud": "full",
+      "mac_delegate": "local_asset_tools",
+      "capabilities": [
+        "ig_cards",
+        "quiz_cards",
+        "promo_copy",
+        "image_generation",
+        "video_generation",
+        "campaign_assets"
+      ],
+      "paths": {
+        "assets": "pipeline_data/assets/",
+        "campaigns": "pipeline_data/campaigns/"
+      },
+      "mcp": ["Higgsfield"],
+      "invoke": "Say: 'Steve …' or '마케팅 에셋 …' — Jarvis routes to Steve"
+    },
+    {
+      "id": "audiso-global",
+      "name": "Audiso Global Site",
+      "role": "EN/ZH/JA AudiMall site build & deploy",
+      "cloud": "full",
+      "mac_delegate": null,
+      "capabilities": ["npm_build", "vercel_deploy", "locale_pages", "whitepaper_gate"],
+      "paths": {
+        "repo": "/Users/Mac/Audiso/audiso-global"
+      },
+      "invoke": "Say: '사이트 빌드/배포' or edit source/en/"
+    },
+    {
+      "id": "global-bd",
+      "name": "Global BD",
+      "role": "IR deck · whitepaper · partner PDFs",
+      "cloud": "full",
+      "mac_delegate": "git_push_from_mac",
+      "capabilities": ["whitepaper", "ir_deck", "vdr", "partner_one_pagers"],
+      "paths": {
+        "data": "pipeline_data/global_bd/",
+        "downloads": "audiso-global/public/downloads/"
+      },
+      "invoke": "Say: '화이트페이퍼/BD/IR …'"
+    },
+    {
+      "id": "audiso-jarvis-voice",
+      "name": "Audiso Jarvis Voice",
+      "role": "Local STT/TTS entry (Mac)",
+      "cloud": "delegate",
+      "mac_delegate": "launchagent",
+      "capabilities": ["local_stt", "local_tts", "voice_entry"],
+      "note": "STT/TTS $0 on Mac; NLU via Gemini in Cloud",
+      "invoke": "Mac worker runs audiso-jarvis; text prompts work fully in this Cloud window"
+    },
+    {
+      "id": "commerce-kr",
+      "name": "Korean Commerce",
+      "role": "Sixshop peacetop.store · I'mWeb · Naver",
+      "cloud": "partial",
+      "mac_delegate": "browser_automation",
+      "capabilities": ["sixshop_theme", "mall_updates", "naver_blog"],
+      "invoke": "Say: '한국몰/식스샵/피스탑 …' — Mac worker or MCP when configured"
+    },
+    {
+      "id": "modu-ha",
+      "name": "Modu Hearing",
+      "role": "Modu_HA repo · modoo pipeline",
+      "cloud": "partial",
+      "mac_delegate": "git_push_from_mac",
+      "paths": {
+        "mac": "/Users/Mac/Desktop/Modu_HA"
+      },
+      "invoke": "Say: '모두의청력/Modu …'"
+    },
+    {
+      "id": "storage-mac",
+      "name": "Mac Storage / SSD",
+      "role": "SSD layout · path audit · LaunchAgents",
+      "cloud": "delegate",
+      "mac_delegate": "mac_tasks",
+      "capabilities": ["ssd_audit", "storage_rules", "path_migration"],
+      "invoke": "Automatic via mac_tasks — never ask CEO for terminal"
+    }
+  ],
+
+  "routing_rules": [
+    "All user prompts in this Cloud window go to Jarvis first",
+    "Jarvis selects agent by intent; never refuse — delegate to mac_tasks if Mac-only",
+    "Steve assets → pipeline_data/assets/ with clickable file links",
+    "Never store .env secrets in jarvis_memory",
+    "Mac git sync → scripts/mac-git-sync-push.sh via mac_tasks",
+    "After Mac push, Cloud runs scripts/cloud-git-sync-pull.sh"
+  ],
+
+  "cloud_full_agents": ["jarvis", "steve", "audiso-global", "global-bd"],
+  "mac_delegate_agents": ["audiso-jarvis-voice", "commerce-kr", "modu-ha", "storage-mac"]
+}

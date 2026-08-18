@@ -17,11 +17,18 @@ case "$cmd" in
   build-site)
     cd "${GLOBAL}" && npm run build
     ;;
+  dispatch)
+    shift
+    bash "${ROOT}/scripts/jarvis-dispatch.sh" "$@"
+    ;;
+  agents)
+    python3 -c "import json; r=json.load(open('${ROOT}/pipeline_data/jarvis_memory/agents_registry.json')); [print(f\"{a['id']:20} cloud={a['cloud']:8} {a['name']}\") for a in r['agents']]"
+    ;;
   mac-queue)
     ls -la "${ROOT}/pipeline_data/jarvis_memory/mac_tasks/" 2>/dev/null || true
     ;;
   *)
-    echo "Usage: jarvis-cloud-entry.sh {status|build-site|mac-queue}"
+    echo "Usage: jarvis-cloud-entry.sh {status|build-site|dispatch|agents|mac-queue}"
     exit 1
     ;;
 esac

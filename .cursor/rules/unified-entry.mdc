@@ -22,12 +22,30 @@ CEO는 여기(폰 Pro / Cloud)에서만 프롬프트를 내리면 됩니다. Mac
 
 ## 이 창에서 바로 하는 일 (Mac 불필요)
 
-- CEO 비전 발행·수정 (`ceo_vision.json`)
-- Jarvis 메모리 read/write (profile, preferences, episodes)
-- Steve 등 마케팅 에셋·카피·파이프라인 스크립트 편집
-- audiso-global 사이트 빌드·배포 (`npm run build` at `/workspace`)
+- **Jarvis** — 모든 에이전트 오케스트레이션 (단일 진입점)
+- **Steve** — 마케팅 IG/퀴즈 카드, 카피, 이미지·영상 (Higgsfield MCP)
+- **Audiso Global** — EN/ZH/JA 사이트 빌드·배포
+- **Global BD** — 화이트페이퍼, IR deck, partner PDF
+- CEO 비전·Jarvis 메모리 read/write
 - Git commit / push
-- BD·화이트페이퍼 경로 정리 (`pipeline_data/global_bd/`)
+
+## 에이전트 레지스트리 (loss 없음)
+
+전체 목록: `pipeline_data/jarvis_memory/agents_registry.json`  
+라우터: `bash marketing-pipeline/scripts/jarvis-dispatch.sh "<intent>"`
+
+| Agent | Cloud | Mac 위임 |
+|---|---|---|
+| Jarvis | ✅ full | — |
+| Steve (marketing) | ✅ full | local tools |
+| Audiso Global site | ✅ full | — |
+| Global BD | ✅ full | git sync |
+| Audiso Jarvis Voice | delegate | LaunchAgent STT/TTS |
+| Korean Commerce (Sixshop/Naver) | partial | browser/Mac |
+| Modu Hearing | partial | git sync |
+| Mac SSD/Storage | delegate | mac_tasks |
+
+**원칙:** Cloud에서 거절하지 않음 — Mac 전용은 `mac_tasks`에 자동 위임.
 
 ## Mac 전용 작업 (CEO 손 안 탐)
 
