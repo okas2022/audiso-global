@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-18T10:30:00Z",
+  "actor": "Jarvis Cloud",
+  "event": "my_machines_connect_requested",
+  "requested_by": "CEO",
+  "current_run": {
+    "bcId": "bc-01a01425-c6ca-728f-a1f2-d046e5e4c253",
+    "usePrivateWorker": false,
+    "privateWorkerId": null,
+    "can_retroattach": false
+  },
+  "worker_target": {
+    "name": "macbook-pro-audiso",
+    "dir": "/Users/Mac/Audiso/marketing-pipeline"
+  },
+  "actions_taken": [
+    "Updated mac_tasks/pending-connect-cloud-to-mac.json with LaunchAgent install",
+    "Added infra/launchagents/com.audiso.jarvis-cursor-worker.plist",
+    "Added scripts/mac-install-worker-launchagent.sh"
+  ],
+  "ceo_next_step": "Mac worker online 후 cursor.com/agents 에서 새 Agent 시작 → My Machine 'macbook-pro-audiso' 선택",
+  "mac_auto_step": "Mac Cursor Agent가 pending-connect task 실행 (LaunchAgent + worker start)"
+}

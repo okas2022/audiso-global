@@ -1,18 +1,31 @@
 {
   "id": "mac-task-connect-cloud-to-mac",
   "status": "pending",
+  "priority": 0,
   "created_at": "2026-08-18T09:30:00Z",
+  "updated_at": "2026-08-18T10:30:00Z",
   "created_by": "Jarvis Cloud",
   "assignee": "Mac Cursor Agent",
   "title": "Cloud Agent → Mac My Machines worker 연결",
-  "instruction": "CEO 수동 작업 없음. Mac Cursor Agent가 직접 실행: bash scripts/mac-cursor-worker-start.sh",
+  "instruction": "CEO 수동 작업 없음. Mac Cursor Agent가 순서대로 실행: (1) bash scripts/mac-install-worker-launchagent.sh (2) bash scripts/jarvis-run-mac-tasks.sh",
   "scripts": [
+    "scripts/mac-install-worker-launchagent.sh",
     "scripts/mac-cursor-worker-start.sh"
   ],
-  "after_connect": {
-    "worker_name": "macbook-pro-audiso",
-    "worker_dir": "/Users/Mac/Audiso/marketing-pipeline",
-    "new_cloud_agent_hint": "cursor.com/agents → Environment에서 My Machine 'macbook-pro-audiso' 선택 후 새 Agent 시작"
+  "worker": {
+    "name": "macbook-pro-audiso",
+    "dir": "/Users/Mac/Audiso/marketing-pipeline"
   },
-  "note": "이미 실행 중인 Cloud 세션(bc-01a01425)은 VM에 고정됨. Mac 연결은 새 Agent 세션에서 My Machine 선택 필요."
+  "cloud_connect": {
+    "current_session_bcId": "bc-01a01425-c6ca-728f-a1f2-d046e5e4c253",
+    "current_session_can_attach": false,
+    "reason": "usePrivateWorker=false at agent start — cannot retroattach",
+    "ceo_action": "cursor.com/agents → 새 Agent → Environment에서 My Machine 'macbook-pro-audiso' 선택",
+    "alternative": "Mac Cursor Agents Window에서 /remote-control (Remote Control handoff)"
+  },
+  "success_criteria": [
+    "agent worker list shows macbook-pro-audiso online",
+    "episodes/worker.log has 'Connected'",
+    "CEO starts new Cloud Agent with My Machine selected"
+  ]
 }
