@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Mac → GitHub (okas2022/audiso-global/marketing-pipeline) — CODE ONLY sync
-# Mac-Local First: pipeline_data bulk stays on MacBook Pro. NEVER delete/dedupe Mac files for Git.
-# Never rsync --delete on Mac. One-way copy of scripts/rules/small JSON to Git only.
+# Mac → GitHub (okas2022/audiso-global/marketing-pipeline) 동기화
+# 전체 71GB rsync --delete 금지. 스캐폴드·스크립트·Jarvis 메모리(비밀 제외)만.
 set -euo pipefail
 
 MP="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
@@ -54,10 +53,6 @@ copy_if() {
 for f in \
   mac-git-sync-push.sh \
   mac-cursor-worker-start.sh \
-  mac-install-worker-launchagent.sh \
-  mac-install-relay-launchagents.sh \
-  mac-jarvis-relay-loop.sh \
-  mac-naver-medipath-catchup.sh \
   jarvis-run-mac-tasks.sh \
   jarvis-cloud-entry.sh \
   jarvis-dispatch.sh \
