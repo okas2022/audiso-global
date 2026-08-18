@@ -1,7 +1,8 @@
 {
   "version": 2,
-  "updated_at": "2026-08-18T10:20:00Z",
+  "updated_at": "2026-08-18T10:45:00Z",
   "policy": "mac_local_first",
+  "command_path": "cursor_native",
   "policy_notes": "MacBook Pro (office) = main computer + data store. Phone/MacBook Air/Cloud = prompt relay only. NEVER delete Mac local files for Git dedup.",
   "zero_capability_loss": true,
   "unified_entry": "cloud-mobile-pro",
@@ -121,8 +122,9 @@
 
   "routing_rules": [
     "All user prompts in this Cloud window go to Jarvis first",
-    "Cloud = prompt relay only. MacBook Pro worker executes on local paths — Cloud does not replace Mac",
-    "Jarvis selects agent by intent; never refuse — delegate to mac_tasks or My Machines worker if Mac-only",
+    "PRIMARY command path = Cursor My Machines / Remote Control (real-time). Git is NOT the command bus.",
+    "Cloud/phone/Air = prompt. MacBook Pro worker executes locally in real time when My Machine is attached.",
+    "Git prompt-relay is fallback only if Mac worker is offline — do not use as default",
     "NEVER delete, rm, rsync --delete, or dedupe Mac pipeline_data because Git has copies — CEO reversed prior dedup instruction",
     "pipeline_data (drafts, assets, oauth, sqlite, chrome profiles) lives on MacBook Pro local only — do NOT Git-sync bulk data",
     "Git is for code/scripts/rules/small config only (scripts/mac-git-sync-push.sh scope); one-way copy to Git, never destructive on Mac",

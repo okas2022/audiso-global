@@ -30,20 +30,23 @@
     "cloud_pull_script": "scripts/cloud-git-sync-pull.sh",
     "exclude": ["pipeline_data/assets/", "pipeline_data/naver_drafts/", "oauth tokens", "chrome profiles", "sqlite"]
   },
+  "command_path": "cursor_native",
   "relay_loop": {
-    "enabled": true,
+    "enabled": false,
+    "role": "fallback_only",
     "interval_seconds": 300,
     "cloud_script": "scripts/cloud-prompt-relay.sh",
     "mac_script": "scripts/mac-jarvis-relay-loop.sh",
     "mac_launchagent": "infra/launchagents/com.audiso.jarvis-relay-loop.plist",
-    "note": "Phone/MacBook Air/Cloud prompt → git mac_tasks → MacBook Pro 24h executes"
+    "note": "CEO 2026-08-18: Git is NOT the command path. Cursor My Machines / Remote Control is real-time. Git relay is fallback if worker is offline."
   },
   "my_machines": {
     "enabled": true,
+    "primary": true,
     "worker_name": "macbook-pro-audiso",
     "worker_dir": "/Users/Mac/Audiso/marketing-pipeline",
     "auto_start_script": "scripts/mac-cursor-worker-start.sh",
-    "mode": "prompt_relay",
-    "note": "Cloud does not replace Mac execution. User prompts here → worker runs on MacBook Pro local paths."
+    "mode": "realtime_cursor_native",
+    "note": "Phone/MacBook Air/Cloud prompt → Cursor My Machines worker on MacBook Pro. Real-time. Git not required."
   }
 }

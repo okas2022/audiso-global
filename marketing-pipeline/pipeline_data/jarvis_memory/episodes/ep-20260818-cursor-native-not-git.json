@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-18T10:45:00Z",
+  "actor": "CEO",
+  "event": "policy_cursor_native_not_git",
+  "summary": "CEO: Cursor already connects machines for real-time commands. Do not use Git as the command path.",
+  "primary": "Cursor My Machines + Remote Control",
+  "git_role": "code/scripts only; prompt-relay is fallback if worker offline",
+  "this_session": {
+    "bcId": "bc-01a01425-c6ca-728f-a1f2-d046e5e4c253",
+    "usePrivateWorker": false,
+    "note": "Started on Cloud VM — cannot retroattach. Product limit. Git workaround retired as default."
+  }
+}

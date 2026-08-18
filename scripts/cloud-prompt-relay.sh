@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Cloud/폰/맥북에어 → 맥북 프로 프롬프트 릴레이 (Git mac_tasks 큐)
-# 이 창에서 Mac 실행이 필요한 지시는 mac_tasks에 기록 후 push → Mac 24h relay loop가 pull & 실행
+# FALLBACK ONLY — Git is NOT the primary command path.
+# Primary: Cursor My Machines / Remote Control (real-time).
+# Use this only if Mac worker is offline.
 set -euo pipefail
 
 WORKSPACE="${WORKSPACE:-/workspace}"

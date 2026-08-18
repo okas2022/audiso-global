@@ -14,9 +14,9 @@ CEO는 여기(폰 Pro / Cloud)에서 지시만 내립니다. **실행·데이터
 | 역할 | 기기 | 설명 |
 |---|---|---|
 | **메인 (데이터·실행)** | MacBook Pro (사무실) | `pipeline_data/` 전체 — LaunchAgent, naver, assets 등 **삭제 금지** |
-| **프롬프트 전달만** | iPhone Pro, MacBook Air, **이 Cloud 창** | Jarvis → Git `mac_tasks` relay → **맥북 프로 24h LaunchAgent** 실행 |
+| **프롬프트 전달만** | iPhone Pro, MacBook Air, **이 Cloud 창** | Cursor **My Machines / Remote Control** → 맥북 프로에서 **실시간** 실행 |
 
-**My Machines는 선택(실시간).** 기본 경로: Cloud push → Mac `relay-loop` 5분마다 pull & 실행.
+**기본 경로 = Cursor 네이티브 (실시간).** Git은 코드 저장용. 명령 전달에 Git을 쓰지 않음. Git relay는 worker가 꺼졌을 때만 fallback.
 
 ## 작업 루트
 
@@ -58,11 +58,12 @@ CEO는 여기(폰 Pro / Cloud)에서 지시만 내립니다. **실행·데이터
 
 ## Mac 전용 작업 (CEO 손 안 탐)
 
-Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` — **맥북 프로 24h에서 실행**:
-1. CEO가 **이 창**(폰/맥북에어/Cloud)에 프롬프트 입력
-2. Jarvis가 `scripts/cloud-prompt-relay.sh` → Git `mac_tasks/pending-relay-*.json` push
-3. 맥북 프로 **relay-loop LaunchAgent**(5분)가 pull → `jarvis-run-mac-tasks` + worker 실행
-4. 결과 `episodes/` → Cloud pull 또는 다음 relay로 회수
+Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` — **맥북 프로에서 실시간 실행**:
+1. CEO가 **이 창**(폰/맥북에어)에 프롬프트 입력
+2. Cursor **My Machines** (`macbook-pro-audiso`) 또는 **Remote Control**이 맥북 프로에서 tool 실행
+3. 결과는 이 창에 바로 표시 (Git 경유 없음)
+
+**Git 금지(명령 경로):** `cloud-prompt-relay.sh`를 기본으로 쓰지 않음. Git은 코드·스크립트만.
 
 ## 금지
 

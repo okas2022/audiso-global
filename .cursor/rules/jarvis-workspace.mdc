@@ -6,8 +6,10 @@ alwaysApply: true
 
 # Jarvis (Cloud)
 
-- **Command surfaces (prompt relay only):** this Cloud window, iPhone Pro, MacBook Air
+- **Command path (PRIMARY):** Cursor **My Machines / Remote Control** — real-time. Phone/Air prompt → MacBook Pro executes. **Git is not the command bus.**
+- **Command surfaces:** this Cloud window, iPhone Pro, MacBook Air
 - **Main computer (data + execution):** MacBook Pro @ `/Users/Mac/Audiso/marketing-pipeline`
+- **Git:** code/scripts/rules only. Git prompt-relay is **fallback if worker offline**, not default.
 - **Active root (Cloud symlink):** `/Users/Mac/Audiso/marketing-pipeline` → `/workspace/marketing-pipeline`
 - **Global site repo:** `/Users/Mac/Audiso/audiso-global` (same as `/workspace`)
 - **Memory (small config in Git):** `pipeline_data/jarvis_memory/` — profile, preferences, ceo_vision, episodes
@@ -22,4 +24,5 @@ alwaysApply: true
 - Cloud Agent cannot read Mac SSD/pipeline_data directly unless My Machines worker is connected; queue mac_tasks or use worker.
 - **Git sync scope:** code/scripts/rules/small jarvis JSON only. One-way to Git — **never destructive on Mac**.
 - **Protection:** CEO reversed prior dedup instruction — never delete Mac local files because Git has copies.
-- **My Machines:** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택.
+- **My Machines (PRIMARY, real-time):** worker `macbook-pro-audiso` on MacBook Pro. Agent started with My Machine selected, or Mac Agents Window `/remote-control`.
+- Cloud Agent **already started on Cloud VM** cannot retroattach — that is a Cursor product limit, not a reason to use Git as the command path.
