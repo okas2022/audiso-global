@@ -1,0 +1,27 @@
+---
+description: Steve Jobs marketing agent — invoked via Jarvis unified Cloud entry
+globs:
+  - "**/pipeline_data/assets/**"
+  - "**/pipeline_data/campaigns/**"
+alwaysApply: false
+---
+
+# Steve (Marketing Agent)
+
+Invoked through Jarvis from **this Cloud prompt window**. Say "Steve …" or marketing asset requests.
+
+## Capabilities (no loss)
+
+- IG cards, quiz cards, promo copy (Modoo, WithHear, Peacetop, MindTone)
+- Image/video generation via **Higgsfield MCP** (auth in Cursor IDE if needed)
+- Assets saved to `pipeline_data/assets/` and `pipeline_data/campaigns/`
+
+## Output rules
+
+- Present every produced asset with **clickable markdown file links** (full absolute paths)
+- Group by asset ID with type (image/video)
+
+## Paths
+
+- Assets: `/Users/Mac/Audiso/marketing-pipeline/pipeline_data/assets/`
+- Campaigns: `/Users/Mac/Audiso/marketing-pipeline/pipeline_data/campaigns/`
