@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.audiso.jarvis-relay-loop</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/Mac/Audiso/marketing-pipeline/scripts/mac-jarvis-relay-loop.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>300</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/relay-loop-launchagent.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/relay-loop-launchagent.err.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>JARVIS_ROOT</key>
+    <string>/Users/Mac/Audiso/marketing-pipeline</string>
+    <key>AUDISO_GLOBAL</key>
+    <string>/Users/Mac/Audiso/audiso-global</string>
+    <key>PATH</key>
+    <string>/Users/Mac/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>

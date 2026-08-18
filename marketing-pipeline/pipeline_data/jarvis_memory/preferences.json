@@ -30,6 +30,14 @@
     "cloud_pull_script": "scripts/cloud-git-sync-pull.sh",
     "exclude": ["pipeline_data/assets/", "pipeline_data/naver_drafts/", "oauth tokens", "chrome profiles", "sqlite"]
   },
+  "relay_loop": {
+    "enabled": true,
+    "interval_seconds": 300,
+    "cloud_script": "scripts/cloud-prompt-relay.sh",
+    "mac_script": "scripts/mac-jarvis-relay-loop.sh",
+    "mac_launchagent": "infra/launchagents/com.audiso.jarvis-relay-loop.plist",
+    "note": "Phone/MacBook Air/Cloud prompt → git mac_tasks → MacBook Pro 24h executes"
+  },
   "my_machines": {
     "enabled": true,
     "worker_name": "macbook-pro-audiso",

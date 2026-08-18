@@ -9,8 +9,8 @@
   "title": "Cloud Agent → Mac My Machines worker 연결",
   "instruction": "CEO 수동 작업 없음. Mac Cursor Agent가 순서대로 실행: (1) bash scripts/mac-install-worker-launchagent.sh (2) bash scripts/jarvis-run-mac-tasks.sh",
   "scripts": [
-    "scripts/mac-install-worker-launchagent.sh",
-    "scripts/mac-cursor-worker-start.sh"
+    "scripts/mac-install-relay-launchagents.sh",
+    "scripts/mac-jarvis-relay-loop.sh"
   ],
   "worker": {
     "name": "macbook-pro-audiso",
@@ -27,5 +27,6 @@
     "agent worker list shows macbook-pro-audiso online",
     "episodes/worker.log has 'Connected'",
     "CEO starts new Cloud Agent with My Machine selected"
-  ]
+  ],
+  "ceo_confirmed_mac_on": "2026-08-18T10:40:00Z"
 }

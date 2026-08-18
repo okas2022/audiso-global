@@ -241,7 +241,7 @@ partial = "${REPORT}.partial"
 final = "${REPORT}"
 with open(partial) as f:
     report = json.load(f)
-report["publish_ran"] = ${PUBLISHED} == 1
+report["publish_ran"] = bool(int("${PUBLISHED:-0}"))
 report["log"] = "${LOG}"
 report["completed_at"] = __import__("datetime").datetime.utcnow().isoformat() + "Z"
 with open(final, "w") as f:
