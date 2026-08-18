@@ -13,18 +13,32 @@ for task in "${TASK_DIR}"/pending-*.json; do
   status=$(python3 -c "import json; print(json.load(open('$task')).get('status',''))")
   [[ "$status" == "pending" ]] || continue
 
-  script_rel=$(python3 -c "import json; print(json.load(open('$task')).get('script',''))")
-  script="${ROOT}/${script_rel}"
-
   echo "[jarvis-mac] Running task: $(basename "$task")"
-  if [[ -x "$script" ]]; then
-    bash "$script"
-  elif [[ -f "$script" ]]; then
-    bash "$script"
-  else
-    echo "[jarvis-mac] Script not found: $script" >&2
+
+  mapfile -t scripts < <(python3 -c "
+import json
+d=json.load(open('$task'))
+if d.get('scripts'):
+    print('\n'.join(d['scripts']))
+elif d.get('script'):
+    print(d['script'])
+")
+
+  if [[ ${#scripts[@]} -eq 0 ]]; then
+    echo "[jarvis-mac] No scripts in task" >&2
     continue
   fi
+
+  for script_rel in "${scripts[@]}"; do
+    script="${ROOT}/${script_rel}"
+    echo "[jarvis-mac]  → ${script_rel}"
+    if [[ -f "$script" ]]; then
+      bash "$script"
+    else
+      echo "[jarvis-mac] Script not found: $script" >&2
+      continue 2
+    fi
+  done
 
   python3 -c "
 import json, datetime, shutil, os
