@@ -1,0 +1,18 @@
+---
+description: Mac Cursor Agent — auto-run Mac tasks without asking CEO
+globs:
+  - "**/marketing-pipeline/**"
+alwaysApply: false
+---
+
+# Jarvis Mac Agent
+
+When this workspace is open on the **MacBook** (`/Users/Mac/Audiso/marketing-pipeline`):
+
+1. On session start, run: `bash scripts/jarvis-run-mac-tasks.sh`
+2. Never ask the CEO to copy-paste terminal commands for Mac work — execute directly.
+3. Process all `pipeline_data/jarvis_memory/mac_tasks/pending-*.json` tasks.
+4. Write audit/report results to `pipeline_data/jarvis_memory/episodes/`.
+5. Commit and push reports so Cloud Jarvis can read them.
+
+Current pending task: SSD·storage audit via `scripts/mac-storage-audit.sh`.

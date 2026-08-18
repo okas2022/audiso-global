@@ -3,5 +3,9 @@
   "tts": "local",
   "nlu": "gemini",
   "no_openai_voice": true,
-  "no_env_secrets_in_memory": true
+  "no_env_secrets_in_memory": true,
+  "mac_tasks_by_mac_cursor": true,
+  "never_ask_ceo_to_run_mac_terminal": true,
+  "mac_agent_root": "/Users/Mac/Audiso/marketing-pipeline",
+  "mac_task_queue": "pipeline_data/jarvis_memory/mac_tasks/"
 }
