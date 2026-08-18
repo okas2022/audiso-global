@@ -5,7 +5,7 @@
   "created_by": "Jarvis Cloud",
   "assignee": "Mac Cursor Agent",
   "title": "Mac SSD·Audiso 경로 규칙 점검",
-  "instruction": "CEO에게 Mac 터미널 실행을 요청하지 말 것. Mac Cursor Agent가 직접 실행: bash /Users/Mac/Audiso/marketing-pipeline/scripts/mac-storage-audit.sh",
+  "instruction": "CEO에게 Mac 터미널 실행을 요청하지 말 것. Mac Cursor Agent가 직접 실행: bash scripts/mac-storage-audit.sh",
   "script": "scripts/mac-storage-audit.sh",
   "report_glob": "pipeline_data/jarvis_memory/episodes/mac-storage-audit-*.json"
 }

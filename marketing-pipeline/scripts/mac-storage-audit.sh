@@ -41,7 +41,6 @@ report = {
 
 checks = []
 
-# External SSD mounted?
 volumes = glob.glob("/Volumes/*")
 system_vol = [v for v in volumes if not os.path.basename(v).startswith(".")]
 checks.append({
@@ -51,7 +50,6 @@ checks.append({
     "note": "MacBook Pro 외장 SSD가 /Volumes 아래 마운트되어야 함"
 })
 
-# Path rules from storage_rules.json
 for key, spec in rules.get("paths", {}).items():
     p = spec.get("path", "")
     exists = os.path.exists(p)
@@ -71,7 +69,6 @@ for key, spec in rules.get("paths", {}).items():
         "must_be_absent": must_absent
     })
 
-# Symlink checks
 for spec in rules.get("symlinks", []):
     link = spec.get("link", "")
     if not link:
@@ -85,8 +82,6 @@ for spec in rules.get("symlinks", []):
         "ok": ok
     })
 
-# Legacy manifest drift (repo may still reference Desktop)
-legacy_manifest = "/Users/Mac/Desktop/모두의보청기-오디에스오-마케팅-파이프라인/pipeline_data/global_bd"
 checks.append({
     "rule": "global_bd_on_audiso_path",
     "ok": os.path.isdir(f"{ROOT}/pipeline_data/global_bd"),
@@ -101,4 +96,4 @@ print(json.dumps(report, ensure_ascii=False, indent=2))
 PY
 
 echo "Mac storage audit → $REPORT"
-python3 -c "import json; d=json.load(open('$REPORT')); print('all_ok:', d.get('all_ok')); print('volumes:', d.get('mount_points')); [print(' ', c['rule'], '✅' if c['ok'] else '❌', c.get('detail','') or c.get('path','') or c.get('note','')) for c in d.get('checks',[])]"
+python3 -c "import json; d=json.load(open('$REPORT')); print('all_ok:', d.get('all_ok')); print('volumes:', d.get('mount_points')); [print(' ', c['rule'], 'OK' if c['ok'] else 'FAIL', c.get('detail','') or c.get('path','') or c.get('note','')) for c in d.get('checks',[])]"
