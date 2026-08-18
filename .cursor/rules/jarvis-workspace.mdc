@@ -17,3 +17,4 @@ alwaysApply: true
 - **Mac-side work:** Mac Cursor Agent executes directly on the MacBook — never ask the CEO to run terminal commands manually.
 - Mac task queue: `pipeline_data/jarvis_memory/mac_tasks/` — Mac Cursor picks up `pending` tasks and runs the listed script.
 - Cloud Agent cannot reach the Mac SSD directly unless Private Worker is enabled; queue Mac tasks for the Mac Cursor session instead.
+- **My Machines (Mac 연결):** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택. 이미 시작된 Cloud 세션은 Mac에 retroactive 연결 불가.

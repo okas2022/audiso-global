@@ -7,5 +7,11 @@
   "mac_tasks_by_mac_cursor": true,
   "never_ask_ceo_to_run_mac_terminal": true,
   "mac_agent_root": "/Users/Mac/Audiso/marketing-pipeline",
-  "mac_task_queue": "pipeline_data/jarvis_memory/mac_tasks/"
+  "mac_task_queue": "pipeline_data/jarvis_memory/mac_tasks/",
+  "my_machines": {
+    "enabled": true,
+    "worker_name": "macbook-pro-audiso",
+    "worker_dir": "/Users/Mac/Audiso/marketing-pipeline",
+    "auto_start_script": "scripts/mac-cursor-worker-start.sh"
+  }
 }
