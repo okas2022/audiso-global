@@ -25,5 +25,6 @@
   ],
   "report_glob": "pipeline_data/jarvis_memory/episodes/naver-medipath-catchup-*.json",
   "depends_on": "MacBook Pro online + Chrome naver profile + master_scheduler",
-  "note": "Cloud VM cannot access naver_drafts — Mac worker executes locally"
+  "ceo_confirmed_mac_on": "2026-08-18T10:40:00Z",
+  "note": "CEO confirmed MacBook Pro ON at office. Worker should auto-start via LaunchAgent or Mac Cursor pending tasks."
 }
