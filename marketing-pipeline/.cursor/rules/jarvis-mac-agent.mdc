@@ -7,12 +7,13 @@ alwaysApply: false
 
 # Jarvis Mac Agent
 
-When this workspace is open on the **MacBook** (`/Users/Mac/Audiso/marketing-pipeline`):
+When this workspace runs on the **MacBook Pro** (`/Users/Mac/Audiso/marketing-pipeline`):
 
 1. On session start, run: `bash scripts/jarvis-run-mac-tasks.sh`
-2. Never ask the CEO to copy-paste terminal commands for Mac work — execute directly.
+2. Never ask the CEO to copy-paste terminal commands — execute directly on **Mac local paths**.
 3. Process all `pipeline_data/jarvis_memory/mac_tasks/pending-*.json` tasks.
-4. Write audit/report results to `pipeline_data/jarvis_memory/episodes/`.
-5. Commit and push reports so Cloud Jarvis can read them.
+4. Read/write **local** `pipeline_data/` (naver_drafts, assets, etc.) — this is the source of truth.
+5. Write audit/report results to `pipeline_data/jarvis_memory/episodes/`.
+6. Push to Git **code/scripts/rules only** via `scripts/mac-git-sync-push.sh` — never bulk pipeline_data.
 
-Current pending task: SSD·storage audit via `scripts/mac-storage-audit.sh`.
+**Mac-Local First:** MacBook Pro = main computer. Cloud/phone = command only.

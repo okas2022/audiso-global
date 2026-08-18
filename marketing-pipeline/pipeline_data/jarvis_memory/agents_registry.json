@@ -1,9 +1,16 @@
 {
-  "version": 1,
-  "updated_at": "2026-08-18T09:34:00Z",
-  "policy": "zero_capability_loss",
+  "version": 2,
+  "updated_at": "2026-08-18T10:20:00Z",
+  "policy": "mac_local_first",
+  "policy_notes": "MacBook Pro (office) = main computer + data store. Phone/MacBook Air/Cloud = command only. pipeline_data stays local on Mac.",
+  "zero_capability_loss": true,
   "unified_entry": "cloud-mobile-pro",
   "orchestrator": "jarvis",
+  "main_computer": {
+    "device": "MacBook Pro (office)",
+    "path": "/Users/Mac/Audiso/marketing-pipeline",
+    "worker": "macbook-pro-audiso"
+  },
 
   "agents": [
     {
@@ -63,10 +70,10 @@
       "name": "Global BD",
       "role": "IR deck · whitepaper · partner PDFs",
       "cloud": "full",
-      "mac_delegate": "git_push_from_mac",
+      "mac_delegate": "mac_local_or_git_code",
       "capabilities": ["whitepaper", "ir_deck", "vdr", "partner_one_pagers"],
       "paths": {
-        "data": "pipeline_data/global_bd/",
+        "data": "pipeline_data/global_bd/ (Mac local)",
         "downloads": "audiso-global/public/downloads/"
       },
       "invoke": "Say: '화이트페이퍼/BD/IR …'"
@@ -95,7 +102,7 @@
       "name": "Modu Hearing",
       "role": "Modu_HA repo · modoo pipeline",
       "cloud": "partial",
-      "mac_delegate": "git_push_from_mac",
+      "mac_delegate": "mac_local",
       "paths": {
         "mac": "/Users/Mac/Desktop/Modu_HA"
       },
@@ -114,12 +121,18 @@
 
   "routing_rules": [
     "All user prompts in this Cloud window go to Jarvis first",
-    "Jarvis selects agent by intent; never refuse — delegate to mac_tasks if Mac-only",
-    "Steve assets → pipeline_data/assets/ with clickable file links",
-    "Never store .env secrets in jarvis_memory",
-    "Mac git sync → scripts/mac-git-sync-push.sh via mac_tasks",
-    "After Mac push, Cloud runs scripts/cloud-git-sync-pull.sh"
+    "Jarvis selects agent by intent; never refuse — delegate to mac_tasks or My Machines worker if Mac-only",
+    "pipeline_data (drafts, assets, oauth, sqlite, chrome profiles) lives on MacBook Pro local only — do NOT Git-sync bulk data",
+    "Git is for code/scripts/rules/small config only (scripts/mac-git-sync-push.sh scope)",
+    "Mac worker executes on local paths; Cloud reads results from episodes/ and mac_tasks/done/",
+    "Steve assets on Mac → clickable file links when worker returns paths",
+    "Never store .env secrets in jarvis_memory"
   ],
+
+  "git_sync_scope": {
+    "include": ["scripts/", ".cursor/rules/", "jarvis_memory/*.json (no tokens)", "episodes/audit reports"],
+    "exclude": ["pipeline_data/assets/", "pipeline_data/naver_drafts/", "pipeline_data/chrome_*", "oauth tokens", "sqlite", "secrets/"]
+  },
 
   "cloud_full_agents": ["jarvis", "steve", "audiso-global", "global-bd"],
   "mac_delegate_agents": ["audiso-jarvis-voice", "commerce-kr", "modu-ha", "storage-mac"]

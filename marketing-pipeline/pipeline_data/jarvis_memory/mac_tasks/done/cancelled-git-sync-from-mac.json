@@ -1,0 +1,10 @@
+{
+  "id": "mac-task-git-sync-from-mac",
+  "status": "cancelled",
+  "cancelled_at": "2026-08-18T10:20:00Z",
+  "cancelled_by": "CEO decision + Jarvis Cloud",
+  "cancel_reason": "MacBook Pro is main computer; pipeline_data stays local. Git sync is code/scripts/config only — not full pipeline_data.",
+  "superseded_by": "mac_local_first policy in agents_registry.json and preferences.json",
+  "original_title": "Mac → GitHub marketing-pipeline 동기화 push",
+  "note": "Do NOT run full pipeline_data push. Use My Machines worker for Mac-local execution."
+}

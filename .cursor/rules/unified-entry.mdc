@@ -6,10 +6,19 @@ alwaysApply: true
 
 # Jarvis Unified Entry (Cloud = marketing-pipeline)
 
-**이 Cloud Agent 창이 marketing-pipeline의 단일 작업 창입니다.**  
-CEO는 여기(폰 Pro / Cloud)에서만 프롬프트를 내리면 됩니다. Mac Cursor를 따로 열 필요 없습니다.
+**이 Cloud Agent 창이 marketing-pipeline의 단일 명령 창입니다.**  
+CEO는 여기(폰 Pro / Cloud)에서 프롬프트만 내리면 됩니다. **데이터는 사무실 맥북 프로 로컬**에 두고, Mac worker가 실행합니다.
 
-## 작업 루트 (항상 여기부터)
+## Mac-Local First (CEO 결정)
+
+| 역할 | 기기 | 설명 |
+|---|---|---|
+| **메인 (데이터·실행)** | MacBook Pro (사무실) | `pipeline_data/` 전체 — naver_drafts, assets, OAuth, Chrome 등 |
+| **명령만** | iPhone Pro, MacBook Air, Cloud | Jarvis에 지시 → My Machines worker가 Mac에서 실행 |
+
+**Git은 코드·스크립트·규칙만.** pipeline_data 대량 동기화는 하지 않음.
+
+## 작업 루트
 
 | 역할 | 경로 |
 |---|---|
@@ -39,19 +48,19 @@ CEO는 여기(폰 Pro / Cloud)에서만 프롬프트를 내리면 됩니다. Mac
 | Jarvis | ✅ full | — |
 | Steve (marketing) | ✅ full | local tools |
 | Audiso Global site | ✅ full | — |
-| Global BD | ✅ full | git sync |
+| Global BD | partial | mac_local (global_bd/) |
 | Audiso Jarvis Voice | delegate | LaunchAgent STT/TTS |
-| Korean Commerce (Sixshop/Naver) | partial | browser/Mac |
-| Modu Hearing | partial | git sync |
+| Korean Commerce (Sixshop/Naver) | partial | Mac local browser |
+| Modu Hearing | partial | mac_local |
 | Mac SSD/Storage | delegate | mac_tasks |
 
-**원칙:** Cloud에서 거절하지 않음 — Mac 전용은 `mac_tasks`에 자동 위임.
+**원칙:** Cloud = 명령. MacBook Pro = 실행 + 데이터. Git bulk sync 금지.
 
 ## Mac 전용 작업 (CEO 손 안 탐)
 
-SSD 마운트, LaunchAgent, 로컬 STT/TTS 등 Mac 하드웨어 작업은:
-1. Cloud Agent가 `mac_tasks/pending-*.json`에 등록
-2. Mac worker(`macbook-pro-audiso`)가 자동 실행
+Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` 읽기·쓰기:
+1. Cloud Agent가 `mac_tasks/pending-*.json`에 등록 (또는 My Machines로 즉시 실행)
+2. Mac worker(`macbook-pro-audiso`)가 **Mac 로컬 경로**에서 실행
 3. 결과는 `episodes/`에 저장 → **이 창에서 읽고 이어서 진행**
 
 ## 금지

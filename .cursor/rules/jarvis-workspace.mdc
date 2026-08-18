@@ -6,15 +6,19 @@ alwaysApply: true
 
 # Jarvis (Cloud)
 
-- **Active root:** `/Users/Mac/Audiso/marketing-pipeline`
+- **Main computer (data + execution):** MacBook Pro @ `/Users/Mac/Audiso/marketing-pipeline`
+- **Command surfaces:** this Cloud window, iPhone Pro, MacBook Air — prompt only
+- **Active root (Cloud symlink):** `/Users/Mac/Audiso/marketing-pipeline` → `/workspace/marketing-pipeline`
 - **Global site repo:** `/Users/Mac/Audiso/audiso-global` (same as `/workspace`)
-- **Memory:** `pipeline_data/jarvis_memory/` (profile, preferences, ceo_vision, episodes)
+- **Memory (small config in Git):** `pipeline_data/jarvis_memory/` — profile, preferences, ceo_vision, episodes
+- **Bulk data (Mac local only):** `pipeline_data/naver_drafts/`, `assets/`, OAuth, Chrome profiles, sqlite — **do NOT Git-sync**
 - Jarvis is the CEO's chief of staff: coordinate marketing agents, Mac LaunchAgents, and pipeline work through one entry point.
-- STT/TTS stay local ($0); reuse Gemini for NLU only — no OpenAI/Cursor Voice.
+- STT/TTS stay local on Mac ($0); reuse Gemini for NLU only — no OpenAI/Cursor Voice.
 - Never store `.env` secrets in Jarvis memory.
-- For marketing-pipeline / Jarvis tasks, read and write under `/Users/Mac/Audiso/marketing-pipeline` first.
+- For Mac-local pipeline_data tasks, delegate to My Machines worker — never ask CEO to run terminal.
 - CEO vision lives in `pipeline_data/jarvis_memory/ceo_vision.json`; set `status` to `published` and `published_at` when issuing vision.
-- **Mac-side work:** Mac Cursor Agent executes directly on the MacBook — never ask the CEO to run terminal commands manually.
-- Mac task queue: `pipeline_data/jarvis_memory/mac_tasks/` — Mac Cursor picks up `pending` tasks and runs the listed script.
-- Cloud Agent cannot reach the Mac SSD directly unless Private Worker is enabled; queue Mac tasks for the Mac Cursor session instead.
-- **My Machines (Mac 연결):** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택. 이미 시작된 Cloud 세션은 Mac에 retroactive 연결 불가.
+- **Mac-side work:** Mac worker executes on MacBook Pro local paths — never ask the CEO to copy-paste terminal commands.
+- Mac task queue: `pipeline_data/jarvis_memory/mac_tasks/` — worker picks up `pending` tasks and runs listed scripts.
+- Cloud Agent cannot read Mac SSD/pipeline_data directly unless My Machines worker is connected; queue mac_tasks or use worker.
+- **Git sync scope:** code/scripts/rules/small jarvis JSON only (`scripts/mac-git-sync-push.sh`). Not full pipeline_data.
+- **My Machines:** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택.

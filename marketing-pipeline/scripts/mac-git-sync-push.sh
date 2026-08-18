@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Mac → GitHub (okas2022/audiso-global/marketing-pipeline) 동기화
-# 전체 71GB rsync --delete 금지. 스캐폴드·스크립트·Jarvis 메모리(비밀 제외)만.
+# Mac → GitHub (okas2022/audiso-global/marketing-pipeline) — CODE ONLY sync
+# Mac-Local First: pipeline_data bulk (naver_drafts, assets, oauth, chrome) stays on MacBook Pro.
+# Never rsync/delete full pipeline_data. Scripts, rules, small jarvis JSON only.
 set -euo pipefail
 
 MP="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"

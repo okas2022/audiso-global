@@ -7,6 +7,9 @@
   "unified_cloud_entry": true,
   "primary_prompt_surface": "cloud-mobile-pro",
   "effective_workspace": "/Users/Mac/Audiso/marketing-pipeline",
+  "policy": "mac_local_first",
+  "main_computer": "MacBook Pro (office) — /Users/Mac/Audiso/marketing-pipeline",
+  "command_surfaces": ["cloud-mobile-pro", "iphone-pro", "macbook-air"],
   "zero_capability_loss": true,
   "agents_registry": "pipeline_data/jarvis_memory/agents_registry.json",
   "dispatch_script": "scripts/jarvis-dispatch.sh",
@@ -14,12 +17,16 @@
   "never_ask_ceo_to_run_mac_terminal": true,
   "mac_agent_root": "/Users/Mac/Audiso/marketing-pipeline",
   "mac_task_queue": "pipeline_data/jarvis_memory/mac_tasks/",
-  "mac_only_delegates": ["ssd_mount", "launchagent", "local_stt_tts", "git_push_from_mac"],
+  "mac_only_delegates": ["ssd_mount", "launchagent", "local_stt_tts", "browser_automation", "mac_local_execution"],
   "git_sync": {
+    "scope": "code_only",
+    "policy": "mac_local_first",
+    "note": "pipeline_data bulk stays on MacBook Pro local. Git syncs scripts/rules/small jarvis JSON only.",
     "target_repo": "github.com/okas2022/audiso-global",
     "target_path": "marketing-pipeline/",
     "mac_push_script": "scripts/mac-git-sync-push.sh",
-    "cloud_pull_script": "scripts/cloud-git-sync-pull.sh"
+    "cloud_pull_script": "scripts/cloud-git-sync-pull.sh",
+    "exclude": ["pipeline_data/assets/", "pipeline_data/naver_drafts/", "oauth tokens", "chrome profiles", "sqlite"]
   },
   "my_machines": {
     "enabled": true,

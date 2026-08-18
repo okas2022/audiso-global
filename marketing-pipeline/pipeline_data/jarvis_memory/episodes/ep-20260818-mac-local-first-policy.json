@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-18T10:20:00Z",
+  "actor": "Jarvis Cloud",
+  "event": "policy_mac_local_first",
+  "decision_by": "CEO",
+  "summary": "MacBook Pro (office) is the main computer. Smartphone and MacBook Air are remote command surfaces only. pipeline_data stays on Mac local — no full Git sync.",
+  "changes": [
+    "Cancelled mac_tasks/pending-git-sync-from-mac.json",
+    "agents_registry: mac_local_first policy",
+    "preferences: git_sync scope = code_only",
+    "unified-entry + jarvis-workspace rules updated"
+  ],
+  "architecture": {
+    "main": "MacBook Pro @ /Users/Mac/Audiso/marketing-pipeline",
+    "command_surfaces": ["Cloud Agent", "iPhone Pro", "MacBook Air"],
+    "data_store": "Mac local pipeline_data (naver_drafts, assets, oauth, sqlite, chrome profiles)",
+    "git_scope": "scripts, .cursor/rules, small jarvis_memory JSON, audiso-global site code"
+  },
+  "execution_path": "Cloud command → My Machines worker (macbook-pro-audiso) → Mac local → episode result back to Cloud"
+}
