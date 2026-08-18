@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-18T10:28:03.219185Z",
+  "event": "cloud_prompt_relay_queued",
+  "task": "pending-relay-20260818T102803.json",
+  "prompt_preview": "맥북 프로를 실행 호스트로 인지하고 pending mac tasks 전부 실행. My Machines worker 시작. 메디패쓰 네이버 블로그 밀린 스케줄 catchup. 24h relay loop 설치·가동.",
+  "target": "MacBook Pro via git pull + relay loop"
+}
