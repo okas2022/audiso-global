@@ -14,6 +14,7 @@ When this workspace runs on the **MacBook Pro** (`/Users/Mac/Audiso/marketing-pi
 3. Process all `pipeline_data/jarvis_memory/mac_tasks/pending-*.json` tasks.
 4. Read/write **local** `pipeline_data/` (naver_drafts, assets, etc.) — this is the source of truth.
 5. Write audit/report results to `pipeline_data/jarvis_memory/episodes/`.
-6. Push to Git **code/scripts/rules only** via `scripts/mac-git-sync-push.sh` — never bulk pipeline_data.
+6. Push to Git **code/scripts/rules only** via `scripts/mac-git-sync-push.sh` — never bulk pipeline_data, never `--delete` on Mac.
 
-**Mac-Local First:** MacBook Pro = main computer. Cloud/phone = command only.
+**Mac-Local First:** MacBook Pro = main computer (keep all local files). Cloud/phone = prompt relay only.
+**Never delete** Mac pipeline_data because Git has duplicates — CEO reversed prior dedup instruction.

@@ -6,12 +6,12 @@ alwaysApply: true
 
 # Jarvis (Cloud)
 
+- **Command surfaces (prompt relay only):** this Cloud window, iPhone Pro, MacBook Air
 - **Main computer (data + execution):** MacBook Pro @ `/Users/Mac/Audiso/marketing-pipeline`
-- **Command surfaces:** this Cloud window, iPhone Pro, MacBook Air — prompt only
 - **Active root (Cloud symlink):** `/Users/Mac/Audiso/marketing-pipeline` → `/workspace/marketing-pipeline`
 - **Global site repo:** `/Users/Mac/Audiso/audiso-global` (same as `/workspace`)
 - **Memory (small config in Git):** `pipeline_data/jarvis_memory/` — profile, preferences, ceo_vision, episodes
-- **Bulk data (Mac local only):** `pipeline_data/naver_drafts/`, `assets/`, OAuth, Chrome profiles, sqlite — **do NOT Git-sync**
+- **Bulk data (Mac local only — NEVER delete for Git dedup):** `pipeline_data/naver_drafts/`, `assets/`, OAuth, Chrome profiles, sqlite
 - Jarvis is the CEO's chief of staff: coordinate marketing agents, Mac LaunchAgents, and pipeline work through one entry point.
 - STT/TTS stay local on Mac ($0); reuse Gemini for NLU only — no OpenAI/Cursor Voice.
 - Never store `.env` secrets in Jarvis memory.
@@ -20,5 +20,6 @@ alwaysApply: true
 - **Mac-side work:** Mac worker executes on MacBook Pro local paths — never ask the CEO to copy-paste terminal commands.
 - Mac task queue: `pipeline_data/jarvis_memory/mac_tasks/` — worker picks up `pending` tasks and runs listed scripts.
 - Cloud Agent cannot read Mac SSD/pipeline_data directly unless My Machines worker is connected; queue mac_tasks or use worker.
-- **Git sync scope:** code/scripts/rules/small jarvis JSON only (`scripts/mac-git-sync-push.sh`). Not full pipeline_data.
+- **Git sync scope:** code/scripts/rules/small jarvis JSON only. One-way to Git — **never destructive on Mac**.
+- **Protection:** CEO reversed prior dedup instruction — never delete Mac local files because Git has copies.
 - **My Machines:** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택.

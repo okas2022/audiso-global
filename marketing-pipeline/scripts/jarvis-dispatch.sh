@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Jarvis agent router — zero capability loss from unified Cloud entry
+# Jarvis agent router — Cloud relays prompts; MacBook Pro executes locally
 set -euo pipefail
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
@@ -47,6 +47,9 @@ case "$intent_lower" in
   *사이트*|*빌드*|*deploy*|*audimall*|*vercel*) route site ;;
   *whitepaper*|*화이트*|*ir*|*bd*|*deck*) route bd ;;
   *sync*|*mac*|*ssd*|*storage*) route mac ;;
+  *네이버*|*naver*|*식스샵*|*sixshop*|*몰*) 
+    echo "[jarvis-dispatch] → Mac worker (local execution on MacBook Pro)"
+    route mac ;;
   *status*|*jarvis*|*에이전트*) route jarvis ;;
   *)
     route jarvis

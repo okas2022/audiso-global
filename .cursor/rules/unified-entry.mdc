@@ -6,17 +6,17 @@ alwaysApply: true
 
 # Jarvis Unified Entry (Cloud = marketing-pipeline)
 
-**이 Cloud Agent 창이 marketing-pipeline의 단일 명령 창입니다.**  
-CEO는 여기(폰 Pro / Cloud)에서 프롬프트만 내리면 됩니다. **데이터는 사무실 맥북 프로 로컬**에 두고, Mac worker가 실행합니다.
+**이 Cloud Agent 창 = 맥북 프로에 프롬프트를 전달하는 명령 창입니다.**  
+CEO는 여기(폰 Pro / Cloud)에서 지시만 내립니다. **실행·데이터는 사무실 맥북 프로 로컬**에서 worker가 처리합니다.
 
 ## Mac-Local First (CEO 결정)
 
 | 역할 | 기기 | 설명 |
 |---|---|---|
-| **메인 (데이터·실행)** | MacBook Pro (사무실) | `pipeline_data/` 전체 — naver_drafts, assets, OAuth, Chrome 등 |
-| **명령만** | iPhone Pro, MacBook Air, Cloud | Jarvis에 지시 → My Machines worker가 Mac에서 실행 |
+| **메인 (데이터·실행)** | MacBook Pro (사무실) | `pipeline_data/` 전체 — LaunchAgent, naver, assets 등 **삭제 금지** |
+| **프롬프트 전달만** | iPhone Pro, MacBook Air, Cloud | Jarvis에 지시 → My Machines worker가 Mac에서 실행 |
 
-**Git은 코드·스크립트·규칙만.** pipeline_data 대량 동기화는 하지 않음.
+**Git은 코드·스크립트·규칙만.** pipeline_data 대량 동기화·Mac 중복 삭제 **금지**.
 
 ## 작업 루트
 
@@ -25,18 +25,18 @@ CEO는 여기(폰 Pro / Cloud)에서 프롬프트만 내리면 됩니다. **데�
 | **Primary (marketing-pipeline)** | `/Users/Mac/Audiso/marketing-pipeline` → `/workspace/marketing-pipeline` |
 | **Global site** | `/Users/Mac/Audiso/audiso-global` → `/workspace` |
 | **Jarvis memory** | `marketing-pipeline/pipeline_data/jarvis_memory/` |
-| **BD·whitepaper** | `marketing-pipeline/pipeline_data/global_bd/` |
-| **Marketing assets** | `marketing-pipeline/pipeline_data/assets/` |
-| **Mac 전용 (SSD·LaunchAgent)** | `mac_tasks/` 큐에 등록 — Mac worker가 백그라운드 처리 |
+| **BD·whitepaper** | Mac local `pipeline_data/global_bd/` (worker) |
+| **Marketing assets** | Mac local `pipeline_data/assets/` (worker) |
+| **Mac 전용 (SSD·LaunchAgent·로컬 데이터)** | My Machines worker + `mac_tasks/` |
 
-## 이 창에서 바로 하는 일 (Mac 불필요)
+## 이 창에서 바로 하는 일
 
 - **Jarvis** — 모든 에이전트 오케스트레이션 (단일 진입점)
-- **Steve** — 마케팅 IG/퀴즈 카드, 카피, 이미지·영상 (Higgsfield MCP)
+- **Steve** — 마케팅 기획·카피·이미지 (Higgsfield MCP); Mac 로컬 에셋은 worker 위임
 - **Audiso Global** — EN/ZH/JA 사이트 빌드·배포
-- **Global BD** — 화이트페이퍼, IR deck, partner PDF
+- **Global BD** — 화이트페이퍼, IR deck (Mac 로컬 BD 데이터는 worker)
 - CEO 비전·Jarvis 메모리 read/write
-- Git commit / push
+- Git commit / push (코드·스크립트만)
 
 ## 에이전트 레지스트리 (loss 없음)
 
@@ -54,12 +54,12 @@ CEO는 여기(폰 Pro / Cloud)에서 프롬프트만 내리면 됩니다. **데�
 | Modu Hearing | partial | mac_local |
 | Mac SSD/Storage | delegate | mac_tasks |
 
-**원칙:** Cloud = 명령. MacBook Pro = 실행 + 데이터. Git bulk sync 금지.
+**원칙:** Cloud = **프롬프트 전달만**. MacBook Pro = 실행 + 데이터. Git bulk sync·Mac 파일 삭제 금지.
 
 ## Mac 전용 작업 (CEO 손 안 탐)
 
-Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` 읽기·쓰기:
-1. Cloud Agent가 `mac_tasks/pending-*.json`에 등록 (또는 My Machines로 즉시 실행)
+Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` 읽기·쓰기 — **모두 맥북 프로 로컬에서 실행**:
+1. CEO가 이 창에 프롬프트 입력 (전달만)
 2. Mac worker(`macbook-pro-audiso`)가 **Mac 로컬 경로**에서 실행
 3. 결과는 `episodes/`에 저장 → **이 창에서 읽고 이어서 진행**
 
@@ -67,6 +67,8 @@ Naver/Sixshop, SSD, LaunchAgent, 로컬 STT/TTS, `pipeline_data/` 읽기·쓰기
 
 - CEO에게 Mac 터미널 복붙 요청
 - `.env`·시크릿을 jarvis_memory에 저장
+- pipeline_data 대량 Git sync (naver_drafts, assets, oauth, chrome profiles)
+- **Git 중복을 이유로 맥북 프로 로컬 파일 삭제·dedupe·rsync --delete**
 
 ## 환경 변수
 

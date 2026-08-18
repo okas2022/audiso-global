@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-18T10:25:00Z",
+  "actor": "CEO",
+  "event": "policy_no_mac_delete_relay_only",
+  "summary": "MacBook Pro is main computer — keep all local files. Do NOT delete Mac files because they duplicate Git. Cloud/phone only relay prompts to MacBook Pro.",
+  "reverses": "Prior instruction to delete Mac duplicates after Git sync — cancelled permanently",
+  "rules": [
+    "Never delete, rm, rsync --delete, or dedupe Mac pipeline_data because Git has a copy",
+    "MacBook Pro runs everything locally (LaunchAgents, naver, assets, pipeline)",
+    "Cloud/iPhone/MacBook Air = prompt relay only → My Machines worker on MacBook Pro",
+    "Git sync (if any) is code/scripts only — one-way copy to Git, never destructive on Mac"
+  ]
+}

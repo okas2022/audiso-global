@@ -8,8 +8,10 @@
   "primary_prompt_surface": "cloud-mobile-pro",
   "effective_workspace": "/Users/Mac/Audiso/marketing-pipeline",
   "policy": "mac_local_first",
+  "relay_only": true,
   "main_computer": "MacBook Pro (office) — /Users/Mac/Audiso/marketing-pipeline",
   "command_surfaces": ["cloud-mobile-pro", "iphone-pro", "macbook-air"],
+  "never_delete_mac_local_for_git_dedup": true,
   "zero_capability_loss": true,
   "agents_registry": "pipeline_data/jarvis_memory/agents_registry.json",
   "dispatch_script": "scripts/jarvis-dispatch.sh",
@@ -32,6 +34,8 @@
     "enabled": true,
     "worker_name": "macbook-pro-audiso",
     "worker_dir": "/Users/Mac/Audiso/marketing-pipeline",
-    "auto_start_script": "scripts/mac-cursor-worker-start.sh"
+    "auto_start_script": "scripts/mac-cursor-worker-start.sh",
+    "mode": "prompt_relay",
+    "note": "Cloud does not replace Mac execution. User prompts here → worker runs on MacBook Pro local paths."
   }
 }

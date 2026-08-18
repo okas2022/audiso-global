@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Mac → GitHub (okas2022/audiso-global/marketing-pipeline) — CODE ONLY sync
-# Mac-Local First: pipeline_data bulk (naver_drafts, assets, oauth, chrome) stays on MacBook Pro.
-# Never rsync/delete full pipeline_data. Scripts, rules, small jarvis JSON only.
+# Mac-Local First: pipeline_data bulk stays on MacBook Pro. NEVER delete/dedupe Mac files for Git.
+# Never rsync --delete on Mac. One-way copy of scripts/rules/small JSON to Git only.
 set -euo pipefail
 
 MP="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"

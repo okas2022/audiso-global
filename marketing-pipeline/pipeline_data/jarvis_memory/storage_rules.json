@@ -76,10 +76,18 @@
   ],
 
   "write_rules": [
-    "Jarvis·마케팅 파이프라인 → marketing-pipeline/pipeline_data/",
+    "Jarvis·마케팅 파이프라인 → marketing-pipeline/pipeline_data/ (MacBook Pro local)",
     "BD·화이트페이퍼 → pipeline_data/global_bd/",
     "글로벌 사이트 소스 → audiso-global/",
     "대용량 에셋 → 외장 SSD (Audiso 루트 하위), Desktop 직접 저장 금지",
     ".env·시크릿 → Jarvis memory 저장 금지"
+  ],
+
+  "protection_rules": [
+    "NEVER delete Mac local pipeline_data files because Git has a duplicate copy",
+    "NEVER rsync --delete on Mac pipeline_data",
+    "NEVER auto-dedupe Mac files after Git sync — CEO reversed this instruction",
+    "MacBook Pro is source of truth; Git is optional mirror for code/scripts only",
+    "Cloud/phone = prompt relay to Mac worker only"
   ]
 }
