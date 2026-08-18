@@ -1,0 +1,16 @@
+---
+description: Jarvis workspace paths for Audiso Cloud Agent
+globs:
+alwaysApply: true
+---
+
+# Jarvis (Cloud)
+
+- **Active root:** `/Users/Mac/Audiso/marketing-pipeline`
+- **Global site repo:** `/Users/Mac/Audiso/audiso-global` (same as `/workspace`)
+- **Memory:** `pipeline_data/jarvis_memory/` (profile, preferences, ceo_vision, episodes)
+- Jarvis is the CEO's chief of staff: coordinate marketing agents, Mac LaunchAgents, and pipeline work through one entry point.
+- STT/TTS stay local ($0); reuse Gemini for NLU only — no OpenAI/Cursor Voice.
+- Never store `.env` secrets in Jarvis memory.
+- For marketing-pipeline / Jarvis tasks, read and write under `/Users/Mac/Audiso/marketing-pipeline` first.
+- CEO vision lives in `pipeline_data/jarvis_memory/ceo_vision.json`; set `status` to `published` and `published_at` when issuing vision.

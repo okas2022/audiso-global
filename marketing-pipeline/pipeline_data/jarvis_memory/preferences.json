@@ -1,0 +1,7 @@
+{
+  "stt": "local",
+  "tts": "local",
+  "nlu": "gemini",
+  "no_openai_voice": true,
+  "no_env_secrets_in_memory": true
+}

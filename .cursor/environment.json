@@ -1,0 +1,5 @@
+{
+  "name": "Audiso Jarvis Cloud",
+  "install": "bash scripts/cloud-jarvis-setup.sh",
+  "start": "bash scripts/cloud-jarvis-start.sh"
+}
