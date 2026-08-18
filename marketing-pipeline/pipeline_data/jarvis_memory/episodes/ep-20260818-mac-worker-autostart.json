@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-18T11:45:00Z",
+  "actor": "Jarvis Cloud",
+  "event": "mac_worker_autostart_scripts",
+  "cloud_run": "bc-01a0146d-9e98-7dc2-a57b-a29f3e6c4566",
+  "usePrivateWorker": false,
+  "blocker": "This Cloud VM cannot SSH or exec on the MacBook Pro. Scripts take over worker.lock for audiso-global when Mac LaunchAgent or relay runs them.",
+  "fixes": [
+    "worker_dir is /Users/Mac/Audiso/audiso-global (repo identity)",
+    "no agent worker list (unsupported on current CLI)",
+    "replace foreign worker.lock daemon",
+    "LaunchAgent KeepAlive foreground worker"
+  ]
+}
