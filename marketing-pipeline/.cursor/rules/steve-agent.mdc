@@ -16,6 +16,17 @@ Invoked through Jarvis from **this Cloud prompt window**. Say "Steve …" or mar
 - Image/video generation via **Higgsfield MCP** (auth in Cursor IDE if needed)
 - Assets saved to `pipeline_data/assets/` and `pipeline_data/campaigns/`
 
+## Layout v2 (공식 글 — CEO spec)
+
+1. **표지** (cover only)
+2. **본문 도입**
+3. **이미지 카드 1** → 빈 줄 2개 → **이어지는 문장**
+4. **이미지 카드 2** → 빈 줄 2개 → **이어지는 문장**
+5. **이미지 카드 3** → 빈 줄 2개 → **이어지는 문장**
+6. **마지막 CTA** — 제품 링크 표
+
+Template: `pipeline_data/campaigns/AO-OFFICIAL-20260818/`
+
 ## Output rules
 
 - Present every produced asset with **clickable markdown file links** (full absolute paths)
