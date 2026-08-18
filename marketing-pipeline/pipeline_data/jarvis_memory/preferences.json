@@ -11,7 +11,13 @@
   "never_ask_ceo_to_run_mac_terminal": true,
   "mac_agent_root": "/Users/Mac/Audiso/marketing-pipeline",
   "mac_task_queue": "pipeline_data/jarvis_memory/mac_tasks/",
-  "mac_only_delegates": ["ssd_mount", "launchagent", "local_stt_tts"],
+  "mac_only_delegates": ["ssd_mount", "launchagent", "local_stt_tts", "git_push_from_mac"],
+  "git_sync": {
+    "target_repo": "github.com/okas2022/audiso-global",
+    "target_path": "marketing-pipeline/",
+    "mac_push_script": "scripts/mac-git-sync-push.sh",
+    "cloud_pull_script": "scripts/cloud-git-sync-pull.sh"
+  },
   "my_machines": {
     "enabled": true,
     "worker_name": "macbook-pro-audiso",
