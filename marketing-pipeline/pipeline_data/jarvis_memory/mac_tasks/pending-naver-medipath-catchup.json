@@ -1,0 +1,29 @@
+{
+  "id": "mac-task-naver-medipath-catchup",
+  "status": "pending",
+  "priority": 1,
+  "created_at": "2026-08-18T10:35:00Z",
+  "created_by": "Jarvis Cloud",
+  "requested_by": "CEO",
+  "assignee": "Mac Cursor Agent",
+  "title": "메디패쓰 네이버 블로그 — 스케줄 점검 + 미게시 백로그 발행",
+  "instruction": "CEO 수동 작업 없음. Mac에서 실행: bash scripts/mac-naver-medipath-catchup.sh — master_scheduler·publish_registry·naver_drafts 점검 후 밀린 글 발행.",
+  "scripts": [
+    "scripts/mac-naver-medipath-catchup.sh"
+  ],
+  "blog": {
+    "name": "메디패쓰",
+    "channel": "naver_blog",
+    "aliases": ["medipath", "medipass", "메디패쓰"]
+  },
+  "data_paths_mac_local": [
+    "pipeline_data/master_scheduler_state.json",
+    "pipeline_data/publish_registry.json",
+    "pipeline_data/naver_drafts/",
+    "pipeline_data/giro_blog_content/",
+    "pipeline_data/multi_publisher/"
+  ],
+  "report_glob": "pipeline_data/jarvis_memory/episodes/naver-medipath-catchup-*.json",
+  "depends_on": "MacBook Pro online + Chrome naver profile + master_scheduler",
+  "note": "Cloud VM cannot access naver_drafts — Mac worker executes locally"
+}

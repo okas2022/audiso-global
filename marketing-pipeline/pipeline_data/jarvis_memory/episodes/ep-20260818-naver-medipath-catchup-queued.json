@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-18T10:35:00Z",
+  "actor": "Jarvis Cloud",
+  "event": "naver_medipath_catchup_queued",
+  "requested_by": "CEO",
+  "request": "메디패쓰 네이버 블로그 밀린 스케줄 확인 후 미게시분 발행",
+  "mac_task": "mac_tasks/pending-naver-medipath-catchup.json",
+  "script": "scripts/mac-naver-medipath-catchup.sh",
+  "blocked_on_cloud": "naver_drafts, master_scheduler_state, publish_registry are Mac-local only",
+  "next": "Mac worker or Mac Cursor runs pending task → episode naver-medipath-catchup-*.json"
+}

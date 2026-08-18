@@ -55,6 +55,7 @@ for f in \
   mac-git-sync-push.sh \
   mac-cursor-worker-start.sh \
   mac-install-worker-launchagent.sh \
+  mac-naver-medipath-catchup.sh \
   jarvis-run-mac-tasks.sh \
   jarvis-cloud-entry.sh \
   jarvis-dispatch.sh \
