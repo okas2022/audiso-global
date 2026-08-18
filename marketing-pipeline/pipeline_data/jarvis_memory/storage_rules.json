@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-18T09:29:00Z",
+  "source": "Jarvis — reconstructed from Mac path traces (whitepaper_manifest, user rules, prior Jarvis setup)",
+  "note": "Mac 실제 /Volumes 마운트명은 Mac Cursor audit로 확인·보정 필요",
+
+  "volumes": {
+    "internal": {
+      "label": "MacBook Pro 내장",
+      "mount": "/",
+      "purpose": "OS, Cursor, LaunchAgents, 소형 설정"
+    },
+    "external_ssd": {
+      "label": "MacBook Pro 외장 SSD",
+      "mount_glob": "/Volumes/*",
+      "expected": true,
+      "purpose": "Audiso 대용량 데이터·파이프라인·에셋 (규칙상 /Users/Mac/Audiso 가 여기 symlink 또는 실경로)"
+    }
+  },
+
+  "paths": {
+    "audiso_root": {
+      "path": "/Users/Mac/Audiso",
+      "purpose": "Audiso 모든 프로젝트 루트",
+      "required": true
+    },
+    "marketing_pipeline": {
+      "path": "/Users/Mac/Audiso/marketing-pipeline",
+      "purpose": "Jarvis active root, Steve 등 마케팅 에이전트",
+      "required": true
+    },
+    "audiso_global": {
+      "path": "/Users/Mac/Audiso/audiso-global",
+      "purpose": "글로벌 사이트 (audiso-global repo)",
+      "required": true
+    },
+    "jarvis_memory": {
+      "path": "/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory",
+      "purpose": "Jarvis profile, preferences, ceo_vision, episodes",
+      "required": true
+    },
+    "global_bd": {
+      "path": "/Users/Mac/Audiso/marketing-pipeline/pipeline_data/global_bd",
+      "purpose": "IR deck, whitepaper, BD PDF/HTML",
+      "required": true
+    },
+    "marketing_assets": {
+      "path": "/Users/Mac/Audiso/marketing-pipeline/pipeline_data/assets",
+      "purpose": "Steve·마케팅 이미지/영상 산출물",
+      "required": false
+    },
+    "desktop_legacy": {
+      "path": "/Users/Mac/Desktop/모두의보청기-오디에스오-마케팅-파이프라인",
+      "purpose": "구 경로 — 마이그레이션 완료 시 존재하면 안 됨",
+      "required": false,
+      "must_be_absent": true
+    },
+    "desktop_modu_ha": {
+      "path": "/Users/Mac/Desktop/Modu_HA",
+      "purpose": "Modu Hearing 레포 (README 참조)",
+      "required": false
+    }
+  },
+
+  "symlinks": [
+    {
+      "link": "/Users/Mac/Audiso/audiso-global",
+      "target_contains": "audiso-global",
+      "required_on_cloud": true
+    },
+    {
+      "link": "/Users/Mac/Audiso/marketing-pipeline",
+      "target_contains": "marketing-pipeline",
+      "required_on_mac": true
+    }
+  ],
+
+  "write_rules": [
+    "Jarvis·마케팅 파이프라인 → marketing-pipeline/pipeline_data/",
+    "BD·화이트페이퍼 → pipeline_data/global_bd/",
+    "글로벌 사이트 소스 → audiso-global/",
+    "대용량 에셋 → 외장 SSD (Audiso 루트 하위), Desktop 직접 저장 금지",
+    ".env·시크릿 → Jarvis memory 저장 금지"
+  ]
+}
