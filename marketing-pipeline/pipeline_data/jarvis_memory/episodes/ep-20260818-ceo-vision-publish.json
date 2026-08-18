@@ -1,0 +1,12 @@
+{
+  "id": "ep-20260818-ceo-vision-publish",
+  "at": "2026-08-18T09:25:00Z",
+  "actor": "Jarvis",
+  "channel": "cloud-agent-mobile-pro",
+  "event": "ceo_vision_published",
+  "title": "Audiso CEO Vision 2026 발행",
+  "summary": "CEO 비전 status draft → published. Cloud Jarvis 경로에서 모바일 Pro로 발행 완료.",
+  "artifacts": [
+    "pipeline_data/jarvis_memory/ceo_vision.json"
+  ]
+}
