@@ -1,0 +1,48 @@
+---
+description: 이 Cloud 창 = marketing-pipeline 통합 워크스페이스 (CEO 단일 진입점)
+globs:
+alwaysApply: true
+---
+
+# Jarvis Unified Entry (Cloud = marketing-pipeline)
+
+**이 Cloud Agent 창이 marketing-pipeline의 단일 작업 창입니다.**  
+CEO는 여기(폰 Pro / Cloud)에서만 프롬프트를 내리면 됩니다. Mac Cursor를 따로 열 필요 없습니다.
+
+## 작업 루트 (항상 여기부터)
+
+| 역할 | 경로 |
+|---|---|
+| **Primary (marketing-pipeline)** | `/Users/Mac/Audiso/marketing-pipeline` → `/workspace/marketing-pipeline` |
+| **Global site** | `/Users/Mac/Audiso/audiso-global` → `/workspace` |
+| **Jarvis memory** | `marketing-pipeline/pipeline_data/jarvis_memory/` |
+| **BD·whitepaper** | `marketing-pipeline/pipeline_data/global_bd/` |
+| **Marketing assets** | `marketing-pipeline/pipeline_data/assets/` |
+| **Mac 전용 (SSD·LaunchAgent)** | `mac_tasks/` 큐에 등록 — Mac worker가 백그라운드 처리 |
+
+## 이 창에서 바로 하는 일 (Mac 불필요)
+
+- CEO 비전 발행·수정 (`ceo_vision.json`)
+- Jarvis 메모리 read/write (profile, preferences, episodes)
+- Steve 등 마케팅 에셋·카피·파이프라인 스크립트 편집
+- audiso-global 사이트 빌드·배포 (`npm run build` at `/workspace`)
+- Git commit / push
+- BD·화이트페이퍼 경로 정리 (`pipeline_data/global_bd/`)
+
+## Mac 전용 작업 (CEO 손 안 탐)
+
+SSD 마운트, LaunchAgent, 로컬 STT/TTS 등 Mac 하드웨어 작업은:
+1. Cloud Agent가 `mac_tasks/pending-*.json`에 등록
+2. Mac worker(`macbook-pro-audiso`)가 자동 실행
+3. 결과는 `episodes/`에 저장 → **이 창에서 읽고 이어서 진행**
+
+## 금지
+
+- CEO에게 Mac 터미널 복붙 요청
+- `.env`·시크릿을 jarvis_memory에 저장
+
+## 환경 변수
+
+- `JARVIS_ROOT=/Users/Mac/Audiso/marketing-pipeline`
+- `AUDISO_GLOBAL=/Users/Mac/Audiso/audiso-global`
+- `JARVIS_UNIFIED=1`

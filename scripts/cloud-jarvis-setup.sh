@@ -12,6 +12,10 @@ sudo mkdir -p /Users/Mac/Audiso
 sudo chown -R "$(id -u):$(id -g)" /Users/Mac
 
 mkdir -p "${MP_DIR}/pipeline_data/jarvis_memory/episodes"
+mkdir -p "${MP_DIR}/pipeline_data/jarvis_memory/mac_tasks/done"
+mkdir -p "${MP_DIR}/pipeline_data/global_bd"
+mkdir -p "${MP_DIR}/pipeline_data/assets"
+mkdir -p "${MP_DIR}/pipeline_data/campaigns"
 
 if [[ ! -f "${MP_DIR}/pipeline_data/jarvis_memory/profile.json" ]]; then
   cat > "${MP_DIR}/pipeline_data/jarvis_memory/profile.json" <<'EOF'
@@ -72,6 +76,14 @@ cat > "${AUDISO_ROOT}/.jarvis-root" <<EOF
 JARVIS_ACTIVE_ROOT=${AUDISO_ROOT}/marketing-pipeline
 AUDISO_GLOBAL=${AUDISO_ROOT}/audiso-global
 CLOUD_WORKSPACE=${WORKSPACE}
+JARVIS_UNIFIED=1
+EOF
+
+cat > "${MP_DIR}/.jarvis-unified" <<EOF
+unified_cloud_entry=true
+primary_prompt_surface=cloud-mobile-pro
+mac_delegate=mac_tasks_queue
+updated_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 EOF
 
 echo "[jarvis-setup] Paths ready:"
