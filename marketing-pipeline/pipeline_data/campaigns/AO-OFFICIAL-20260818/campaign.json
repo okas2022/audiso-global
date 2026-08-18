@@ -1,0 +1,30 @@
+{
+  "campaign_id": "AO-OFFICIAL-20260818",
+  "title": "Audiso 공식 글 — 귀 케어 4솔루션",
+  "layout_version": 2,
+  "layout_spec": {
+    "order": ["cover", "body_intro", "card_1", "body_after_1", "card_2", "body_after_2", "card_3", "body_after_3", "cta"],
+    "rules": [
+      "표지(cover) 단독 — 본문과 분리",
+      "이미지 카드 3장은 본문 중간에 띄엄띄엄 배치",
+      "각 이미지 카드 안에 제목+본문 텍스트 포함",
+      "이미지 삽입 후 반드시 빈 줄(줄바꿈) 2개 — 다음 문장이 이미지에 붙지 않게",
+      "마지막 섹션은 CTA + 제품 링크 광고"
+    ],
+    "spacing": {
+      "after_cover": 2,
+      "after_each_image_card": 2,
+      "before_cta": 2
+    }
+  },
+  "product_links": {
+    "peacetop_store": "https://peacetop.store",
+    "audimall_global": "https://audimall.vercel.app/ko/",
+    "withhear": "https://audimall.vercel.app/en/withhear/",
+    "modoo": "https://audimall.vercel.app/en/modoo/",
+    "peacetop": "https://audimall.vercel.app/en/peacetop/",
+    "mindtone": "https://audimall.vercel.app/en/mindtone/",
+    "modoo_webapp": "https://modoo.hearing.kr",
+    "mindtone_android": "https://play.google.com/store/apps/details?id=kr.co.audiso.mindtone"
+  }
+}
