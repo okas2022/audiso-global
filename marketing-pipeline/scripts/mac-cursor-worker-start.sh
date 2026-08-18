@@ -1,54 +1,152 @@
 #!/usr/bin/env bash
-# Mac Cursor Agent가 실행 — Cloud Agent가 Mac에 tool call을 보내도록 worker 연결
+# Bind this MacBook Pro as Cursor My Machines worker for audiso-global.
+# Current CLI has no `agent worker list` — only `start` and `debug`.
+# Only one exec-daemon can hold ~/.local/share/cursor-agent/worker.lock.
 set -euo pipefail
 
-WORKER_DIR="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
+AUDISO_GLOBAL="${AUDISO_GLOBAL:-/Users/Mac/Audiso/audiso-global}"
+JARVIS_ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
 WORKER_NAME="${JARVIS_WORKER_NAME:-macbook-pro-audiso}"
-export PATH="${HOME}/.local/bin:${PATH}"
+LOCK="${HOME}/.local/share/cursor-agent/worker.lock"
+LOG_DIR="${JARVIS_ROOT}/pipeline_data/jarvis_memory/episodes"
+LOG="${LOG_DIR}/worker.log"
+export PATH="${HOME}/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${PATH}"
 
-if ! command -v agent >/dev/null 2>&1; then
-  echo "[jarvis-worker] Cursor agent CLI 없음 — 설치 시도"
+mkdir -p "$LOG_DIR" "$(dirname "$LOCK")"
+
+log() {
+  echo "[jarvis-worker] $(date -u +%Y-%m-%dT%H:%M:%SZ) $*" | tee -a "$LOG"
+}
+
+lock_pids() {
+  lsof -t "$LOCK" 2>/dev/null | sort -u | tr '\n' ' '
+}
+
+stop_pids() {
+  local pid
+  for pid in "$@"; do
+    [[ -n "$pid" ]] || continue
+    kill "$pid" 2>/dev/null || true
+  done
+  sleep 2
+  for pid in "$@"; do
+    [[ -n "$pid" ]] || continue
+    if kill -0 "$pid" 2>/dev/null; then
+      kill -9 "$pid" 2>/dev/null || true
+    fi
+  done
+}
+
+stop_lock_holders() {
+  local pids
+  pids="$(lock_pids)"
+  if [[ -z "${pids// /}" ]]; then
+    if [[ -e "$LOCK" ]]; then
+      log "stale lock with no process — removing"
+      rm -f "$LOCK"
+    fi
+    return 0
+  fi
+  log "releasing worker.lock pids: ${pids}"
+  # shellcheck disable=SC2086
+  stop_pids $pids
+  sleep 1
+  if [[ -e "$LOCK" && -z "$(lock_pids)" ]]; then
+    rm -f "$LOCK"
+  fi
+}
+
+lock_is_ours() {
+  local pid cmd
+  for pid in $(lock_pids); do
+    cmd="$(ps -p "$pid" -o command= 2>/dev/null || true)"
+    if echo "$cmd" | grep -qE "macbook-pro-audiso|--name ${WORKER_NAME}|agent worker start"; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+install_cli() {
+  if command -v agent >/dev/null 2>&1; then
+    return 0
+  fi
+  log "installing Cursor CLI"
   curl https://cursor.com/install -fsS | bash
   export PATH="${HOME}/.local/bin:${PATH}"
-fi
+  command -v agent >/dev/null 2>&1
+}
 
-if ! command -v agent >/dev/null 2>&1; then
-  echo "[jarvis-worker] Cursor CLI 설치 실패. https://cursor.com/install 확인" >&2
-  exit 1
-fi
-
-if ! agent status >/dev/null 2>&1; then
-  echo "[jarvis-worker] Cursor CLI 미로그인 — agent login 필요 (브라우저 1회)" >&2
-  agent login || true
-  if ! agent status >/dev/null 2>&1; then
-    echo "[jarvis-worker] 로그인 미완료 — worker 시작 보류" >&2
-    exit 1
+ensure_login() {
+  if agent status >/dev/null 2>&1; then
+    return 0
   fi
-fi
+  if [[ ! -t 0 ]]; then
+    log "CLI not logged in and no TTY — skip browser login"
+    return 1
+  fi
+  log "CLI login required (browser once)"
+  agent login || true
+  agent status >/dev/null 2>&1
+}
 
-cd "$WORKER_DIR"
-mkdir -p "${WORKER_DIR}/pipeline_data/jarvis_memory/episodes"
+build_dir_args() {
+  DIR_ARGS=()
+  DIR_ARGS+=(--worker-dir "$AUDISO_GLOBAL")
+  local mp_root ag_root
+  mp_root="$(git -C "$JARVIS_ROOT" rev-parse --show-toplevel 2>/dev/null || true)"
+  ag_root="$(git -C "$AUDISO_GLOBAL" rev-parse --show-toplevel 2>/dev/null || true)"
+  if [[ -n "$mp_root" && -n "$ag_root" && "$mp_root" != "$ag_root" ]]; then
+    DIR_ARGS+=(--worker-dir "$JARVIS_ROOT")
+  fi
+}
 
-if pgrep -f "agent worker start" >/dev/null 2>&1; then
-  echo "[jarvis-worker] 이미 실행 중 (name=${WORKER_NAME})"
-  agent worker list 2>/dev/null || true
-  exit 0
-fi
+start_worker() {
+  if [[ ! -d "$AUDISO_GLOBAL" ]]; then
+    log "missing ${AUDISO_GLOBAL}"
+    return 1
+  fi
+  build_dir_args
+  log "starting name=${WORKER_NAME} ${DIR_ARGS[*]}"
+  cd "$AUDISO_GLOBAL"
+  if [[ "${JARVIS_WORKER_FOREGROUND:-0}" == "1" ]]; then
+    exec agent worker start --name "$WORKER_NAME" "${DIR_ARGS[@]}"
+  fi
+  nohup agent worker start --name "$WORKER_NAME" "${DIR_ARGS[@]}" >>"$LOG" 2>&1 &
+  local wpid=$!
+  sleep 4
+  if kill -0 "$wpid" 2>/dev/null || [[ -n "$(lock_pids)" ]]; then
+    log "worker up pid=${wpid} lock_pids=$(lock_pids)"
+    (cd "$AUDISO_GLOBAL" && agent worker debug) >>"$LOG" 2>&1 || true
+    return 0
+  fi
+  log "worker failed to stay up"
+  tail -40 "$LOG" || true
+  return 1
+}
 
-echo "[jarvis-worker] Starting My Machines worker..."
-echo "  dir:  ${WORKER_DIR}"
-echo "  name: ${WORKER_NAME}"
+main() {
+  install_cli || { log "CLI install failed"; exit 1; }
+  ensure_login || exit 1
 
-nohup agent worker start \
-  --name "${WORKER_NAME}" \
-  --worker-dir "${WORKER_DIR}" \
-  >> "${WORKER_DIR}/pipeline_data/jarvis_memory/episodes/worker.log" 2>&1 &
+  if lock_is_ours; then
+    log "existing worker already ours pids=$(lock_pids)"
+    (cd "$AUDISO_GLOBAL" && agent worker debug) >>"$LOG" 2>&1 || true
+    if [[ "${JARVIS_WORKER_FOREGROUND:-0}" != "1" ]]; then
+      exit 0
+    fi
+    log "foreground: waiting on existing named worker"
+    while lock_is_ours; do
+      sleep 20
+    done
+  fi
 
-sleep 3
-if pgrep -f "agent worker start" >/dev/null 2>&1; then
-  echo "[jarvis-worker] Connected — cursor.com/agents 에서 My Machine '${WORKER_NAME}' 선택"
-else
-  echo "[jarvis-worker] worker 시작 실패 — episodes/worker.log 확인" >&2
-  tail -20 "${WORKER_DIR}/pipeline_data/jarvis_memory/episodes/worker.log" 2>/dev/null || true
-  exit 1
-fi
+  if [[ -n "$(lock_pids)" ]]; then
+    log "other daemon holds worker.lock — taking over for audiso-global"
+    stop_lock_holders
+  fi
+
+  start_worker
+}
+
+main "$@"
