@@ -1,0 +1,18 @@
+{
+  "id": "relay-20260825T092500",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T09:25:00Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro (24h)",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "URGENT: Google Drive Audiso Music 폴더가 안 보임. bash scripts/mac-music-drive-sync-now.sh AUD-MUS-20260825-004 즉시 실행. 맥북 Google Drive desktop → Audiso Music 폴더 생성. CEO 스마트폰 Drive 앱 okas2000@gmail.com",
+  "instruction": "CEO 프롬프트 — 맥북 프로 로컬에서 실행.",
+  "scripts": [
+    "scripts/mac-cursor-worker-start.sh",
+    "scripts/jarvis-run-mac-tasks.sh"
+  ],
+  "auto_run_all_pending": true
+}
