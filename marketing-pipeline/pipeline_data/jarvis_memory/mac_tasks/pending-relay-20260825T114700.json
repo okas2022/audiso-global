@@ -1,0 +1,15 @@
+{
+  "id": "relay-20260825T114700",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T11:47:00Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "CEO: 지금 크롬에 Suno ss2013 열어둠. 즉시 mac-suno-bootstrap-and-run.sh 실행. 기본 Chrome 프로필+CDP로 로그인 유지한 채 생성.",
+  "instruction": "Pull main and run Suno generate now — Chrome is open.",
+  "scripts": ["scripts/mac-suno-bootstrap-and-run.sh"],
+  "auto_run_all_pending": true
+}

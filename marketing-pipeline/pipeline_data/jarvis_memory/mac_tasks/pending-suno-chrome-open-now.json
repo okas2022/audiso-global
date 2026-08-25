@@ -1,0 +1,14 @@
+{
+  "id": "mac-task-suno-chrome-open-now",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T11:47:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "NOW: CEO Chrome open (ss2013) — generate AUD-MUS-004",
+  "instruction": "CEO: Chrome is open NOW with Suno ss2013 (=okas2000@gmail.com). Run IMMEDIATELY: bash scripts/mac-suno-bootstrap-and-run.sh. Chrome debug script will briefly restart Chrome with CDP using the DEFAULT profile so login is kept, then generate 「너의 행복이 나라면」, download, stems, Finder Audiso Music.",
+  "tracks": ["AUD-MUS-20260825-004"],
+  "scripts": ["scripts/mac-suno-bootstrap-and-run.sh"],
+  "expected_suno_handle": "ss2013",
+  "ceo_action": "Allow Chrome restart once — stay as ss2013"
+}
