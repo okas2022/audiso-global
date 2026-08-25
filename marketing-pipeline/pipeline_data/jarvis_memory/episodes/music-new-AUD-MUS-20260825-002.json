@@ -1,0 +1,49 @@
+{
+  "at": "2026-08-25T07:24:55Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_track_created",
+  "track_id": "AUD-MUS-20260825-002",
+  "title_working": "Auto Import Test",
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nambient\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: test hook\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "genre": [
+      "ambient"
+    ],
+    "bpm": 90,
+    "hook": {
+      "one_liner": "test hook",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    }
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002",
+    "brief": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/music_brief.json",
+    "checklist": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/checklist.json"
+  }
+}

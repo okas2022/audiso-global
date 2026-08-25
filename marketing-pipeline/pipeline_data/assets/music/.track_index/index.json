@@ -1,11 +1,18 @@
 {
-  "updated_at": "2026-08-25T07:07:41Z",
+  "updated_at": "2026-08-25T07:24:55Z",
   "tracks": [
     {
       "track_id": "AUD-MUS-20260825-001",
       "title_working": "Peacetop morning hook",
       "created_at": "2026-08-25T07:07:41Z",
       "path": "pipeline_data/assets/music/AUD-MUS-20260825-001/",
+      "status": "briefed"
+    },
+    {
+      "track_id": "AUD-MUS-20260825-002",
+      "title_working": "Auto Import Test",
+      "created_at": "2026-08-25T07:24:55Z",
+      "path": "pipeline_data/assets/music/AUD-MUS-20260825-002/",
       "status": "briefed"
     }
   ]

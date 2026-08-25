@@ -15,10 +15,11 @@ PURPOSE=""
 HOOK=""
 BRAND="Audiso"
 CREATED_BY="Steve"
+AWAIT_SUNO=0
 
 usage() {
   cat <<'EOF'
-Usage: music-new-track.sh [--title T] [--genre G] [--bpm N] [--purpose P] [--hook H] [--by Steve|Jarvis]
+Usage: music-new-track.sh [--title T] [--genre G] [--bpm N] [--purpose P] [--hook H] [--by Steve|Jarvis] [--await-suno]
 EOF
 }
 
@@ -30,6 +31,7 @@ while [[ $# -gt 0 ]]; do
     --purpose) PURPOSE="${2:-}"; shift 2 ;;
     --hook) HOOK="${2:-}"; shift 2 ;;
     --by) CREATED_BY="${2:-Steve}"; shift 2 ;;
+    --await-suno) AWAIT_SUNO=1; shift ;;
     -h|--help) usage; exit 0 ;;
     *) echo "unknown arg: $1" >&2; usage; exit 1 ;;
   esac
@@ -183,3 +185,7 @@ print("${TRACK_ID}")
 print("${TRACK_DIR}")
 print("${EP}")
 PY
+
+if [[ "$AWAIT_SUNO" -eq 1 ]]; then
+  bash "${ROOT}/scripts/music-await-suno.sh" "$TRACK_ID" --title-hint "$TITLE"
+fi

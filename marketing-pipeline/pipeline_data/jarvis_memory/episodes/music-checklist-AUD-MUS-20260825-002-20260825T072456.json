@@ -1,0 +1,99 @@
+{
+  "at": "2026-08-25T07:24:56Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_checklist",
+  "track_id": "AUD-MUS-20260825-002",
+  "mark": "suno_prompted",
+  "import_suno": null,
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nambient\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: test hook\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "title_working": "Auto Import Test",
+    "genre": [
+      "ambient"
+    ],
+    "bpm": 90,
+    "hook": {
+      "one_liner": "test hook",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    }
+  },
+  "checklist": {
+    "schema": "audiso.music_checklist.v1",
+    "track_id": "AUD-MUS-20260825-002",
+    "stages": [
+      {
+        "id": "brief_ready",
+        "label": "music_brief filled",
+        "done": true
+      },
+      {
+        "id": "suno_prompted",
+        "label": "Suno style+lyrics prompts saved",
+        "done": true
+      },
+      {
+        "id": "suno_imported",
+        "label": "Suno export in suno/",
+        "done": false
+      },
+      {
+        "id": "stems_done",
+        "label": "Stem separation in stems/",
+        "done": false
+      },
+      {
+        "id": "daw_edit",
+        "label": "DAW edit / arrange",
+        "done": false
+      },
+      {
+        "id": "master_done",
+        "label": "Master in masters/ (LUFS check)",
+        "done": false
+      },
+      {
+        "id": "rights_ok",
+        "label": "Commercial rights noted",
+        "done": false
+      },
+      {
+        "id": "delivered",
+        "label": "Deliverable linked / published",
+        "done": false
+      }
+    ],
+    "updated_at": "2026-08-25T07:24:56Z"
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002",
+    "suno": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/suno",
+    "stems": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/stems",
+    "masters": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/masters"
+  }
+}

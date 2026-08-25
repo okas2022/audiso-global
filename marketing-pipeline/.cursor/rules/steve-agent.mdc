@@ -23,6 +23,8 @@ Invoked through Jarvis from **this Cloud prompt window**. Say "Steve …" or mar
 - Brief template: `pipeline_data/jarvis_memory/templates/music_brief.json`
 - New track: `bash scripts/music-new-track.sh --title … --genre … --bpm … --purpose … --hook …`
 - Checklist: `bash scripts/music-suno-checklist.sh <TRACK_ID> [--mark suno_imported|stems_done|master_done]`
+- **Suno auto-import:** `music-new-track.sh --await-suno` → Suno Download → LaunchAgent imports from `~/Downloads`
+- **Fallback API:** `music-generate-elevenlabs.sh` (free tier, `ELEVENLABS_API_KEY` in Mac `.env`)
 - Episodes always store `track_id` + Suno/style/lyrics prompts under `jarvis_memory/episodes/music-*.json`
 - Present audio paths as clickable `file://` links when files exist on Mac
 

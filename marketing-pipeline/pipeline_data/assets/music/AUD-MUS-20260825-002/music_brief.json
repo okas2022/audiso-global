@@ -1,0 +1,90 @@
+{
+  "schema": "audiso.music_brief.v1",
+  "track_id": "AUD-MUS-20260825-002",
+  "title_working": "Auto Import Test",
+  "status": "suno_imported",
+  "created_at": "2026-08-25T07:24:55Z",
+  "updated_at": "2026-08-25T07:25:00Z",
+  "created_by": "Steve",
+  "orchestrator": "Jarvis",
+  "purpose": {
+    "use_case": "",
+    "brand": "Audiso",
+    "campaign_id": null,
+    "channels": [],
+    "duration_target_sec": 30,
+    "language": "ko",
+    "notes": ""
+  },
+  "musical": {
+    "genre": [
+      "ambient"
+    ],
+    "subgenre": [],
+    "bpm": 90,
+    "key": null,
+    "time_signature": "4/4",
+    "mood": [],
+    "energy": null,
+    "reference_tracks": []
+  },
+  "hook": {
+    "one_liner": "test hook",
+    "lyric_hook": "",
+    "melody_hook": "",
+    "drop_or_chorus_bar": null
+  },
+  "structure": {
+    "form": [
+      "intro",
+      "verse",
+      "pre",
+      "chorus",
+      "verse",
+      "chorus",
+      "bridge",
+      "chorus",
+      "outro"
+    ],
+    "instrumentation": [],
+    "vocal": "lead + doubles",
+    "instrumental_only": false
+  },
+  "suno": {
+    "model": "",
+    "style_prompt": "",
+    "lyrics_prompt": "",
+    "negative_prompt": "",
+    "seed": null,
+    "weirdness": null,
+    "style_influence": null,
+    "export_paths": [
+      "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-002/suno/Auto Import Test.mp3"
+    ]
+  },
+  "pipeline": {
+    "root": "pipeline_data/assets/music/AUD-MUS-20260825-002/",
+    "folders": [
+      "prompts",
+      "suno",
+      "stems",
+      "masters",
+      "refs"
+    ],
+    "checklist_script": "scripts/music-suno-checklist.sh",
+    "episode_glob": "pipeline_data/jarvis_memory/episodes/music-*-AUD-MUS-20260825-002.json"
+  },
+  "rights": {
+    "suno_plan": "",
+    "commercial_ok": null,
+    "clearance_notes": "",
+    "isrc": null
+  },
+  "deliverables": {
+    "master_wav": null,
+    "master_mp3": null,
+    "stems_zip": null,
+    "lufs_target": -14,
+    "true_peak_max_db": -1.0
+  }
+}

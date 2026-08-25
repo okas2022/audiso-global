@@ -36,16 +36,37 @@ bash scripts/music-new-track.sh
 bash scripts/music-new-track.sh --title "Peacetop hook" --genre "k-pop,ambient" --bpm 96 --purpose "IG reel"
 ```
 
-## Suno → stem → master
+## Suno → stem → master (zero extra API cost)
 
+**Primary (recommended):** Suno app → Mac `~/Downloads` → **auto import** (30s LaunchAgent)
+
+1. Create track + mark awaiting:
 ```bash
-bash scripts/music-suno-checklist.sh AUD-MUS-20260825-001
-bash scripts/music-suno-checklist.sh AUD-MUS-20260825-001 --mark suno_imported
-bash scripts/music-suno-checklist.sh AUD-MUS-20260825-001 --mark stems_done
-bash scripts/music-suno-checklist.sh AUD-MUS-20260825-001 --mark master_done
+bash scripts/music-new-track.sh --title "…" --genre "…" --bpm 96 --hook "…" --await-suno
+# or: bash scripts/music-await-suno.sh AUD-MUS-…
+```
+2. Generate in Suno web/app, click **Download** once (only manual step).
+3. Watcher copies to `track/suno/`, marks checklist, writes episode.
+
+Install watcher on Mac (once):
+```bash
+bash scripts/mac-install-music-watch-launchagent.sh
 ```
 
-Each run writes an episode under `pipeline_data/jarvis_memory/episodes/` with `track_id` + prompts.
+Manual import still works:
+```bash
+bash scripts/music-suno-checklist.sh AUD-MUS-… --import-suno ~/Downloads/song.mp3
+```
+
+**Fallback API (official, free tier ~11 min/mo):**
+```bash
+export ELEVENLABS_API_KEY=…   # Mac .env only — never jarvis_memory
+bash scripts/music-generate-elevenlabs.sh AUD-MUS-… --duration 30 --instrumental
+```
+
+Provider policy: `pipeline_data/jarvis_memory/music_providers.json`
+
+## Checklist stages
 
 ## Steve / Jarvis
 

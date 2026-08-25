@@ -1,0 +1,53 @@
+{
+  "schema": "audiso.music_providers.v1",
+  "updated_at": "2026-08-25T07:25:00Z",
+  "policy": "zero_extra_cost_first",
+  "primary": {
+    "id": "suno_downloads_watch",
+    "label": "Suno app → Mac Downloads → auto import",
+    "cost": "$0 incremental (uses existing Suno subscription credits)",
+    "automation_level": "semi_auto",
+    "ceo_steps_remaining": [
+      "Generate in Suno web/app (browser)",
+      "Click Download once (MP3/WAV lands in ~/Downloads)"
+    ],
+    "jarvis_steps_automated": [
+      "Detect new audio in Downloads",
+      "Match to awaiting AUD-MUS track",
+      "Copy to track suno/ + checklist suno_imported + episode log"
+    ],
+    "scripts": {
+      "mark_awaiting": "scripts/music-await-suno.sh",
+      "watch": "scripts/music-suno-inbox-watch.sh",
+      "launchagent": "scripts/mac-install-music-watch-launchagent.sh"
+    },
+    "note": "Suno has no official public API. Full zero-click generation is NOT available via the consumer app alone."
+  },
+  "fallback_api": {
+    "id": "elevenlabs_music",
+    "label": "ElevenLabs Music (official REST)",
+    "cost": "Free tier ~10k credits/mo ≈ ~11 min music; non-commercial only on free",
+    "automation_level": "full_auto",
+    "env": "ELEVENLABS_API_KEY",
+    "script": "scripts/music-generate-elevenlabs.sh",
+    "when_to_use": [
+      "Instrumental bed / SFX under 30s",
+      "Suno download watcher missed a file",
+      "Need programmatic batch without opening Suno"
+    ],
+    "not_recommended": {
+      "udio_third_party": "No official Udio API; aggregators charge per track",
+      "stable_audio_api": "No meaningful free API tier",
+      "replicate": "Pay-per-run, no free music tier",
+      "suno_unofficial_wrappers": "ToS / account risk"
+    }
+  },
+  "optional_tier2": {
+    "id": "suno_cli",
+    "label": "suno-cli (unofficial, account cookie)",
+    "cost": "Suno subscription credits only",
+    "automation_level": "full_auto_generate_and_download",
+    "risk": "Unofficial; not Suno-supported",
+    "note": "Only if CEO explicitly opts in after Downloads watch is insufficient"
+  }
+}
