@@ -3,11 +3,13 @@
   "status": "pending",
   "priority": "urgent",
   "created_at": "2026-08-25T09:40:00Z",
+  "updated_at": "2026-08-25T11:30:21Z",
   "created_by": "Jarvis Cloud",
-  "assignee": "Mac Cursor Agent",
   "title": "FIX: Google Drive = okas2000@gmail.com only (block yonsei)",
-  "instruction": "CEO: Drive was open as okas2000@yonsei.ac.kr — wrong. Pull latest scripts (lib-google-drive-account.sh). Run: bash scripts/mac-music-drive-sync-now.sh AUD-MUS-20260825-004. Script refuses yonsei CloudStorage path; requires ~/Library/CloudStorage/GoogleDrive-okas2000@gmail.com/My Drive. If missing: Google Drive desktop → sign out yonsei → sign in ONLY okas2000@gmail.com → re-run sync.",
+  "instruction": "CEO: Drive was open as okas2000@yonsei.ac.kr — wrong. Pull latest scripts (lib-google-drive-account.sh). Run: bash scripts/mac-create-audiso-music-mydrive.sh AUD-MUS-20260825-004. Script refuses yonsei CloudStorage; mkdir only under ~/Library/CloudStorage/GoogleDrive-okas2000@gmail.com/My Drive (or 내 드라이브). NO API. If missing: Google Drive desktop → sign out yonsei → sign in ONLY okas2000@gmail.com → re-run.",
   "tracks": ["AUD-MUS-20260825-004"],
-  "scripts": ["scripts/mac-music-drive-sync-now.sh"],
-  "ceo_action": "Mac Drive desktop: remove yonsei account, keep only okas2000@gmail.com. Phone Drive app: same Gmail."
+  "scripts": ["scripts/mac-create-audiso-music-mydrive.sh"],
+  "method": "finder_local_mkdir",
+  "no_api": true,
+  "ceo_action": "Mac Drive desktop: remove yonsei, keep only okas2000@gmail.com. Phone Drive app: same Gmail → 내 드라이브 → Audiso Music"
 }

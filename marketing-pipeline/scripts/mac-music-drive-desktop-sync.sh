@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Mac: copy AUD-MUS track into Google Drive desktop sync folder (phone via Drive app).
+# Finder-local mkdir/rsync only — NO Drive API / OAuth.
 # HARD RULE: only okas2000@gmail.com — never yonsei.ac.kr.
 set -euo pipefail
 

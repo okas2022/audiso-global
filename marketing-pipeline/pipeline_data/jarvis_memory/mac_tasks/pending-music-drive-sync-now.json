@@ -3,11 +3,13 @@
   "status": "pending",
   "priority": "urgent",
   "created_at": "2026-08-25T09:25:00Z",
+  "updated_at": "2026-08-25T11:30:21Z",
   "created_by": "Jarvis Cloud",
-  "assignee": "Mac Cursor Agent",
-  "title": "URGENT: Google Drive Audiso Music 폴더 생성 (스마트폰)",
-  "instruction": "CEO cannot see Audiso Music on Google Drive. Run immediately: bash scripts/mac-music-drive-sync-now.sh AUD-MUS-20260825-004 — creates Audiso Music folder with lyrics + track files. No Suno required. Phone: okas2000@gmail.com Drive app.",
+  "title": "URGENT: Google Drive Audiso Music (Finder-local mkdir)",
+  "instruction": "CEO: Finder = auto sync, no API. Run: bash scripts/mac-music-drive-sync-now.sh AUD-MUS-20260825-004 — mkdir Audiso Music under Gmail My Drive + rsync track. Phone: okas2000@gmail.com Drive app → 내 드라이브 → Audiso Music.",
   "tracks": ["AUD-MUS-20260825-004"],
   "scripts": ["scripts/mac-music-drive-sync-now.sh"],
-  "ceo_action": "Google Drive app → Audiso Music (after Mac sync completes)"
+  "method": "finder_local_mkdir",
+  "no_api": true,
+  "ceo_action": "Google Drive app → 내 드라이브 → Audiso Music (after Mac Drive desktop syncs)"
 }

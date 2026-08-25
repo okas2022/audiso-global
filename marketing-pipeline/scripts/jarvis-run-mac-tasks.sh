@@ -10,8 +10,16 @@ fi
 export JARVIS_MAC_TASKS_RUNNING=1
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
+GLOBAL="${AUDISO_GLOBAL:-/Users/Mac/Audiso/audiso-global}"
 TASK_DIR="${ROOT}/pipeline_data/jarvis_memory/mac_tasks"
 DONE_DIR="${TASK_DIR}/done"
+
+# Optional once: GLOBAL bootstrap for Finder Audiso Music (no re-entry into this runner)
+BOOT="${GLOBAL}/marketing-pipeline/scripts/mac-bootstrap-from-git.sh"
+if [[ -f "$BOOT" && "${JARVIS_SKIP_DRIVE_BOOTSTRAP:-0}" != "1" ]]; then
+  echo "[jarvis-mac] running GLOBAL drive bootstrap once"
+  JARVIS_SKIP_DRIVE_BOOTSTRAP=1 JARVIS_SKIP_MAC_TASKS=1 bash "$BOOT" || true
+fi
 
 mkdir -p "$DONE_DIR"
 

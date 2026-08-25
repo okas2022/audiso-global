@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Mac: Suno generate + stems + Google Drive (API or desktop sync) for smartphone.
+# Mac: Suno generate + stems + Finder-local Google Drive folder for smartphone.
+# CEO policy: mkdir into Drive desktop My Drive = auto sync. No OAuth/API required.
 set -euo pipefail
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
@@ -14,20 +15,13 @@ echo "[music-phone] $(date -u +%Y-%m-%dT%H:%M:%SZ) track=${TRACK}" | tee -a "$LO
 bash "${ROOT}/scripts/mac-suno-bootstrap-and-run.sh" 2>&1 | tee -a "$LOG" || \
   echo "[music-phone] suno step skipped/failed — syncing existing track files" | tee -a "$LOG"
 
-# Drive API (share link) if OAuth token exists
-if [[ -f "${ROOT}/pipeline_data/secrets/google_drive_token.json" ]]; then
-  if bash "${ROOT}/scripts/music-drive-upload.sh" "$TRACK" --share-link 2>&1 | tee -a "$LOG"; then
-    echo "[music-phone] Drive API OK" | tee -a "$LOG"
-    exit 0
-  fi
-fi
-
-# Fallback: Google Drive desktop folder (no OAuth JSON)
-if bash "${ROOT}/scripts/mac-music-drive-desktop-sync.sh" "$TRACK" 2>&1 | tee -a "$LOG"; then
+# Primary: Finder-local mkdir/rsync into Gmail My Drive (Drive desktop auto-sync)
+if bash "${ROOT}/scripts/mac-create-audiso-music-mydrive.sh" "$TRACK" 2>&1 | tee -a "$LOG"; then
+  echo "[music-phone] My Drive folder OK (no API)" | tee -a "$LOG"
   exit 0
 fi
 
-echo "[music-phone] Drive setup needed — one of:" | tee -a "$LOG" >&2
-echo "  A) Install Google Drive for desktop (auto sync to phone)" | tee -a "$LOG" >&2
-echo "  B) bash scripts/mac-google-drive-setup.sh (OAuth once)" | tee -a "$LOG" >&2
+echo "[music-phone] Drive desktop My Drive not mounted." | tee -a "$LOG" >&2
+echo "  Fix: Google Drive for desktop → sign in ONLY okas2000@gmail.com" | tee -a "$LOG" >&2
+echo "  Then: bash scripts/mac-create-audiso-music-mydrive.sh ${TRACK}" | tee -a "$LOG" >&2
 exit 1

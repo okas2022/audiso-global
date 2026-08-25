@@ -1,13 +1,15 @@
 {
   "id": "mac-task-music-phone-004",
   "status": "pending",
-  "priority": "urgent",
-  "created_at": "2026-08-25T08:35:00Z",
+  "priority": "high",
+  "created_at": "2026-08-18T00:00:00Z",
+  "updated_at": "2026-08-25T11:30:21Z",
   "created_by": "Jarvis Cloud",
-  "assignee": "Mac Cursor Agent",
-  "title": "AUD-MUS-004 → 스마트폰 Google Drive",
-  "instruction": "CEO wants results on phone via Google Drive. Run: bash scripts/mac-music-phone-pipeline.sh — Suno generate + stems + Drive upload. Phone: Google Drive app → Audiso Music → AUD-MUS-20260825-004 folder. Account: okas2000@gmail.com. Desktop Drive app = auto sync; else one-time OAuth: mac-google-drive-setup.sh",
+  "title": "AUD-MUS-004 → 스마트폰 Google Drive (Finder-local)",
+  "instruction": "CEO wants results on phone via Google Drive. Run: bash scripts/mac-music-phone-pipeline.sh — Suno/stems if available, then Finder-local mkdir into My Drive (NO OAuth). Phone: Google Drive app → 내 드라이브 → Audiso Music → AUD-MUS-20260825-004. Account: okas2000@gmail.com only.",
   "tracks": ["AUD-MUS-20260825-004"],
   "scripts": ["scripts/mac-music-phone-pipeline.sh"],
-  "ceo_action": "Open Google Drive app on phone — same account okas2000@gmail.com"
+  "method": "finder_local_mkdir",
+  "no_api": true,
+  "ceo_action": "Open Google Drive app on phone — okas2000@gmail.com → 내 드라이브 → Audiso Music"
 }

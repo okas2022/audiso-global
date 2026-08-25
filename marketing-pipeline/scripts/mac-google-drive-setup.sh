@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# DEPRECATED for Audiso Music phone sync.
+# CEO policy: use Finder-local mkdir via mac-create-audiso-music-mydrive.sh
+# (Google Drive for desktop auto-sync). Do NOT use Drive API / OAuth for music.
+#
+# Kept only for rare share-link tooling — prefer desktop sync.
 # Mac one-time: Google Drive OAuth for okas2000@gmail.com ONLY (never yonsei.ac.kr).
 set -euo pipefail
 

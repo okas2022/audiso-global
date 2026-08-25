@@ -1,0 +1,15 @@
+{
+  "id": "relay-20260825T113500",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T11:35:00Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "Finder Google Drive에 Audiso Music 폴더 mkdir. API 말고 로컬 폴더만. okas2000@gmail.com. bash scripts/mac-bootstrap-from-git.sh",
+  "instruction": "Pull main, run bootstrap → Finder mkdir Audiso Music",
+  "scripts": ["scripts/mac-bootstrap-from-git.sh"],
+  "auto_run_all_pending": true
+}

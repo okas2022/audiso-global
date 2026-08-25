@@ -1,12 +1,15 @@
 {
   "id": "mac-task-music-drive-004",
   "status": "pending",
-  "created_at": "2026-08-25T08:28:00Z",
+  "priority": "high",
+  "created_at": "2026-08-18T00:00:00Z",
+  "updated_at": "2026-08-25T11:30:21Z",
   "created_by": "Jarvis Cloud",
-  "assignee": "Mac Cursor Agent",
-  "title": "AUD-MUS-004 → Google Drive (스마트폰)",
-  "instruction": "After Suno/stems exist, run: bash scripts/music-drive-upload.sh AUD-MUS-20260825-004 --share-link. First time only: bash scripts/mac-google-drive-setup.sh with google_drive_credentials.json in pipeline_data/secrets/. CEO views on phone via Google Drive app → Audiso Music folder.",
+  "title": "AUD-MUS-004 → Google Drive (스마트폰, Finder-local)",
+  "instruction": "CEO: NO OAuth/API. After track files exist, run: bash scripts/mac-create-audiso-music-mydrive.sh AUD-MUS-20260825-004. mkdir/rsync into Gmail My Drive → Audiso Music. Phone: Drive app → 내 드라이브 → Audiso Music.",
   "tracks": ["AUD-MUS-20260825-004"],
-  "scripts": ["scripts/music-drive-upload.sh"],
-  "ceo_action": "Drive app on phone — same Google account okas2000@gmail.com"
+  "scripts": ["scripts/mac-create-audiso-music-mydrive.sh"],
+  "method": "finder_local_mkdir",
+  "no_api": true,
+  "ceo_action": "Drive app on phone — okas2000@gmail.com → 내 드라이브 → Audiso Music"
 }

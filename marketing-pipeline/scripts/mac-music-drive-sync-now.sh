@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Mac: create Audiso Music in My Drive (내 드라이브) then sync track — Gmail only.
+# Wrapper → mac-create-audiso-music-mydrive.sh (Finder-local mkdir/rsync, no API).
 set -euo pipefail
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"

@@ -7,10 +7,10 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/Mac/Audiso/marketing-pipeline/scripts/mac-jarvis-relay-loop.sh</string>
+    <string>/Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-bootstrap-from-git.sh</string>
   </array>
   <key>StartInterval</key>
-  <integer>300</integer>
+  <integer>120</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
@@ -23,8 +23,10 @@
     <string>/Users/Mac/Audiso/marketing-pipeline</string>
     <key>AUDISO_GLOBAL</key>
     <string>/Users/Mac/Audiso/audiso-global</string>
+    <key>GOOGLE_DRIVE_REQUIRED_ACCOUNT</key>
+    <string>okas2000@gmail.com</string>
     <key>PATH</key>
-    <string>/Users/Mac/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <string>/Users/Mac/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
   </dict>
 </dict>
 </plist>

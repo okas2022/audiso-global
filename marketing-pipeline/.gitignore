@@ -12,6 +12,7 @@ pipeline_data/browser_profiles/
 pipeline_data/pdfs/
 pipeline_data/assets/*
 !pipeline_data/assets/README.md
+!pipeline_data/assets/music/GOOGLE_DRIVE_PHONE.md
 tools/
 .tools/
 __pycache__/

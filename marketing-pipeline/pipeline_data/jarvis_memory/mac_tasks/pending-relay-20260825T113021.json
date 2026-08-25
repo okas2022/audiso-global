@@ -1,0 +1,18 @@
+{
+  "id": "relay-20260825T113021",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T11:30:21Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro (24h)",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "CEO: Finder = auto sync. NO API. bash scripts/mac-create-audiso-music-mydrive.sh AUD-MUS-20260825-004 — mkdir Audiso Music under Gmail My Drive.",
+  "instruction": "Pull main, sync GLOBAL→ROOT scripts+mac_tasks, run all pending including finder-local Audiso Music create. No OAuth.",
+  "scripts": [
+    "scripts/mac-cursor-worker-start.sh",
+    "scripts/jarvis-run-mac-tasks.sh"
+  ],
+  "auto_run_all_pending": true
+}
