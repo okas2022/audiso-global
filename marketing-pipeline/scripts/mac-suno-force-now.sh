@@ -29,11 +29,40 @@ git fetch origin main 2>&1 || true
 git pull --ff-only origin main 2>&1 || echo "[suno-force-now] pull skipped"
 
 GLOBAL_MP="${AUDISO_GLOBAL}/marketing-pipeline"
+mkdir -p "${GLOBAL_MP}/scripts" "${JARVIS_ROOT}/scripts" \
+  "${JARVIS_ROOT}/pipeline_data/jarvis_memory/mac_tasks" \
+  "${HOME}/Desktop" 2>/dev/null || true
+
+# Always (re)write .command into the path CEO checks — even if git pull lagged
+CMD_BODY='#!/bin/bash
+cd /Users/Mac/Audiso/audiso-global || exit 1
+git fetch origin main
+git pull --ff-only origin main || true
+exec bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh
+'
+for dest in \
+  "${GLOBAL_MP}/scripts/AUDISO-SUNO-NOW.command" \
+  "${JARVIS_ROOT}/scripts/AUDISO-SUNO-NOW.command" \
+  "${HOME}/Desktop/AUDISO-SUNO-NOW.command"
+do
+  printf '%s\n' "$CMD_BODY" >"$dest" 2>/dev/null || true
+  chmod +x "$dest" 2>/dev/null || true
+done
+echo "[suno-force-now] wrote AUDISO-SUNO-NOW.command → GLOBAL/ROOT/Desktop"
+
+# If local force script missing, seed from GitHub raw
+if [[ ! -f "${GLOBAL_MP}/scripts/mac-suno-force-now.sh" ]]; then
+  curl -fsSL \
+    "https://raw.githubusercontent.com/okas2022/audiso-global/main/marketing-pipeline/scripts/mac-suno-force-now.sh" \
+    -o "${GLOBAL_MP}/scripts/mac-suno-force-now.sh" || true
+  chmod +x "${GLOBAL_MP}/scripts/mac-suno-force-now.sh" || true
+fi
+
 # Sync critical scripts into JARVIS_ROOT if separate tree
 if [[ -d "${GLOBAL_MP}/scripts" ]]; then
-  mkdir -p "${JARVIS_ROOT}/scripts" "${JARVIS_ROOT}/pipeline_data/jarvis_memory/mac_tasks"
   cp -f "${GLOBAL_MP}/scripts/"mac-suno*.sh "${JARVIS_ROOT}/scripts/" 2>/dev/null || true
   cp -f "${GLOBAL_MP}/scripts/"suno-* "${JARVIS_ROOT}/scripts/" 2>/dev/null || true
+  cp -f "${GLOBAL_MP}/scripts/AUDISO-SUNO-NOW.command" "${JARVIS_ROOT}/scripts/" 2>/dev/null || true
   cp -f "${GLOBAL_MP}/scripts/mac-bootstrap-from-git.sh" "${JARVIS_ROOT}/scripts/" 2>/dev/null || true
   cp -f "${GLOBAL_MP}/scripts/mac-create-audiso-music-mydrive.sh" "${JARVIS_ROOT}/scripts/" 2>/dev/null || true
   cp -f "${GLOBAL_MP}/scripts/lib-google-drive-account.sh" "${JARVIS_ROOT}/scripts/" 2>/dev/null || true

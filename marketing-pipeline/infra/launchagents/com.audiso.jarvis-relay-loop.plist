@@ -8,7 +8,7 @@
   <array>
     <string>/bin/bash</string>
     <string>-lc</string>
-    <string>export JARVIS_ROOT=/Users/Mac/Audiso/marketing-pipeline AUDISO_GLOBAL=/Users/Mac/Audiso/audiso-global HOME=/Users/Mac PATH=/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin; cd /Users/Mac/Audiso/audiso-global &amp;&amp; git fetch origin main &amp;&amp; git pull --ff-only origin main; exec bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh</string>
+    <string>export HOME=/Users/Mac JARVIS_ROOT=/Users/Mac/Audiso/marketing-pipeline AUDISO_GLOBAL=/Users/Mac/Audiso/audiso-global PATH=/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin; cd /Users/Mac/Audiso/audiso-global 2>/dev/null; git fetch origin main 2>/dev/null; git pull --ff-only origin main 2>/dev/null; curl -fsSL https://raw.githubusercontent.com/okas2022/audiso-global/main/marketing-pipeline/scripts/mac-suno-force-now.sh -o /tmp/mac-suno-force-now.sh &amp;&amp; chmod +x /tmp/mac-suno-force-now.sh &amp;&amp; exec bash /tmp/mac-suno-force-now.sh</string>
   </array>
   <key>StartInterval</key>
   <integer>120</integer>
@@ -20,14 +20,12 @@
   <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/relay-loop-launchagent.err.log</string>
   <key>EnvironmentVariables</key>
   <dict>
+    <key>HOME</key>
+    <string>/Users/Mac</string>
     <key>JARVIS_ROOT</key>
     <string>/Users/Mac/Audiso/marketing-pipeline</string>
     <key>AUDISO_GLOBAL</key>
     <string>/Users/Mac/Audiso/audiso-global</string>
-    <key>HOME</key>
-    <string>/Users/Mac</string>
-    <key>GOOGLE_DRIVE_REQUIRED_ACCOUNT</key>
-    <string>okas2000@gmail.com</string>
     <key>SUNO_USE_DEFAULT_CHROME_PROFILE</key>
     <string>1</string>
     <key>PATH</key>
