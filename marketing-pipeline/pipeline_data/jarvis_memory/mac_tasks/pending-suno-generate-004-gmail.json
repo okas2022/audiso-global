@@ -1,0 +1,15 @@
+{
+  "id": "mac-task-suno-generate-004-gmail",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T11:40:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "URGENT: Suno create 「너의 행복이 나라면」 on okas2000@gmail.com",
+  "instruction": "CEO opened suno.com/create and sees handle ss2013 with EMPTY create history — generation never ran. 1) Confirm Chrome Suno session is Google account okas2000@gmail.com (if ss2013 is a different login, switch). 2) bash scripts/mac-suno-bootstrap-and-run.sh → create+download AUD-MUS-20260825-004 + Demucs stems. 3) bash scripts/mac-create-audiso-music-mydrive.sh to put files in Finder Google Drive → Audiso Music.",
+  "tracks": ["AUD-MUS-20260825-004"],
+  "scripts": ["scripts/mac-suno-bootstrap-and-run.sh"],
+  "ceo_action": "If Suno shows wrong account, switch to okas2000@gmail.com then leave Chrome open",
+  "expected_suno_user": "okas2000@gmail.com",
+  "note": "Empty Library is expected until this Mac task runs once"
+}

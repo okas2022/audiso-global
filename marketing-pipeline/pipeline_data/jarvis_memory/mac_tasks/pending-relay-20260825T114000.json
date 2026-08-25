@@ -1,0 +1,15 @@
+{
+  "id": "relay-20260825T114000",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T11:40:00Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "Suno create 이력 없음 — 아직 생성 안 됨. okas2000@gmail.com으로 https://suno.com/create 에서 AUD-MUS-20260825-004 「너의 행복이 나라면」 생성. bash scripts/mac-suno-bootstrap-and-run.sh",
+  "instruction": "Pull main, run Suno generate for 004, then Finder Audiso Music sync.",
+  "scripts": ["scripts/mac-suno-bootstrap-and-run.sh"],
+  "auto_run_all_pending": true
+}
