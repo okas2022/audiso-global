@@ -122,6 +122,24 @@ if [[ -f "$RELAY_SRC" ]]; then
   launchctl bootstrap "gui/${UID_NUM}" "$RELAY_DST" 2>/dev/null || true
 fi
 
+# Drop .command into Gmail Drive Audiso Music (Finder auto-sync) when mount exists
+DROP="${GLOBAL_MP}/scripts/mac-drop-suno-command-to-drive.sh"
+[[ -f "$DROP" ]] || DROP="${JARVIS_ROOT}/scripts/mac-drop-suno-command-to-drive.sh"
+if [[ -f "$DROP" ]]; then
+  echo "[suno-force-now] drop AUDISO-SUNO-NOW.command → Drive Audiso Music"
+  bash "$DROP" 2>/dev/null || true
+fi
+
 echo "[suno-force-now] running Suno bootstrap+generate"
-bash "${GLOBAL_MP}/scripts/mac-suno-bootstrap-and-run.sh"
+TRACK_DIR="${JARVIS_ROOT}/pipeline_data/assets/music/${SUNO_TRACK_ID}"
+[[ -d "${GLOBAL_MP}/pipeline_data/assets/music/${SUNO_TRACK_ID}" ]] && \
+  TRACK_DIR="${GLOBAL_MP}/pipeline_data/assets/music/${SUNO_TRACK_ID}"
+
+# Skip re-generate if already have downloaded audio
+if compgen -G "${TRACK_DIR}/suno/*.{mp3,wav,m4a}" > /dev/null 2>&1; then
+  echo "[suno-force-now] suno audio already present — skip generate, sync Drive only"
+  bash "${GLOBAL_MP}/scripts/mac-create-audiso-music-mydrive.sh" "${SUNO_TRACK_ID}" 2>/dev/null || true
+else
+  bash "${GLOBAL_MP}/scripts/mac-suno-bootstrap-and-run.sh"
+fi
 echo "[suno-force-now] done $(date -u +%Y-%m-%dT%H:%M:%SZ)"

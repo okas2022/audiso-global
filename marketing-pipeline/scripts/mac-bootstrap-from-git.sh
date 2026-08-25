@@ -29,9 +29,12 @@ if [[ -d "${GLOBAL_MP}/scripts" ]]; then
   if [[ "$(cd "$ROOT" 2>/dev/null && pwd -P)" != "$(cd "$GLOBAL_MP" && pwd -P)" ]]; then
     echo "[mac-bootstrap] sync GLOBAL_MP → ROOT"
     cp -f "${GLOBAL_MP}/scripts/"mac-*.sh "${ROOT}/scripts/" 2>/dev/null || true
+    cp -f "${GLOBAL_MP}/scripts/AUDISO-SUNO-NOW.command" "${ROOT}/scripts/" 2>/dev/null || true
+    cp -f "${GLOBAL_MP}/scripts/cloud-try-drive-drop-suno.sh" "${ROOT}/scripts/" 2>/dev/null || true
     cp -f "${GLOBAL_MP}/scripts/lib-google-drive-account.sh" "${ROOT}/scripts/" 2>/dev/null || true
     cp -f "${GLOBAL_MP}/scripts/"music-drive-* "${ROOT}/scripts/" 2>/dev/null || true
     cp -f "${GLOBAL_MP}/scripts/jarvis-run-mac-tasks.sh" "${ROOT}/scripts/" 2>/dev/null || true
+    cp -f "${GLOBAL_MP}/scripts/"suno-* "${ROOT}/scripts/" 2>/dev/null || true
     cp -f "${GLOBAL_MP}/pipeline_data/jarvis_memory/mac_tasks/"pending-*.json \
       "${ROOT}/pipeline_data/jarvis_memory/mac_tasks/" 2>/dev/null || true
     if [[ -d "${GLOBAL_MP}/pipeline_data/assets/music/AUD-MUS-20260825-004" ]]; then

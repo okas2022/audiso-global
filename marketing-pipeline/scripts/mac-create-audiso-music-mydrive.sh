@@ -108,5 +108,12 @@ Path('${EP}/drive-mydrive-created-$(date +%Y%m%dT%H%M%S).json').write_text(json.
 print(json.dumps(m, ensure_ascii=False, indent=2))
 "
 
+# Inbox: .command + README for Finder / phone (no CEO terminal)
+DROP="${GLOBAL}/marketing-pipeline/scripts/mac-drop-suno-command-to-drive.sh"
+[[ -f "$DROP" ]] || DROP="${ROOT}/scripts/mac-drop-suno-command-to-drive.sh"
+if [[ -f "$DROP" ]]; then
+  bash "$DROP" 2>/dev/null || true
+fi
+
 echo "[audiso-mydrive] DONE — Finder: ${audiso_root}"
 echo "[audiso-mydrive] Phone: Drive (${REQUIRED}) → 내 드라이브 → Audiso Music"

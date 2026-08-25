@@ -2,12 +2,15 @@
   "id": "mac-task-suno-force-now-why",
   "status": "pending",
   "priority": "urgent",
-  "created_at": "2026-08-25T11:53:00Z",
+  "created_at": "2026-08-25T11:56:00Z",
   "created_by": "Jarvis Cloud",
   "assignee": "Mac Cursor Agent",
-  "title": "FORCE NOW: Suno generate — Cloud cannot drive CEO Chrome",
-  "instruction": "CEO angry: Chrome open but nothing ran. Cloud Linux cannot CDP Mac Chrome. Run ABSOLUTE: bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh — pull main, reinstall LaunchAgents, CDP default Chrome profile (ss2013), generate AUD-MUS-20260825-004.",
+  "title": "FORCE NOW: Suno generate + Drive inbox drop",
+  "instruction": "Pull main. Run ABSOLUTE: bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh — reinstall LaunchAgents, CDP Chrome default profile (ss2013=okas2000@gmail.com), generate AUD-MUS-20260825-004 「너의 행복이 나라면」, then drop AUDISO-SUNO-NOW.command into Finder Google Drive → Audiso Music.",
   "tracks": ["AUD-MUS-20260825-004"],
-  "scripts": ["scripts/mac-suno-force-now.sh"],
-  "ceo_action": "If still idle: Finder double-click marketing-pipeline/scripts/AUDISO-SUNO-NOW.command"
+  "scripts": [
+    "scripts/mac-suno-force-now.sh",
+    "scripts/mac-drop-suno-command-to-drive.sh"
+  ],
+  "ceo_action": "Prefer automatic LaunchAgent. Only if idle: Finder → Google Drive (okas2000@gmail.com) → Audiso Music → double-click AUDISO-SUNO-NOW.command"
 }

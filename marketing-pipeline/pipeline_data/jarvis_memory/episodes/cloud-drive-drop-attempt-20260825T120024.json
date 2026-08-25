@@ -1,0 +1,17 @@
+{
+  "event": "cloud_drive_drop_attempt",
+  "at": "2026-08-25T12:00:24Z",
+  "status": "blocked_no_gmail_drive_mount",
+  "exit_code": 2,
+  "required_account": "okas2000@gmail.com",
+  "probes": [
+    "/home/ubuntu/Library/CloudStorage/GoogleDrive-okas2000@gmail.com:missing",
+    "/Users/Mac/Library/CloudStorage/GoogleDrive-okas2000@gmail.com:missing",
+    "/home/ubuntu/Library/CloudStorage/GoogleDrive-okas2000%40gmail.com:missing",
+    "/Volumes/GoogleDrive:missing",
+    "/home/ubuntu/Google Drive:missing",
+    "/home/ubuntu/GoogleDrive:missing"
+  ],
+  "note": "Cloud Linux has no Google Drive desktop. Real drop needs Mac Finder mount or Drive API OAuth (not present).",
+  "fallback": "Git push main + mac_tasks; LaunchAgent curls raw GitHub mac-suno-force-now.sh"
+}

@@ -1,0 +1,44 @@
+{
+  "event": "suno_drive_inbox_cloud_attempt",
+  "at": "2026-08-25T12:00:24Z",
+  "track_id": "AUD-MUS-20260825-004",
+  "title": "너의 행복이 나라면",
+  "suno_handle": "ss2013",
+  "google_account": "okas2000@gmail.com",
+  "verified_on_origin_main": {
+    "AUDISO-SUNO-NOW.command": true,
+    "mac-suno-force-now.sh": true,
+    "github_raw_http_200": true
+  },
+  "cloud_drive_mount": {
+    "GoogleDrive-okas2000@gmail.com": "missing",
+    "yonsei_skipped": true,
+    "drive_api_oauth": "absent",
+    "result": "blocked_no_gmail_drive_mount"
+  },
+  "private_worker": {
+    "usePrivateWorker": false,
+    "privateWorkerId": null,
+    "self_hosted_agents_matched": 0
+  },
+  "automatic_paths_tried": [
+    "origin/main script verify",
+    "GitHub raw curl (LaunchAgent path)",
+    "Cloud Library/CloudStorage Gmail Drive drop",
+    "mac_tasks + relay queue for Mac LaunchAgent"
+  ],
+  "shipped": [
+    "mac-drop-suno-command-to-drive.sh",
+    "cloud-try-drive-drop-suno.sh",
+    "AUDISO-SUNO-NOW.command curl fallback",
+    "pending-drop-suno-command-drive.json",
+    "pending-relay-20260825T115600.json"
+  ],
+  "blocked": [
+    "Cloud cannot CDP Mac Chrome",
+    "No My Machines private worker",
+    "No Google Drive desktop mount on Cloud VM",
+    "No google_drive_token.json for API upload"
+  ],
+  "mac_unblock_automatic": "If com.audiso.jarvis-relay-loop is loaded, it curls GitHub main mac-suno-force-now.sh every 120s — no CEO terminal. Else CEO Finder double-click only after Drive inbox appears (Mac-side drop)."
+}

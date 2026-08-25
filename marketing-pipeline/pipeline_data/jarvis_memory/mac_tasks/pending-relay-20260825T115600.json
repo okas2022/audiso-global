@@ -1,0 +1,12 @@
+{
+  "id": "pending-relay-20260825T115600",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T11:56:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Jarvis relay-loop",
+  "title": "Relay: Suno 004 force + Drive inbox",
+  "prompt": "AUDISO-SUNO-NOW — generate 너의 행복이 나라면 (AUD-MUS-20260825-004) ss2013=okas2000@gmail.com. Drop .command to Drive Audiso Music.",
+  "instruction": "git pull origin main; bash marketing-pipeline/scripts/mac-suno-force-now.sh; bash marketing-pipeline/scripts/mac-drop-suno-command-to-drive.sh",
+  "tracks": ["AUD-MUS-20260825-004"]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "mac-task-drop-suno-command-drive",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T11:56:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "Drop AUDISO-SUNO-NOW.command into Gmail Drive Audiso Music",
+  "instruction": "bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-drop-suno-command-to-drive.sh — mkdir Audiso Music under GoogleDrive-okas2000@gmail.com My Drive / 내 드라이브, copy AUDISO-SUNO-NOW.command + README_RUN_ME.txt + mac-suno-force-now.sh. Never yonsei.",
+  "scripts": ["scripts/mac-drop-suno-command-to-drive.sh"],
+  "ceo_action": "None if Drive desktop is Gmail — file appears in Finder automatically"
+}
