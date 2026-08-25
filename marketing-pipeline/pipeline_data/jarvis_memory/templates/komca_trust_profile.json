@@ -19,7 +19,8 @@
     "account_number": "126-627716-02-001"
   },
   "trust": {
-    "role": ["composer", "lyricist"],
+    "role": ["lyricist", "composer", "arranger"],
+    "role_ko": ["작사", "작곡", "편곡"],
     "pen_name": "",
     "application_fee_krw": 200000,
     "student_discount": false
