@@ -14,7 +14,17 @@ Invoked through Jarvis from **this Cloud prompt window**. Say "Steve …" or mar
 
 - IG cards, quiz cards, promo copy (Modoo, WithHear, Peacetop, MindTone)
 - Image/video generation via **Higgsfield MCP** (auth in Cursor IDE if needed)
+- Music briefs + Suno → stem → master pipeline (`pipeline_data/assets/music/`)
 - Assets saved to `pipeline_data/assets/` and `pipeline_data/campaigns/`
+
+## Music pipeline
+
+- Track ID: `AUD-MUS-YYYYMMDD-NNN`
+- Brief template: `pipeline_data/jarvis_memory/templates/music_brief.json`
+- New track: `bash scripts/music-new-track.sh --title … --genre … --bpm … --purpose … --hook …`
+- Checklist: `bash scripts/music-suno-checklist.sh <TRACK_ID> [--mark suno_imported|stems_done|master_done]`
+- Episodes always store `track_id` + Suno/style/lyrics prompts under `jarvis_memory/episodes/music-*.json`
+- Present audio paths as clickable `file://` links when files exist on Mac
 
 ## Layout v2 (공식 글 — CEO spec)
 
@@ -35,4 +45,5 @@ Template: `pipeline_data/campaigns/AO-OFFICIAL-20260818/`
 ## Paths
 
 - Assets: `/Users/Mac/Audiso/marketing-pipeline/pipeline_data/assets/`
+- Music: `/Users/Mac/Audiso/marketing-pipeline/pipeline_data/assets/music/`
 - Campaigns: `/Users/Mac/Audiso/marketing-pipeline/pipeline_data/campaigns/`

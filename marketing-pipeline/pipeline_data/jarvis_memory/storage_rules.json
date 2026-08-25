@@ -49,6 +49,11 @@
       "purpose": "Steve·마케팅 이미지/영상 산출물",
       "required": false
     },
+    "music_assets": {
+      "path": "/Users/Mac/Audiso/marketing-pipeline/pipeline_data/assets/music",
+      "purpose": "Steve·Jarvis 음악 트랙 (Suno→stem→master). Audio Mac-local; brief/checklist/episodes syncable",
+      "required": false
+    },
     "desktop_legacy": {
       "path": "/Users/Mac/Desktop/모두의보청기-오디에스오-마케팅-파이프라인",
       "purpose": "구 경로 — 마이그레이션 완료 시 존재하면 안 됨",
@@ -78,6 +83,7 @@
   "write_rules": [
     "Jarvis·마케팅 파이프라인 → marketing-pipeline/pipeline_data/ (MacBook Pro local)",
     "BD·화이트페이퍼 → pipeline_data/global_bd/",
+    "음악 트랙 → pipeline_data/assets/music/AUD-MUS-*/ (Suno exports·stems·masters는 Mac local)",
     "글로벌 사이트 소스 → audiso-global/",
     "대용량 에셋 → 외장 SSD (Audiso 루트 하위), Desktop 직접 저장 금지",
     ".env·시크릿 → Jarvis memory 저장 금지"

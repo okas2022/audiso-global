@@ -45,5 +45,15 @@
     "auto_start_script": "scripts/mac-cursor-worker-start.sh",
     "mode": "prompt_relay",
     "note": "Cloud does not replace Mac execution. User prompts here → worker runs on MacBook Pro local paths."
+  },
+  "music_pipeline": {
+    "enabled": true,
+    "root": "pipeline_data/assets/music/",
+    "brief_template": "pipeline_data/jarvis_memory/templates/music_brief.json",
+    "track_id_format": "AUD-MUS-YYYYMMDD-NNN",
+    "new_track_script": "scripts/music-new-track.sh",
+    "checklist_script": "scripts/music-suno-checklist.sh",
+    "episode_prefix": "music-",
+    "note": "Audio binaries Mac-local only. Briefs, prompts, checklist JSON, and episode logs may sync."
   }
 }

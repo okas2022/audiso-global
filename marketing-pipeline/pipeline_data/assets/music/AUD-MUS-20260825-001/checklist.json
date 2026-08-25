@@ -1,0 +1,47 @@
+{
+  "schema": "audiso.music_checklist.v1",
+  "track_id": "AUD-MUS-20260825-001",
+  "stages": [
+    {
+      "id": "brief_ready",
+      "label": "music_brief filled",
+      "done": true
+    },
+    {
+      "id": "suno_prompted",
+      "label": "Suno style+lyrics prompts saved",
+      "done": true
+    },
+    {
+      "id": "suno_imported",
+      "label": "Suno export in suno/",
+      "done": false
+    },
+    {
+      "id": "stems_done",
+      "label": "Stem separation in stems/",
+      "done": false
+    },
+    {
+      "id": "daw_edit",
+      "label": "DAW edit / arrange",
+      "done": false
+    },
+    {
+      "id": "master_done",
+      "label": "Master in masters/ (LUFS check)",
+      "done": false
+    },
+    {
+      "id": "rights_ok",
+      "label": "Commercial rights noted",
+      "done": false
+    },
+    {
+      "id": "delivered",
+      "label": "Deliverable linked / published",
+      "done": false
+    }
+  ],
+  "updated_at": "2026-08-25T07:08:58Z"
+}

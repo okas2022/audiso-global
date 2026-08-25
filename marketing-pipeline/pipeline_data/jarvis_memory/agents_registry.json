@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-08-18T10:20:00Z",
+  "updated_at": "2026-08-25T07:05:00Z",
   "policy": "mac_local_first",
   "policy_notes": "MacBook Pro (office) = main computer + data store. Phone/MacBook Air/Cloud = prompt relay only. NEVER delete Mac local files for Git dedup.",
   "zero_capability_loss": true,
@@ -44,14 +44,22 @@
         "promo_copy",
         "image_generation",
         "video_generation",
-        "campaign_assets"
+        "campaign_assets",
+        "music_brief",
+        "suno_stem_master_pipeline"
       ],
       "paths": {
         "assets": "pipeline_data/assets/",
+        "music": "pipeline_data/assets/music/",
+        "music_brief_template": "pipeline_data/jarvis_memory/templates/music_brief.json",
         "campaigns": "pipeline_data/campaigns/"
       },
+      "scripts": [
+        "scripts/music-new-track.sh",
+        "scripts/music-suno-checklist.sh"
+      ],
       "mcp": ["Higgsfield"],
-      "invoke": "Say: 'Steve …' or '마케팅 에셋 …' — Jarvis routes to Steve"
+      "invoke": "Say: 'Steve …' / '마케팅 에셋 …' / '음악·Suno·작곡 …' — Jarvis routes to Steve"
     },
     {
       "id": "audiso-global",

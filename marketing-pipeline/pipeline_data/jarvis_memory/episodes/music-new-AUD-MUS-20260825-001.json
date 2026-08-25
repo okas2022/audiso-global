@@ -1,0 +1,50 @@
+{
+  "at": "2026-08-25T07:07:41Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_track_created",
+  "track_id": "AUD-MUS-20260825-001",
+  "title_working": "Peacetop morning hook",
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nk-pop,ambient\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: hear the quiet, then the lift\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "genre": [
+      "k-pop",
+      "ambient"
+    ],
+    "bpm": 96,
+    "hook": {
+      "one_liner": "hear the quiet, then the lift",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "IG reel / brand bed",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    }
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-001",
+    "brief": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-001/music_brief.json",
+    "checklist": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-001/checklist.json"
+  }
+}

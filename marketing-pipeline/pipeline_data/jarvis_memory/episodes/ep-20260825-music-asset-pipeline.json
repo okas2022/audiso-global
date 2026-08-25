@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-25T07:10:14Z",
+  "actor": "Jarvis Cloud",
+  "event": "music_asset_pipeline_installed",
+  "paths": {
+    "music_root": "pipeline_data/assets/music/",
+    "brief_template": "pipeline_data/jarvis_memory/templates/music_brief.json",
+    "new_track": "scripts/music-new-track.sh",
+    "checklist": "scripts/music-suno-checklist.sh"
+  },
+  "sample_track_id": "AUD-MUS-20260825-001",
+  "note": "Audio binaries stay Mac-local; briefs/prompts/checklist/episodes are scaffolded in Git."
+}
