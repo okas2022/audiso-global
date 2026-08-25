@@ -11,6 +11,7 @@ mkdir -p "${ROOT}/pipeline_data/secrets"
 if [[ ! -f "${ROOT}/pipeline_data/secrets/suno.env" ]]; then
   cat > "${ROOT}/pipeline_data/secrets/suno.env" <<'EOF'
 SUNO_USER=okas2000@gmail.com
+SUNO_HANDLE=ss2013
 SUNO_TRACK_ID=AUD-MUS-20260825-004
 SUNO_CDP_URL=http://127.0.0.1:9223
 EOF
@@ -36,8 +37,8 @@ if ! curl -sf "http://127.0.0.1:${PORT}/json/version" >/dev/null 2>&1; then
   sleep 8
 fi
 
-echo "[suno-task] Attaching to logged-in Chrome as ${SUNO_USER} → ${TRACK}"
-echo "[suno-task] IMPORTANT: Suno must be okas2000@gmail.com (not another profile like ss2013-only guest)"
+echo "[suno-task] Attaching to logged-in Chrome as ${SUNO_USER} (Suno handle ss2013) → ${TRACK}"
+echo "[suno-task] CEO confirmed: ss2013 == okas2000@gmail.com and already logged in"
 bash "${ROOT}/scripts/suno-auto-run.sh" "$TRACK" --cdp "$SUNO_CDP_URL"
 
 echo "[suno-task] Finder → Google Drive Audiso Music (auto-sync, no API)…"

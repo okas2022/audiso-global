@@ -69,8 +69,8 @@ def pause_ceo(msg: str, wait: int = 120) -> None:
 def try_login(page, user: str, password: str) -> None:
     page.goto(SUNO_URL, wait_until="domcontentloaded", timeout=60000)
     time.sleep(2)
-    # Already logged in?
-    for hint in ["Create", "Library", "만들기", "okas2000", "@gmail"]:
+    # Already logged in? (ss2013 = Suno handle for okas2000@gmail.com)
+    for hint in ["Create", "Library", "만들기", "okas2000", "@gmail", "ss2013", "suno2013"]:
         try:
             if page.get_by_text(hint, exact=False).count():
                 log(f"session looks logged in (saw '{hint}')")
@@ -78,8 +78,8 @@ def try_login(page, user: str, password: str) -> None:
         except Exception:
             pass
     if not password:
-        log(f"Logged-in session expected for {user or 'okas2000@gmail.com'} — CEO confirm Google if wall appears")
-        pause_ceo("Suno에 okas2000@gmail.com 로그인 상태면 Enter", wait=90)
+        log(f"Logged-in session expected for {user or 'okas2000@gmail.com'} (Suno handle ss2013)")
+        pause_ceo("Suno에 okas2000@gmail.com (ss2013) 로그인 상태면 Enter", wait=60)
         return
     for text in ["Sign in", "Log in", "로그인"]:
         try:

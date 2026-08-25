@@ -4,9 +4,10 @@ set -euo pipefail
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
 GLOBAL="${AUDISO_GLOBAL:-/Users/Mac/Audiso/audiso-global}"
-BRANCH="cursor/music-asset-pipeline-4566"
+BRANCH="${AUDISO_SYNC_BRANCH:-main}"
 
 echo "[suno-bootstrap] $(date -u +%Y-%m-%dT%H:%M:%SZ) fetching ${BRANCH}"
+echo "[suno-bootstrap] expected Suno Google account: okas2000@gmail.com"
 
 pull_scripts() {
   local repo="$1"
@@ -26,15 +27,10 @@ pull_scripts() {
         marketing-pipeline/scripts/music-await-suno.sh \
         marketing-pipeline/scripts/music-suno-checklist.sh \
         marketing-pipeline/scripts/mac-install-komca-playwright.sh \
-        marketing-pipeline/scripts/music-drive-upload.sh \
-        marketing-pipeline/scripts/music-drive-upload.py \
-        marketing-pipeline/scripts/mac-google-drive-setup.sh \
-        marketing-pipeline/scripts/mac-install-google-drive.sh \
+        marketing-pipeline/scripts/mac-create-audiso-music-mydrive.sh \
+        marketing-pipeline/scripts/lib-google-drive-account.sh \
         marketing-pipeline/scripts/mac-music-drive-desktop-sync.sh \
-        marketing-pipeline/scripts/mac-music-phone-pipeline.sh \
         marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004 \
-        marketing-pipeline/pipeline_data/assets/music/GOOGLE_DRIVE_PHONE.md \
-        marketing-pipeline/pipeline_data/jarvis_memory/templates/music_brief.json \
         2>&1 || true
       # Copy into JARVIS_ROOT if separate tree
       if [[ "$(cd "$ROOT" && pwd)" != "$(cd "${repo}/marketing-pipeline" && pwd)" ]]; then

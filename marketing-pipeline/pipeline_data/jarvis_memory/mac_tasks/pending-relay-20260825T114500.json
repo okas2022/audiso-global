@@ -1,0 +1,15 @@
+{
+  "id": "relay-20260825T114500",
+  "type": "prompt_relay",
+  "status": "pending",
+  "priority": 0,
+  "created_at": "2026-08-25T11:45:00Z",
+  "created_by": "Jarvis Cloud",
+  "source": "cloud-mobile-pro",
+  "execute_on": "MacBook Pro",
+  "execute_path": "/Users/Mac/Audiso/marketing-pipeline",
+  "prompt": "CEO: ss2013=okas2000@gmail.com 로그인 완료. Suno 이력 없음=미생성. 지금 mac-suno-bootstrap-and-run.sh 로 AUD-MUS-20260825-004 생성.",
+  "instruction": "Pull main and run Suno generate immediately — session already logged in as ss2013.",
+  "scripts": ["scripts/mac-suno-bootstrap-and-run.sh"],
+  "auto_run_all_pending": true
+}
