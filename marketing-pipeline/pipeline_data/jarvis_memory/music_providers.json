@@ -3,25 +3,40 @@
   "updated_at": "2026-08-25T07:25:00Z",
   "policy": "zero_extra_cost_first",
   "primary": {
-    "id": "suno_downloads_watch",
-    "label": "Suno app → Mac Downloads → auto import",
-    "cost": "$0 incremental (uses existing Suno subscription credits)",
-    "automation_level": "semi_auto",
+    "id": "suno_browser_cdp",
+    "label": "Suno web (logged-in Chrome CDP) → download → Demucs stems",
+    "cost": "Suno subscription credits only",
+    "automation_level": "full_auto_when_session_warm",
+    "account": "okas2000@gmail.com",
     "ceo_steps_remaining": [
-      "Generate in Suno web/app (browser)",
-      "Click Download once (MP3/WAV lands in ~/Downloads)"
+      "First run only: Google login in Jarvis Chrome window if prompted"
     ],
     "jarvis_steps_automated": [
-      "Detect new audio in Downloads",
-      "Match to awaiting AUD-MUS track",
-      "Copy to track suno/ + checklist suno_imported + episode log"
+      "Attach CDP Chrome",
+      "Paste style+lyrics from AUD-MUS track",
+      "Create + download WAV/MP3",
+      "Import to suno/",
+      "Demucs → stems/ (vocals bass drums other) + masters WAV"
     ],
+    "scripts": {
+      "run": "scripts/mac-suno-run-task.sh",
+      "chrome": "scripts/mac-suno-chrome-debug.sh",
+      "generate": "scripts/suno-auto-run.sh",
+      "stems": "scripts/music-stem-separate.sh",
+      "fallback_watch": "scripts/music-suno-inbox-watch.sh"
+    },
+    "note": "CEO opted in to browser automation of personal Suno session. No unofficial API wrapper."
+  },
+  "fallback_downloads_watch": {
+    "id": "suno_downloads_watch",
+    "label": "Manual Download click → ~/Downloads auto import",
+    "cost": "$0 incremental",
+    "automation_level": "semi_auto",
     "scripts": {
       "mark_awaiting": "scripts/music-await-suno.sh",
       "watch": "scripts/music-suno-inbox-watch.sh",
       "launchagent": "scripts/mac-install-music-watch-launchagent.sh"
-    },
-    "note": "Suno has no official public API. Full zero-click generation is NOT available via the consumer app alone."
+    }
   },
   "fallback_api": {
     "id": "elevenlabs_music",

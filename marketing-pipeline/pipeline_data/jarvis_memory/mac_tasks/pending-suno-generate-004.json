@@ -1,0 +1,14 @@
+{
+  "id": "mac-task-suno-generate-004",
+  "status": "pending",
+  "created_at": "2026-08-25T08:20:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "Suno 생성+다운로드+stem 분리 AUD-MUS-20260825-004",
+  "instruction": "CEO already logged into Suno as okas2000@gmail.com. Run scripts/mac-suno-run-task.sh — CDP Chrome, paste female-POV lyrics, Create, download WAV/MP3, Demucs stems into stems/ for DAW. If Chrome login wall appears once, wait for CEO Google login then continue.",
+  "tracks": ["AUD-MUS-20260825-004"],
+  "scripts": ["scripts/mac-suno-run-task.sh"],
+  "suno_user": "okas2000@gmail.com",
+  "ceo_action": "Only if Chrome asks Google login once — otherwise fully auto including download+stems",
+  "note": "Password not stored. Session via pipeline_data/browser_profiles/suno_chrome_cdp"
+}
