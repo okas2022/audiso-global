@@ -26,7 +26,14 @@ pull_scripts() {
         marketing-pipeline/scripts/music-await-suno.sh \
         marketing-pipeline/scripts/music-suno-checklist.sh \
         marketing-pipeline/scripts/mac-install-komca-playwright.sh \
+        marketing-pipeline/scripts/music-drive-upload.sh \
+        marketing-pipeline/scripts/music-drive-upload.py \
+        marketing-pipeline/scripts/mac-google-drive-setup.sh \
+        marketing-pipeline/scripts/mac-install-google-drive.sh \
+        marketing-pipeline/scripts/mac-music-drive-desktop-sync.sh \
+        marketing-pipeline/scripts/mac-music-phone-pipeline.sh \
         marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004 \
+        marketing-pipeline/pipeline_data/assets/music/GOOGLE_DRIVE_PHONE.md \
         marketing-pipeline/pipeline_data/jarvis_memory/templates/music_brief.json \
         2>&1 || true
       # Copy into JARVIS_ROOT if separate tree

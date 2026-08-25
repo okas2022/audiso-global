@@ -38,3 +38,12 @@ fi
 
 echo "[suno-task] Attaching to logged-in Chrome as ${SUNO_USER} → ${TRACK}"
 bash "${ROOT}/scripts/suno-auto-run.sh" "$TRACK" --cdp "$SUNO_CDP_URL"
+
+echo "[suno-task] Uploading to Google Drive for smartphone…"
+if bash "${ROOT}/scripts/music-drive-upload.sh" "$TRACK" --share-link 2>/dev/null; then
+  echo "[suno-task] Drive API upload OK — check Google Drive app: Audiso Music"
+elif bash "${ROOT}/scripts/mac-music-drive-desktop-sync.sh" "$TRACK" 2>/dev/null; then
+  echo "[suno-task] Drive desktop sync OK — check Google Drive app: Audiso Music"
+else
+  echo "[suno-task] Drive skipped — install Google Drive desktop OR: bash scripts/mac-google-drive-setup.sh" >&2
+fi
