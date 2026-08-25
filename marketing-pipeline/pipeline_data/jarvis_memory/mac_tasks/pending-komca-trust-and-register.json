@@ -1,0 +1,16 @@
+{
+  "id": "mac-task-komca-trust-and-register",
+  "status": "pending",
+  "created_at": "2026-08-25T07:45:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "KOMCA 신탁서류 패키지 + 포털 자동화 (CEO 휴대폰 인증만)",
+  "instruction": "CEO 터미널 복붙 금지. Mac agent가 순서대로 실행. 1) CEO 채팅의 KOMCA 계정으로 mac-komca-write-env.sh 실행 (.env gitignored). 2) komca-full-automation.sh — 브라우저 자동 로그인·저작물등록까지 진행. 3) 휴대폰 본인인증 팝업만 CEO가 Mac 화면에서 완료. 4) 신탁계약(20만원+서류)은 온라인 불가 — komca_trust_pack 체크리스트대로 방문/우펁.",
+  "tracks": ["AUD-MUS-20260825-003"],
+  "scripts": [
+    "scripts/mac-komca-run-task.sh"
+  ],
+  "env_required": ["KOMCA_USER", "KOMCA_PASS"],
+  "ceo_action": "Mac 브라우저에서 휴대폰 본인인증만 — 나머지 Jarvis 자동",
+  "note": "Mac agent: CEO 채팅의 KOMCA 계정으로 KOMCA_USER/KOMCA_PASS 환경변수 설정 후 mac-komca-run-task.sh 실행. 비밀번호 Git/jarvis_memory 저장 금지."
+}

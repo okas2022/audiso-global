@@ -71,7 +71,10 @@
     "daw_watch_script": "scripts/music-daw-watch.sh",
     "daw_watch_launchagent": "scripts/mac-install-music-daw-watch-launchagent.sh",
     "catalog_report_launchagent": "scripts/mac-install-music-catalog-report-launchagent.sh",
+    "komca_portal_run": "scripts/komca-portal-run.sh",
+    "komca_full_automation": "scripts/komca-full-automation.sh",
+    "komca_mac_task": "scripts/mac-komca-run-task.sh",
     "episode_prefix": "music-",
-    "note": "Phase A–C: Suno → human evidence → KOMCA → Copyright Commission → ISRC. Mac LaunchAgents for Suno + DAW watch."
+    "note": "Phase A–C + KOMCA browser automation on Mac (CEO phone auth only). Trust contract still requires offline docs+200K KRW."
   }
 }

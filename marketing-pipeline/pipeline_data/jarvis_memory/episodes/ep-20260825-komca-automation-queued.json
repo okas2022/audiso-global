@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-25T07:48:00Z",
+  "actor": "Jarvis",
+  "event": "komca_automation_queued",
+  "summary": "KOMCA 포털 자동화 + 신탁서류 패키지 Mac task 큐. CEO는 Mac 화면에서 휴대폰 본인인증만.",
+  "mac_task": "pipeline_data/jarvis_memory/mac_tasks/pending-komca-trust-and-register.json",
+  "track_id": "AUD-MUS-20260825-003",
+  "scripts": [
+    "scripts/mac-komca-run-task.sh",
+    "scripts/komca-full-automation.sh",
+    "scripts/komca-trust-doc-pack.sh"
+  ],
+  "limitations": [
+    "신탁계약 체결은 KOMCA 정책상 방문/우편+20만원 (온라인 일괄 불가)",
+    "저작물 등록·등록진행내역 휴대폰인증은 CEO 필수",
+    "KOMCA_USER/KOMCA_PASS는 .env/gitignored only — jarvis_memory/Git 금지"
+  ],
+  "ceo_security_note": "채팅에 비밀번호 노출 — 등록 완료 후 KOMCA 비밀번호 변경 권장"
+}

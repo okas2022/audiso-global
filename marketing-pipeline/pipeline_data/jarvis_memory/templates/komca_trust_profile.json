@@ -1,0 +1,35 @@
+{
+  "schema": "audiso.komca_trust_profile.v1",
+  "note": "CEO 확인 후 Mac local만 저장 권장. Git에는 placeholder만.",
+  "member_type": "trustor_author",
+  "applicant": {
+    "name_ko": "서영준",
+    "name_en": "Youngjoon Seo",
+    "resident_id": "FILL_주민번호",
+    "birth_date": "FILL_YYYYMMDD",
+    "phone": "FILL_휴대폰",
+    "email": "FILL_이메일",
+    "address": "FILL_주소"
+  },
+  "bank": {
+    "bank_name": "FILL_은행",
+    "account_holder": "서영준",
+    "account_number": "FILL_계좌번호"
+  },
+  "trust": {
+    "role": ["composer", "lyricist"],
+    "pen_name": "",
+    "application_fee_krw": 200000,
+    "student_discount": false
+  },
+  "ai_policy": {
+    "uses_ai": true,
+    "disclosure_required": true,
+    "note": "AI 초안 + 인간 실질 기여 — music_brief human_contribution 참조"
+  },
+  "portal": {
+    "login_url": "https://www.komca.or.kr/service2/service_04_login.jsp",
+    "trustor_verify_url": "https://www.komca.or.kr/service2/service_03_join.jsp",
+    "work_register_hint": "마이페이지 → 저작물등록 → 등록진행내역 → 휴대폰인증"
+  }
+}
