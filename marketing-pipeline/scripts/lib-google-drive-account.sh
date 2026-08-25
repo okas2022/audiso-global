@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Shared: resolve Google Drive desktop root for Audiso ONLY.
 # Hard rule: okas2000@gmail.com only — NEVER yonsei.ac.kr / other accounts.
-set -euo pipefail
-
 # shellcheck disable=SC2034
+
 GOOGLE_DRIVE_REQUIRED_ACCOUNT="${GOOGLE_DRIVE_REQUIRED_ACCOUNT:-okas2000@gmail.com}"
 GOOGLE_DRIVE_BLOCKED_DOMAINS="${GOOGLE_DRIVE_BLOCKED_DOMAINS:-yonsei.ac.kr}"
 
@@ -23,11 +22,26 @@ drive_account_blocked() {
 
 drive_account_is_required() {
   local path="$1"
-  local want
+  local want raw
   want=$(echo "$GOOGLE_DRIVE_REQUIRED_ACCOUNT" | tr '[:upper:]' '[:lower:]')
-  local lower
-  lower=$(echo "$path" | tr '[:upper:]' '[:lower:]')
-  [[ "$lower" == *"${want}"* ]]
+  # CloudStorage sometimes URL-encodes @ as %40
+  raw=$(echo "$path" | tr '[:upper:]' '[:lower:]' | sed 's/%40/@/g')
+  [[ "$raw" == *"${want}"* ]]
+}
+
+# Resolve "My Drive" / "내 드라이브" under a CloudStorage GoogleDrive-* root.
+drive_resolve_mydrive() {
+  local cloud="$1"
+  local cand
+  for cand in \
+    "$cloud/My Drive" \
+    "$cloud/내 드라이브" \
+    "$cloud/MyDrive" \
+    "$cloud"
+  do
+    [[ -d "$cand" ]] && { echo "$cand"; return 0; }
+  done
+  return 1
 }
 
 # Prefer CloudStorage path that embeds the Gmail account in the folder name.
@@ -43,13 +57,8 @@ find_gmail_drive_root() {
       continue
     fi
     if drive_account_is_required "$base"; then
-      my="$cloud/My Drive"
-      if [[ -d "$my" ]]; then
+      if my=$(drive_resolve_mydrive "$cloud"); then
         found="$my"
-        break
-      fi
-      if [[ -d "$cloud" ]]; then
-        found="$cloud"
         break
       fi
     fi
@@ -61,10 +70,9 @@ find_gmail_drive_root() {
     return 0
   fi
 
-  # Explicit env override (must still be gmail)
   if [[ -n "${GOOGLE_DRIVE_ROOT:-}" ]]; then
     if drive_account_blocked "$GOOGLE_DRIVE_ROOT"; then
-      echo "[drive-account] ERROR: GOOGLE_DRIVE_ROOT is blocked account (yonsei/etc): $GOOGLE_DRIVE_ROOT" >&2
+      echo "[drive-account] ERROR: GOOGLE_DRIVE_ROOT is blocked account: $GOOGLE_DRIVE_ROOT" >&2
       return 1
     fi
     if drive_account_is_required "$GOOGLE_DRIVE_ROOT" || [[ "${GOOGLE_DRIVE_ALLOW_GENERIC_ROOT:-0}" == "1" ]]; then
@@ -78,16 +86,13 @@ find_gmail_drive_root() {
 print_drive_account_help() {
   cat <<EOF >&2
 [drive-account] REQUIRED: Google Drive for desktop signed in as ${GOOGLE_DRIVE_REQUIRED_ACCOUNT}
-[drive-account] BLOCKED: yonsei.ac.kr (and other school/work accounts)
+[drive-account] BLOCKED: yonsei.ac.kr
 
 Fix on MacBook Pro:
-  1. Open Google Drive for desktop (menu bar icon)
-  2. Settings → Accounts → remove / sign out okas2000@yonsei.ac.kr
-  3. Add / sign in ONLY: ${GOOGLE_DRIVE_REQUIRED_ACCOUNT}
-  4. Wait until CloudStorage shows:
-     ~/Library/CloudStorage/GoogleDrive-okas2000@gmail.com/My Drive
-  5. Re-run: bash scripts/mac-music-drive-sync-now.sh
-
-Phone must also use ${GOOGLE_DRIVE_REQUIRED_ACCOUNT} in the Drive app.
+  1. Google Drive for desktop → Settings → Accounts
+  2. Remove okas2000@yonsei.ac.kr
+  3. Sign in ONLY: ${GOOGLE_DRIVE_REQUIRED_ACCOUNT}
+  4. Wait for: ~/Library/CloudStorage/GoogleDrive-okas2000@gmail.com/My Drive
+  5. bash scripts/mac-create-audiso-music-mydrive.sh
 EOF
 }
