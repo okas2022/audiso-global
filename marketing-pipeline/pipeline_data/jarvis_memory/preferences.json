@@ -41,7 +41,7 @@
   "my_machines": {
     "enabled": true,
     "worker_name": "macbook-pro-audiso",
-    "worker_dir": "/Users/Mac/Audiso/marketing-pipeline",
+    "worker_dir": "/Users/Mac/Audiso/audiso-global",
     "auto_start_script": "scripts/mac-cursor-worker-start.sh",
     "mode": "prompt_relay",
     "note": "Cloud does not replace Mac execution. User prompts here → worker runs on MacBook Pro local paths."

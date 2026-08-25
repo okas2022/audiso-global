@@ -22,4 +22,4 @@ alwaysApply: true
 - Cloud Agent cannot read Mac SSD/pipeline_data directly unless My Machines worker is connected; queue mac_tasks or use worker.
 - **Git sync scope:** code/scripts/rules/small jarvis JSON only. One-way to Git — **never destructive on Mac**.
 - **Protection:** CEO reversed prior dedup instruction — never delete Mac local files because Git has copies.
-- **My Machines:** Mac에서 `agent worker start --name macbook-pro-audiso --worker-dir /Users/Mac/Audiso/marketing-pipeline` 실행 후, **새** Cloud Agent에서 My Machine 선택.
+- **My Machines:** worker identity is `okas2022/audiso-global`. Mac LaunchAgent runs `scripts/mac-cursor-worker-start.sh` with `--worker-dir /Users/Mac/Audiso/audiso-global` (name `macbook-pro-audiso`). Existing Cloud VM sessions cannot retro-attach.
