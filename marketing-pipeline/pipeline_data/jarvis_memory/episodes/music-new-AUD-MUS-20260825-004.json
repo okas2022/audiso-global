@@ -1,0 +1,52 @@
+{
+  "at": "2026-08-25T08:02:56Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_track_created",
+  "track_id": "AUD-MUS-20260825-004",
+  "title_working": "너의 행복이 나라면",
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nkorean ballad, acoustic piano, indie folk\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: 사랑하지 않는 너를 사랑했고, 네가 사랑하는 사람을 사랑하는 너를 보며 놓아줄게\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "genre": [
+      "korean ballad",
+      "acoustic piano",
+      "indie folk"
+    ],
+    "bpm": 72,
+    "hook": {
+      "one_liner": "사랑하지 않는 너를 사랑했고, 네가 사랑하는 사람을 사랑하는 너를 보며 놓아줄게",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "CEO original — unrequited love, letting go (Paul Kim / Roy Kim mood)",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    },
+    "priority": "important"
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004",
+    "brief": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/music_brief.json",
+    "checklist": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/checklist.json"
+  }
+}

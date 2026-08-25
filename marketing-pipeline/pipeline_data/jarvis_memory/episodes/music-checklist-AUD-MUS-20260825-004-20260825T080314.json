@@ -1,0 +1,169 @@
+{
+  "at": "2026-08-25T08:03:14Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_checklist",
+  "track_id": "AUD-MUS-20260825-004",
+  "mark": "suno_prompted",
+  "import_suno": null,
+  "prompts": {
+    "style_prompt": "Korean emotional ballad, male vocal warm and sincere like Paul Kim and Roy Kim,\nsoft acoustic piano, gentle fingerpicked guitar, subtle string pad,\n72 BPM, intimate bedroom recording feel, minimal production,\nmelodic and lyrical focus, breathy vulnerable verses, powerful but restrained chorus,\nno EDM, no trap, no heavy drums — light brush snare only in chorus,\nkey: D major or Bb major, Korean indie folk sensibility, heartbreak but dignified\n",
+    "lyrics_prompt": "[Intro]\n(Mmm… piano only)\n\n[Verse 1]\n네가 떠난 자리에 아직도\n내 이름 불러본 적 없는 그 자리에\n나는 매일 네 옆에 서 있었어\n네 눈엔 없었던 나\n\n[Pre-Chorus]\n너는 누군가를 바라보고\n나는 너만 바라보고 있었으니\n\n[Chorus]\n사랑하지 않는 너를 사랑했고\n네가 사랑하는 사람을 사랑하는 너를\n아프지만 알아 — 그게 네 행복이면\n내가 놓아줄게, 너의 행복이 나라면\n\n[Verse 2]\n네가 웃을 때마다 가슴이 아파도\n그 웃음 뒤에 다른 이름이 있어도\n너를 붙잡는 말 대신 오늘은\n조용히 문을 닫을게\n\n[Pre-Chorus]\n비가 오면 너는 그 사람 곁에 있겠지\n나는 이 노래 끝에 널 보낼게\n\n[Chorus]\n사랑하지 않는 너를 사랑했고\n네가 사랑하는 사람을 사랑하는 너를\n울지 않을게 — 마지막까지\n네 행복만 빌어줄게, 그게 나의 사랑이면\n\n[Bridge]\n(Full piano, strings swell)\n혹시 언젠가 밤이 길어지면\n이 노래가 너를 힘들게 하지 않기를\n잊지 말아줘 — 미워한 적 없었다는 것만\n\n[Final Chorus]\n사랑하지 않는 너를 사랑했고\n네가 사랑하는 사람을 사랑하는 너를\n이제 놓아줄게 — 너의 행복이 나라면\n안녕, my love… 행복해야 해\n\n[Outro]\n(Piano fades, humming)\n",
+    "negative_prompt": "# Avoid\nEDM, dubstep, trap beat, aggressive rap, metal, scream, auto-tune heavy,\nenglish lyrics, generic pop drop, club music, noisy mix, happy upbeat dance\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "title_working": "너의 행복이 나라면",
+    "genre": [
+      "korean ballad",
+      "acoustic piano",
+      "indie folk"
+    ],
+    "bpm": 72,
+    "hook": {
+      "one_liner": "사랑하지 않는 너를 사랑했고, 놓아줄게 — 네 행복이 나라면",
+      "lyric_hook": "내가 놓아줄게, 너의 행복이 나라면",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "CEO original ballad — unrequited love, they love another, graceful goodbye",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": "폴킴·로이킴풍: 피아노+기타, 따뜻한 남성 보컬, 서정적 가사"
+    },
+    "registration": {
+      "priority": "important",
+      "komca": {
+        "status": "pending",
+        "member_id": null,
+        "work_code": null,
+        "submitted_at": null,
+        "pack_path": null
+      },
+      "copyright_commission": {
+        "status": "pending",
+        "registration_no": null,
+        "submitted_at": null,
+        "fee_krw": null
+      },
+      "isrc": {
+        "status": "pending",
+        "code": null,
+        "assignee": "Audiso",
+        "distributor": null,
+        "assigned_at": null
+      }
+    }
+  },
+  "checklist": {
+    "schema": "audiso.music_checklist.v2",
+    "track_id": "AUD-MUS-20260825-004",
+    "stages": [
+      {
+        "id": "brief_ready",
+        "label": "music_brief filled",
+        "done": true
+      },
+      {
+        "id": "suno_prompted",
+        "label": "Suno style+lyrics prompts saved",
+        "done": true
+      },
+      {
+        "id": "suno_imported",
+        "label": "Suno export in suno/ (v0)",
+        "done": false
+      },
+      {
+        "id": "stems_done",
+        "label": "Stem separation in stems/",
+        "done": false
+      },
+      {
+        "id": "daw_edit",
+        "label": "DAW/MIDI human edit in daw/",
+        "done": false
+      },
+      {
+        "id": "lyrics_revised",
+        "label": "Lyrics manual rewrite (lyrics/final.txt)",
+        "done": true
+      },
+      {
+        "id": "versions_logged",
+        "label": "Version chain in versions/ (v0→vN)",
+        "done": false
+      },
+      {
+        "id": "human_evidence_ok",
+        "label": "Human contribution evidence package",
+        "done": false
+      },
+      {
+        "id": "master_done",
+        "label": "Master in masters/",
+        "done": false
+      },
+      {
+        "id": "komca_pack_ready",
+        "label": "KOMCA declaration + evidence ZIP",
+        "done": false
+      },
+      {
+        "id": "komca_submitted",
+        "label": "KOMCA portal submitted",
+        "done": false
+      },
+      {
+        "id": "copyright_commission_pack_ready",
+        "label": "Copyright Commission pack (important)",
+        "done": false
+      },
+      {
+        "id": "copyright_commission_submitted",
+        "label": "Copyright Commission submitted",
+        "done": false
+      },
+      {
+        "id": "isrc_assigned",
+        "label": "ISRC assigned for distribution",
+        "done": false
+      },
+      {
+        "id": "rights_ok",
+        "label": "Commercial rights documented",
+        "done": false
+      },
+      {
+        "id": "delivered",
+        "label": "Published / delivered",
+        "done": false
+      }
+    ],
+    "updated_at": "2026-08-25T08:03:14Z"
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004",
+    "suno": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/suno",
+    "stems": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/stems",
+    "daw": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/daw",
+    "versions": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/versions",
+    "lyrics": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/lyrics",
+    "evidence": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/evidence",
+    "masters": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/masters",
+    "registration": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-004/registration"
+  }
+}

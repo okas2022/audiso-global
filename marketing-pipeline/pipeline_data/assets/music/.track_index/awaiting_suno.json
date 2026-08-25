@@ -1,5 +1,13 @@
 {
-  "updated_at": "2026-08-25T07:25:01Z",
+  "updated_at": "2026-08-25T08:02:57Z",
   "downloads_dir": "/tmp/fake-downloads-test",
-  "awaiting": []
+  "awaiting": [
+    {
+      "track_id": "AUD-MUS-20260825-004",
+      "since_ms": 1787644977467,
+      "since_at": "2026-08-25T08:02:57Z",
+      "title_hint": "너의 행복이 나라면",
+      "downloads_dir": "/tmp/fake-downloads-test"
+    }
+  ]
 }

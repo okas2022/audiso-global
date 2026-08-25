@@ -1,15 +1,46 @@
 {
   "schema": "audiso.music_catalog.v1",
-  "updated_at": "2026-08-25T07:41:20Z",
+  "updated_at": "2026-08-25T08:02:57Z",
   "owner": "CEO",
   "label": "Audiso",
   "tracks": [
     {
+      "track_id": "AUD-MUS-20260825-004",
+      "title_working": "너의 행복이 나라면",
+      "status": "briefed",
+      "priority": "important",
+      "komca_status": "pending",
+      "copyright_commission_status": "pending",
+      "isrc": null,
+      "human_ok": false,
+      "path": "music/AUD-MUS-20260825-004",
+      "checklist_done": [
+        "brief_ready"
+      ],
+      "checklist_pending": [
+        "suno_prompted",
+        "suno_imported",
+        "stems_done",
+        "daw_edit",
+        "lyrics_revised",
+        "versions_logged",
+        "human_evidence_ok",
+        "master_done",
+        "komca_pack_ready",
+        "komca_submitted",
+        "copyright_commission_pack_ready",
+        "copyright_commission_submitted",
+        "isrc_assigned",
+        "rights_ok",
+        "delivered"
+      ]
+    },
+    {
       "track_id": "AUD-MUS-20260825-003",
       "title_working": "Peacetop Registration Test",
-      "status": "komca_submitted",
+      "status": "komca_pack_ready",
       "priority": "important",
-      "komca_status": "submitted",
+      "komca_status": "pack_ready",
       "copyright_commission_status": "submitted",
       "isrc": "AUDISO-20260825-003",
       "human_ok": true,

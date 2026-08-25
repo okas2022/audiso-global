@@ -1,0 +1,150 @@
+{
+  "schema": "audiso.music_brief.v2",
+  "track_id": "AUD-MUS-20260825-004",
+  "title_working": "너의 행복이 나라면",
+  "status": "briefed",
+  "created_at": "2026-08-25T08:02:56Z",
+  "updated_at": "2026-08-25T08:03:14Z",
+  "created_by": "Steve",
+  "orchestrator": "Jarvis",
+  "purpose": {
+    "use_case": "CEO original ballad — unrequited love, they love another, graceful goodbye",
+    "brand": "Audiso",
+    "campaign_id": null,
+    "channels": [],
+    "duration_target_sec": 30,
+    "language": "ko",
+    "notes": "폴킴·로이킴풍: 피아노+기타, 따뜻한 남성 보컬, 서정적 가사"
+  },
+  "musical": {
+    "genre": [
+      "korean ballad",
+      "acoustic piano",
+      "indie folk"
+    ],
+    "subgenre": [],
+    "bpm": 72,
+    "key": null,
+    "time_signature": "4/4",
+    "mood": [
+      "melancholic",
+      "bittersweet",
+      "sincere",
+      "letting go"
+    ],
+    "energy": null,
+    "reference_tracks": [
+      "Paul Kim ballad style",
+      "Roy Kim folk ballad mood"
+    ]
+  },
+  "hook": {
+    "one_liner": "사랑하지 않는 너를 사랑했고, 놓아줄게 — 네 행복이 나라면",
+    "lyric_hook": "내가 놓아줄게, 너의 행복이 나라면",
+    "melody_hook": "",
+    "drop_or_chorus_bar": null
+  },
+  "structure": {
+    "form": [
+      "intro",
+      "verse",
+      "pre",
+      "chorus",
+      "verse",
+      "chorus",
+      "bridge",
+      "chorus",
+      "outro"
+    ],
+    "instrumentation": [],
+    "vocal": "lead + doubles",
+    "instrumental_only": false
+  },
+  "suno": {
+    "model": "",
+    "style_prompt": "",
+    "lyrics_prompt": "",
+    "negative_prompt": "",
+    "seed": null,
+    "weirdness": null,
+    "style_influence": null,
+    "export_paths": []
+  },
+  "ai_disclosure": {
+    "tools": [
+      "Suno"
+    ],
+    "ai_regions": [
+      "initial_draft_audio",
+      "initial_lyrics_draft"
+    ],
+    "not_ai_only": true,
+    "prompt_only": false,
+    "notes": ""
+  },
+  "human_contribution": {
+    "melody_harmony_edits": false,
+    "stem_rearrangement": false,
+    "lyrics_rewrite": false,
+    "vocal_direction": false,
+    "new_instrument_performance": false,
+    "summary_ko": "",
+    "daw_tools": [],
+    "evidence_paths": []
+  },
+  "registration": {
+    "priority": "important",
+    "komca": {
+      "status": "pending",
+      "member_id": null,
+      "work_code": null,
+      "submitted_at": null,
+      "pack_path": null
+    },
+    "copyright_commission": {
+      "status": "pending",
+      "registration_no": null,
+      "submitted_at": null,
+      "fee_krw": null
+    },
+    "isrc": {
+      "status": "pending",
+      "code": null,
+      "assignee": "Audiso",
+      "distributor": null,
+      "assigned_at": null
+    }
+  },
+  "pipeline": {
+    "root": "pipeline_data/assets/music/AUD-MUS-20260825-004/",
+    "folders": [
+      "prompts",
+      "suno",
+      "stems",
+      "daw",
+      "versions",
+      "lyrics",
+      "evidence",
+      "masters",
+      "registration",
+      "refs"
+    ],
+    "checklist_script": "scripts/music-suno-checklist.sh",
+    "evidence_script": "scripts/music-human-evidence.sh",
+    "komca_pack_script": "scripts/music-komca-pack.sh",
+    "episode_glob": "pipeline_data/jarvis_memory/episodes/music-*-AUD-MUS-20260825-004.json"
+  },
+  "rights": {
+    "suno_plan": "",
+    "commercial_ok": null,
+    "clearance_notes": "",
+    "isrc": null
+  },
+  "deliverables": {
+    "master_wav": null,
+    "master_mp3": null,
+    "stems_zip": null,
+    "lufs_target": -14,
+    "true_peak_max_db": -1.0
+  }
+}
