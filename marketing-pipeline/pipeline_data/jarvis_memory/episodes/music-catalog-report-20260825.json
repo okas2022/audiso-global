@@ -1,0 +1,118 @@
+{
+  "at": "2026-08-25T07:41:03Z",
+  "event": "music_catalog_report",
+  "total": 3,
+  "ready_komca_pack": [
+    "AUD-MUS-20260825-003"
+  ],
+  "needs_human_edit": [
+    "AUD-MUS-20260825-002",
+    "AUD-MUS-20260825-001"
+  ],
+  "needs_master": [
+    "AUD-MUS-20260825-002",
+    "AUD-MUS-20260825-001"
+  ],
+  "komca_pending_submit": [
+    "AUD-MUS-20260825-003"
+  ],
+  "isrc_pending": [
+    "AUD-MUS-20260825-002",
+    "AUD-MUS-20260825-001"
+  ],
+  "tracks": [
+    {
+      "track_id": "AUD-MUS-20260825-003",
+      "title_working": "Peacetop Registration Test",
+      "status": "isrc_assigned",
+      "priority": "important",
+      "komca_status": "pack_ready",
+      "copyright_commission_status": "pack_ready",
+      "isrc": "AUDISO-20260825-003",
+      "human_ok": true,
+      "path": "music/AUD-MUS-20260825-003",
+      "checklist_done": [
+        "brief_ready",
+        "copyright_commission_pack_ready",
+        "daw_edit",
+        "human_evidence_ok",
+        "isrc_assigned",
+        "komca_pack_ready",
+        "lyrics_revised",
+        "master_done",
+        "suno_imported",
+        "suno_prompted",
+        "versions_logged"
+      ],
+      "checklist_pending": [
+        "stems_done",
+        "komca_submitted",
+        "copyright_commission_submitted",
+        "rights_ok",
+        "delivered"
+      ]
+    },
+    {
+      "track_id": "AUD-MUS-20260825-002",
+      "title_working": "Auto Import Test",
+      "status": "suno_imported",
+      "priority": "standard",
+      "komca_status": null,
+      "copyright_commission_status": null,
+      "isrc": null,
+      "human_ok": null,
+      "path": "music/AUD-MUS-20260825-002",
+      "checklist_done": [
+        "brief_ready",
+        "suno_imported",
+        "suno_prompted"
+      ],
+      "checklist_pending": [
+        "stems_done",
+        "daw_edit",
+        "lyrics_revised",
+        "versions_logged",
+        "human_evidence_ok",
+        "master_done",
+        "komca_pack_ready",
+        "komca_submitted",
+        "copyright_commission_pack_ready",
+        "copyright_commission_submitted",
+        "isrc_assigned",
+        "rights_ok",
+        "delivered"
+      ]
+    },
+    {
+      "track_id": "AUD-MUS-20260825-001",
+      "title_working": "Peacetop morning hook",
+      "status": "briefed",
+      "priority": "standard",
+      "komca_status": null,
+      "copyright_commission_status": null,
+      "isrc": null,
+      "human_ok": null,
+      "path": "music/AUD-MUS-20260825-001",
+      "checklist_done": [
+        "brief_ready",
+        "suno_prompted"
+      ],
+      "checklist_pending": [
+        "suno_imported",
+        "stems_done",
+        "daw_edit",
+        "lyrics_revised",
+        "versions_logged",
+        "human_evidence_ok",
+        "master_done",
+        "komca_pack_ready",
+        "komca_submitted",
+        "copyright_commission_pack_ready",
+        "copyright_commission_submitted",
+        "isrc_assigned",
+        "rights_ok",
+        "delivered"
+      ]
+    }
+  ]
+}

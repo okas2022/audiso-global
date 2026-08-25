@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T07:24:55Z",
+  "updated_at": "2026-08-25T07:40:52Z",
   "tracks": [
     {
       "track_id": "AUD-MUS-20260825-001",
@@ -14,6 +14,14 @@
       "created_at": "2026-08-25T07:24:55Z",
       "path": "pipeline_data/assets/music/AUD-MUS-20260825-002/",
       "status": "briefed"
+    },
+    {
+      "track_id": "AUD-MUS-20260825-003",
+      "title_working": "Peacetop Registration Test",
+      "created_at": "2026-08-25T07:40:52Z",
+      "path": "pipeline_data/assets/music/AUD-MUS-20260825-003/",
+      "status": "briefed",
+      "priority": "important"
     }
   ]
 }

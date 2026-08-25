@@ -17,12 +17,34 @@ Invoked through Jarvis from **this Cloud prompt window**. Say "Steve …" or mar
 - Music briefs + Suno → stem → master pipeline (`pipeline_data/assets/music/`)
 - Assets saved to `pipeline_data/assets/` and `pipeline_data/campaigns/`
 
-## Music pipeline
+## Music pipeline (Phase A–C)
 
 - Track ID: `AUD-MUS-YYYYMMDD-NNN`
-- Brief template: `pipeline_data/jarvis_memory/templates/music_brief.json`
-- New track: `bash scripts/music-new-track.sh --title … --genre … --bpm … --purpose … --hook …`
-- Checklist: `bash scripts/music-suno-checklist.sh <TRACK_ID> [--mark suno_imported|stems_done|master_done]`
+- Brief template v2: `pipeline_data/jarvis_memory/templates/music_brief.json`
+- New track: `bash scripts/music-new-track.sh --title … --genre … --bpm … --purpose … --hook … [--important]`
+- Full run: `bash scripts/music-pipeline-run.sh AUD-MUS-… --phase all`
+- Checklist (16 stages): `bash scripts/music-suno-checklist.sh <TRACK_ID> [--mark stage_id]`
+
+### YouTube 3-stage human evidence
+
+1. **Stage 1** — `daw/` (MIDI/DAW edits) + `lyrics/final.txt` (manual rewrite)
+2. **Stage 2** — `versions/` (v0→vN) + `evidence/human_contribution_ko.md`
+3. **Stage 3** — `registration/komca_*` + optional Copyright Commission
+
+Scripts: `music-human-evidence.sh` → `music-komca-pack.sh` → CEO portal submit → `music-komca-mark-submitted.sh`
+
+### Registration
+
+- KOMCA pack: `music-komca-pack.sh` → CEO submits at komca.or.kr
+- Important tracks: `music-copyright-commission-pack.sh` → copyright.or.kr
+- Distribution ISRC: `music-isrc-assign.sh --distributor DistroKid --isrc …`
+
+### Mac LaunchAgents
+
+- Suno Downloads: `mac-install-music-watch-launchagent.sh`
+- DAW/version watch: `mac-install-music-daw-watch-launchagent.sh`
+- Weekly catalog: `mac-install-music-catalog-report-launchagent.sh`
+
 - **Suno auto-import:** `music-new-track.sh --await-suno` → Suno Download → LaunchAgent imports from `~/Downloads`
 - **Fallback API:** `music-generate-elevenlabs.sh` (free tier, `ELEVENLABS_API_KEY` in Mac `.env`)
 - Episodes always store `track_id` + Suno/style/lyrics prompts under `jarvis_memory/episodes/music-*.json`

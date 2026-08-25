@@ -1,0 +1,51 @@
+{
+  "at": "2026-08-25T07:40:52Z",
+  "actor": "Jarvis",
+  "orchestrator": "Jarvis",
+  "event": "music_track_created",
+  "track_id": "AUD-MUS-20260825-003",
+  "title_working": "Peacetop Registration Test",
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nk-pop,ambient\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: Peace on top\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "genre": [
+      "k-pop",
+      "ambient"
+    ],
+    "bpm": 96,
+    "hook": {
+      "one_liner": "Peace on top",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "Brand anthem",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    },
+    "priority": "important"
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003",
+    "brief": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/music_brief.json",
+    "checklist": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/checklist.json"
+  }
+}

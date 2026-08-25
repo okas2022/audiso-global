@@ -1,0 +1,41 @@
+{
+  "schema": "audiso.komca_form.v1",
+  "track_id": "AUD-MUS-20260825-003",
+  "title": "Peacetop Registration Test",
+  "ai_used": true,
+  "ai_tools": [
+    "Suno"
+  ],
+  "ai_regions": [
+    "initial_draft_audio",
+    "initial_lyrics_draft"
+  ],
+  "human_contribution_summary_ko": "DAW/MIDI 파일 1개에서 멜로디·화성·편곡을 수동 편집함. AI 가사 초안 대비 가사를 수동 개사함 (lyrics/final.txt).",
+  "human_contribution_flags": {
+    "melody_harmony_edits": true,
+    "stem_rearrangement": false,
+    "lyrics_rewrite": "Peace on top — final human lyrics with revised chorus and bridge."
+  },
+  "prompt_only": false,
+  "evidence_files": [
+    "evidence/human_contribution_ko.md",
+    "evidence/komca_submit_2026-08-25.zip",
+    "evidence/lyrics_changelog.diff",
+    "evidence/versions_manifest.json",
+    "lyrics/ai.txt",
+    "lyrics/final.txt",
+    "daw/arrangement.mid",
+    "versions/v0_suno_peacetop.mp3",
+    "versions/v0_suno_v0_peacetop.mp3",
+    "versions/v1_daw_mix.mp3",
+    "suno/v0_peacetop.mp3",
+    "masters/peacetop_master.mp3",
+    "prompts/lyrics_prompt.txt",
+    "prompts/negative_prompt.txt",
+    "prompts/style_prompt.txt"
+  ],
+  "generated_at": "2026-08-25T07:41:00Z",
+  "portal": "https://www.komca.or.kr/",
+  "status": "pack_ready",
+  "ceo_action": "Login → 음악저작물 신고 → AI 활용 여부 체크 → 본 문서 내용 붙여넣기 → 증빙 업로드"
+}

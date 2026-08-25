@@ -1,0 +1,173 @@
+{
+  "at": "2026-08-25T07:41:20Z",
+  "actor": "Steve",
+  "orchestrator": "Jarvis",
+  "event": "music_checklist",
+  "track_id": "AUD-MUS-20260825-003",
+  "mark": "copyright_commission_submitted",
+  "import_suno": null,
+  "prompts": {
+    "style_prompt": "# Fill Suno style / genre tags here\nk-pop,ambient\n",
+    "lyrics_prompt": "# Fill lyrics or instrumental direction here\nHook: Peace on top\n",
+    "negative_prompt": "# Avoid: muddy mix, off-key vocals, generic stock feel\n",
+    "suno": {
+      "model": "",
+      "style_prompt": "",
+      "lyrics_prompt": "",
+      "negative_prompt": "",
+      "seed": null,
+      "weirdness": null,
+      "style_influence": null,
+      "export_paths": []
+    }
+  },
+  "brief": {
+    "title_working": "Peacetop Registration Test",
+    "genre": [
+      "k-pop",
+      "ambient"
+    ],
+    "bpm": 96,
+    "hook": {
+      "one_liner": "Peace on top",
+      "lyric_hook": "",
+      "melody_hook": "",
+      "drop_or_chorus_bar": null
+    },
+    "purpose": {
+      "use_case": "Brand anthem",
+      "brand": "Audiso",
+      "campaign_id": null,
+      "channels": [],
+      "duration_target_sec": 30,
+      "language": "ko",
+      "notes": ""
+    },
+    "registration": {
+      "priority": "important",
+      "komca": {
+        "status": "submitted",
+        "member_id": null,
+        "work_code": "TEST-WORK-001",
+        "submitted_at": "2026-08-25T07:41:19Z",
+        "pack_path": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/registration"
+      },
+      "copyright_commission": {
+        "status": "submitted",
+        "registration_no": "C-2026-TEST-001",
+        "submitted_at": "2026-08-25T07:41:20Z",
+        "fee_krw": null,
+        "fee_krw_estimate": "23600-33600",
+        "portal": "https://www.copyright.or.kr/",
+        "work_type": "복합저작물/편집저작물 (AI 초안 + 인간 추가 창작)",
+        "pack_ready_at": "2026-08-25T07:41:00Z"
+      },
+      "isrc": {
+        "status": "internal_pending",
+        "code": "AUDISO-20260825-003",
+        "assignee": "Audiso",
+        "distributor": null,
+        "assigned_at": "2026-08-25T07:41:02Z",
+        "note": "Replace with official ISRC from distributor before Spotify/YouTube Content ID"
+      }
+    }
+  },
+  "checklist": {
+    "schema": "audiso.music_checklist.v2",
+    "track_id": "AUD-MUS-20260825-003",
+    "stages": [
+      {
+        "id": "brief_ready",
+        "label": "music_brief filled",
+        "done": true
+      },
+      {
+        "id": "suno_prompted",
+        "label": "Suno style+lyrics prompts saved",
+        "done": true
+      },
+      {
+        "id": "suno_imported",
+        "label": "Suno export in suno/ (v0)",
+        "done": true
+      },
+      {
+        "id": "stems_done",
+        "label": "Stem separation in stems/",
+        "done": false
+      },
+      {
+        "id": "daw_edit",
+        "label": "DAW/MIDI human edit in daw/",
+        "done": true
+      },
+      {
+        "id": "lyrics_revised",
+        "label": "Lyrics manual rewrite (lyrics/final.txt)",
+        "done": true
+      },
+      {
+        "id": "versions_logged",
+        "label": "Version chain in versions/ (v0→vN)",
+        "done": true
+      },
+      {
+        "id": "human_evidence_ok",
+        "label": "Human contribution evidence package",
+        "done": true
+      },
+      {
+        "id": "master_done",
+        "label": "Master in masters/",
+        "done": true
+      },
+      {
+        "id": "komca_pack_ready",
+        "label": "KOMCA declaration + evidence ZIP",
+        "done": true
+      },
+      {
+        "id": "komca_submitted",
+        "label": "KOMCA portal submitted",
+        "done": true
+      },
+      {
+        "id": "copyright_commission_pack_ready",
+        "label": "Copyright Commission pack (important)",
+        "done": true
+      },
+      {
+        "id": "copyright_commission_submitted",
+        "label": "Copyright Commission submitted",
+        "done": true
+      },
+      {
+        "id": "isrc_assigned",
+        "label": "ISRC assigned for distribution",
+        "done": true
+      },
+      {
+        "id": "rights_ok",
+        "label": "Commercial rights documented",
+        "done": false
+      },
+      {
+        "id": "delivered",
+        "label": "Published / delivered",
+        "done": false
+      }
+    ],
+    "updated_at": "2026-08-25T07:41:20Z"
+  },
+  "paths": {
+    "track_dir": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003",
+    "suno": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/suno",
+    "stems": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/stems",
+    "daw": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/daw",
+    "versions": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/versions",
+    "lyrics": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/lyrics",
+    "evidence": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/evidence",
+    "masters": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/masters",
+    "registration": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/registration"
+  }
+}

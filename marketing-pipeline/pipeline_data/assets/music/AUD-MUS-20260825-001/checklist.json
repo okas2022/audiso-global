@@ -1,5 +1,5 @@
 {
-  "schema": "audiso.music_checklist.v1",
+  "schema": "audiso.music_checklist.v2",
   "track_id": "AUD-MUS-20260825-001",
   "stages": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "id": "suno_imported",
-      "label": "Suno export in suno/",
+      "label": "Suno export in suno/ (v0)",
       "done": false
     },
     {
@@ -24,24 +24,64 @@
     },
     {
       "id": "daw_edit",
-      "label": "DAW edit / arrange",
+      "label": "DAW/MIDI human edit in daw/",
+      "done": false
+    },
+    {
+      "id": "lyrics_revised",
+      "label": "Lyrics manual rewrite (lyrics/final.txt)",
+      "done": false
+    },
+    {
+      "id": "versions_logged",
+      "label": "Version chain in versions/ (v0→vN)",
+      "done": false
+    },
+    {
+      "id": "human_evidence_ok",
+      "label": "Human contribution evidence package",
       "done": false
     },
     {
       "id": "master_done",
-      "label": "Master in masters/ (LUFS check)",
+      "label": "Master in masters/",
+      "done": false
+    },
+    {
+      "id": "komca_pack_ready",
+      "label": "KOMCA declaration + evidence ZIP",
+      "done": false
+    },
+    {
+      "id": "komca_submitted",
+      "label": "KOMCA portal submitted",
+      "done": false
+    },
+    {
+      "id": "copyright_commission_pack_ready",
+      "label": "Copyright Commission pack (important)",
+      "done": false
+    },
+    {
+      "id": "copyright_commission_submitted",
+      "label": "Copyright Commission submitted",
+      "done": false
+    },
+    {
+      "id": "isrc_assigned",
+      "label": "ISRC assigned for distribution",
       "done": false
     },
     {
       "id": "rights_ok",
-      "label": "Commercial rights noted",
+      "label": "Commercial rights documented",
       "done": false
     },
     {
       "id": "delivered",
-      "label": "Deliverable linked / published",
+      "label": "Published / delivered",
       "done": false
     }
   ],
-  "updated_at": "2026-08-25T07:08:58Z"
+  "updated_at": "2026-08-25T07:40:52Z"
 }

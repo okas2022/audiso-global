@@ -1,0 +1,33 @@
+{
+  "at": "2026-08-25T07:41:00Z",
+  "actor": "Jarvis",
+  "event": "music_registration_pipeline_installed",
+  "phases": {
+    "A": "Suno → stem → master (music-new-track, music-suno-checklist)",
+    "B": "Human evidence → KOMCA pack → Copyright Commission pack",
+    "C": "ISRC assign + catalog report + DAW LaunchAgent"
+  },
+  "youtube_3_stage": [
+    "Stage 1: daw/ + lyrics/final.txt",
+    "Stage 2: versions/ + evidence/human_contribution_ko.md",
+    "Stage 3: registration/komca_* + copyright_commission_form.json"
+  ],
+  "scripts": [
+    "scripts/music-human-evidence.sh",
+    "scripts/music-komca-pack.sh",
+    "scripts/music-komca-mark-submitted.sh",
+    "scripts/music-copyright-commission-pack.sh",
+    "scripts/music-copyright-mark-submitted.sh",
+    "scripts/music-isrc-assign.sh",
+    "scripts/music-pipeline-run.sh",
+    "scripts/music-daw-watch.sh",
+    "scripts/music-catalog-report.sh",
+    "scripts/music-upgrade-tracks.sh"
+  ],
+  "launchagents": [
+    "infra/launchagents/com.audiso.jarvis-music-daw-watch.plist",
+    "infra/launchagents/com.audiso.jarvis-music-catalog-report.plist"
+  ],
+  "checklist_stages": 16,
+  "note": "CEO submits KOMCA/copyright.or.kr manually; Jarvis prepares packs + tracks status"
+}

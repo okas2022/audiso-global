@@ -1,5 +1,5 @@
 {
-  "schema": "audiso.music_brief.v1",
+  "schema": "audiso.music_brief.v2",
   "track_id": "AUD-MUS-YYYYMMDD-NNN",
   "title_working": "",
   "status": "draft",
@@ -48,10 +48,52 @@
     "style_influence": null,
     "export_paths": []
   },
+  "ai_disclosure": {
+    "tools": ["Suno"],
+    "ai_regions": ["initial_draft_audio", "initial_lyrics_draft"],
+    "not_ai_only": true,
+    "prompt_only": false,
+    "notes": ""
+  },
+  "human_contribution": {
+    "melody_harmony_edits": false,
+    "stem_rearrangement": false,
+    "lyrics_rewrite": false,
+    "vocal_direction": false,
+    "new_instrument_performance": false,
+    "summary_ko": "",
+    "daw_tools": [],
+    "evidence_paths": []
+  },
+  "registration": {
+    "priority": "standard",
+    "komca": {
+      "status": "pending",
+      "member_id": null,
+      "work_code": null,
+      "submitted_at": null,
+      "pack_path": null
+    },
+    "copyright_commission": {
+      "status": "not_required",
+      "registration_no": null,
+      "submitted_at": null,
+      "fee_krw": null
+    },
+    "isrc": {
+      "status": "pending",
+      "code": null,
+      "assignee": "Audiso",
+      "distributor": null,
+      "assigned_at": null
+    }
+  },
   "pipeline": {
     "root": "pipeline_data/assets/music/{track_id}/",
-    "folders": ["prompts", "suno", "stems", "masters", "refs"],
+    "folders": ["prompts", "suno", "stems", "daw", "versions", "lyrics", "evidence", "masters", "registration", "refs"],
     "checklist_script": "scripts/music-suno-checklist.sh",
+    "evidence_script": "scripts/music-human-evidence.sh",
+    "komca_pack_script": "scripts/music-komca-pack.sh",
     "episode_glob": "pipeline_data/jarvis_memory/episodes/music-*-{track_id}.json"
   },
   "rights": {

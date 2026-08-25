@@ -24,11 +24,15 @@ route() {
       echo "Ready: IG cards, quiz, promo copy, Higgsfield image/video"
       ;;
     music|suno|compose)
-      echo "[jarvis-dispatch] → Steve music pipeline"
+      echo "[jarvis-dispatch] → Steve music pipeline (Phase A–C)"
       mkdir -p "${ROOT}/pipeline_data/assets/music"
       ls -la "${ROOT}/pipeline_data/assets/music/" 2>/dev/null || true
-      echo "new:  bash ${ROOT}/scripts/music-new-track.sh --title … --genre … --bpm … --purpose … --hook …"
-      echo "check: bash ${ROOT}/scripts/music-suno-checklist.sh AUD-MUS-…"
+      echo "new:      bash ${ROOT}/scripts/music-new-track.sh --title … --genre … --bpm … --hook … [--important]"
+      echo "check:    bash ${ROOT}/scripts/music-suno-checklist.sh AUD-MUS-…"
+      echo "evidence: bash ${ROOT}/scripts/music-human-evidence.sh AUD-MUS-…"
+      echo "komca:    bash ${ROOT}/scripts/music-komca-pack.sh AUD-MUS-…"
+      echo "pipeline: bash ${ROOT}/scripts/music-pipeline-run.sh AUD-MUS-… --phase all"
+      echo "catalog:  bash ${ROOT}/scripts/music-catalog-report.sh"
       ;;
     site|audiso-global|build)
       cd "${GLOBAL}" && npm run build
@@ -51,7 +55,7 @@ route() {
 # Keyword routing
 case "$intent_lower" in
   *steve*|*마케팅*|*ig*|*카드*|*promo*) route steve ;;
-  *suno*|*음악*|*작곡*|*chorus*|*트랙*|*music*|*bpm*|*stem*) route music ;;
+  *suno*|*음악*|*작곡*|*chorus*|*트랙*|*music*|*bpm*|*stem*|*komca*|*isrc*|*저작권*) route music ;;
   *사이트*|*빌드*|*deploy*|*audimall*|*vercel*) route site ;;
   *whitepaper*|*화이트*|*ir*|*bd*|*deck*) route bd ;;
   *sync*|*mac*|*ssd*|*storage*) route mac ;;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.audiso.jarvis-music-catalog-report</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/Mac/Audiso/marketing-pipeline/scripts/music-catalog-report.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/music-catalog-report-launchagent.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/music-catalog-report-launchagent.err.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>JARVIS_ROOT</key>
+    <string>/Users/Mac/Audiso/marketing-pipeline</string>
+    <key>PATH</key>
+    <string>/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>

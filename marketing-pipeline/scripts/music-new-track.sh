@@ -3,10 +3,11 @@
 set -euo pipefail
 
 ROOT="${JARVIS_ROOT:-/Users/Mac/Audiso/marketing-pipeline}"
-MUSIC="${ROOT}/pipeline_data/assets/music"
+source "${ROOT}/scripts/music-lib.sh"
+
+MUSIC="${MUSIC_ROOT}"
 TEMPLATE="${ROOT}/pipeline_data/jarvis_memory/templates/music_brief.json"
 INDEX_DIR="${MUSIC}/.track_index"
-EP_DIR="${ROOT}/pipeline_data/jarvis_memory/episodes"
 
 TITLE=""
 GENRE=""
@@ -16,10 +17,12 @@ HOOK=""
 BRAND="Audiso"
 CREATED_BY="Steve"
 AWAIT_SUNO=0
+PRIORITY="standard"
 
 usage() {
   cat <<'EOF'
-Usage: music-new-track.sh [--title T] [--genre G] [--bpm N] [--purpose P] [--hook H] [--by Steve|Jarvis] [--await-suno]
+Usage: music-new-track.sh [--title T] [--genre G] [--bpm N] [--purpose P] [--hook H]
+       [--by Steve|Jarvis] [--await-suno] [--important]
 EOF
 }
 
@@ -32,6 +35,7 @@ while [[ $# -gt 0 ]]; do
     --hook) HOOK="${2:-}"; shift 2 ;;
     --by) CREATED_BY="${2:-Steve}"; shift 2 ;;
     --await-suno) AWAIT_SUNO=1; shift ;;
+    --important) PRIORITY="important"; shift ;;
     -h|--help) usage; exit 0 ;;
     *) echo "unknown arg: $1" >&2; usage; exit 1 ;;
   esac
@@ -39,7 +43,7 @@ done
 
 [[ -f "$TEMPLATE" ]] || { echo "missing template: $TEMPLATE" >&2; exit 1; }
 
-mkdir -p "$MUSIC" "$INDEX_DIR" "$EP_DIR" \
+mkdir -p "$MUSIC" "$INDEX_DIR" "$MUSIC_EPISODES" \
   "${MUSIC}/_inbox/suno" "${MUSIC}/_library" "${MUSIC}/_stems" "${MUSIC}/_masters"
 
 DAY=$(date -u +%Y%m%d)
@@ -63,10 +67,15 @@ mkdir -p \
   "${TRACK_DIR}/prompts" \
   "${TRACK_DIR}/suno" \
   "${TRACK_DIR}/stems" \
+  "${TRACK_DIR}/daw" \
+  "${TRACK_DIR}/versions" \
+  "${TRACK_DIR}/lyrics" \
+  "${TRACK_DIR}/evidence" \
   "${TRACK_DIR}/masters" \
+  "${TRACK_DIR}/registration" \
   "${TRACK_DIR}/refs"
 
-NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+NOW=$(music_now_utc)
 
 python3 - "$TEMPLATE" "${TRACK_DIR}/music_brief.json" <<PY
 import json, sys, pathlib
@@ -85,6 +94,9 @@ if """${GENRE}""".strip():
 if """${BPM}""".strip():
     brief["musical"]["bpm"] = int("""${BPM}""")
 brief["hook"]["one_liner"] = """${HOOK}"""
+brief["registration"]["priority"] = "${PRIORITY}"
+if "${PRIORITY}" == "important":
+    brief["registration"]["copyright_commission"]["status"] = "pending"
 brief["pipeline"]["root"] = f"pipeline_data/assets/music/${TRACK_ID}/"
 brief["pipeline"]["episode_glob"] = f"pipeline_data/jarvis_memory/episodes/music-*-${TRACK_ID}.json"
 pathlib.Path(dst).write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n")
@@ -102,30 +114,13 @@ cat > "${TRACK_DIR}/prompts/negative_prompt.txt" <<'EOF'
 # Avoid: muddy mix, off-key vocals, generic stock feel
 EOF
 
-python3 - "${TRACK_DIR}/checklist.json" <<'PY'
-import json, pathlib, sys
-dst = pathlib.Path(sys.argv[1])
-data = {
-  "schema": "audiso.music_checklist.v1",
-  "track_id": None,
-  "stages": [
-    {"id": "brief_ready", "label": "music_brief filled", "done": True},
-    {"id": "suno_prompted", "label": "Suno style+lyrics prompts saved", "done": False},
-    {"id": "suno_imported", "label": "Suno export in suno/", "done": False},
-    {"id": "stems_done", "label": "Stem separation in stems/", "done": False},
-    {"id": "daw_edit", "label": "DAW edit / arrange", "done": False},
-    {"id": "master_done", "label": "Master in masters/ (LUFS check)", "done": False},
-    {"id": "rights_ok", "label": "Commercial rights noted", "done": False},
-    {"id": "delivered", "label": "Deliverable linked / published", "done": False}
-  ],
-  "updated_at": None
-}
-pathlib.Path(dst).write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
-PY
+grep -v '^#' "${TRACK_DIR}/prompts/lyrics_prompt.txt" | sed '/^$/d' > "${TRACK_DIR}/lyrics/ai.txt" || true
+[[ -s "${TRACK_DIR}/lyrics/ai.txt" ]] || echo "(AI lyrics draft — edit lyrics/final.txt)" > "${TRACK_DIR}/lyrics/ai.txt"
+cp "${TRACK_DIR}/lyrics/ai.txt" "${TRACK_DIR}/lyrics/final.txt"
 
+python3 "${ROOT}/scripts/music-checklist-init.py" "$TRACK_ID" "${TRACK_DIR}/checklist.json"
 python3 - <<PY
 import json, pathlib
-from datetime import datetime, timezone
 p = pathlib.Path("${TRACK_DIR}/checklist.json")
 d = json.loads(p.read_text())
 d["track_id"] = "${TRACK_ID}"
@@ -133,7 +128,6 @@ d["updated_at"] = "${NOW}"
 p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
 PY
 
-# index row
 INDEX_JSON="${INDEX_DIR}/index.json"
 python3 - <<PY
 import json, pathlib
@@ -146,12 +140,13 @@ rows.append({
     "title_working": """${TITLE}""",
     "created_at": "${NOW}",
     "path": "pipeline_data/assets/music/${TRACK_ID}/",
-    "status": "briefed"
+    "status": "briefed",
+    "priority": "${PRIORITY}"
 })
 idx_path.write_text(json.dumps({"updated_at": "${NOW}", "tracks": rows}, ensure_ascii=False, indent=2) + "\n")
 PY
 
-EP="${EP_DIR}/music-new-${TRACK_ID}.json"
+EP="${MUSIC_EPISODES}/music-new-${TRACK_ID}.json"
 python3 - <<PY
 import json, pathlib
 brief = json.loads(pathlib.Path("${TRACK_DIR}/music_brief.json").read_text())
@@ -172,7 +167,8 @@ ep = {
     "genre": brief.get("musical", {}).get("genre"),
     "bpm": brief.get("musical", {}).get("bpm"),
     "hook": brief.get("hook"),
-    "purpose": brief.get("purpose")
+    "purpose": brief.get("purpose"),
+    "priority": brief.get("registration", {}).get("priority")
   },
   "paths": {
     "track_dir": "${TRACK_DIR}",
@@ -185,6 +181,8 @@ print("${TRACK_ID}")
 print("${TRACK_DIR}")
 print("${EP}")
 PY
+
+bash "${ROOT}/scripts/music-catalog-update.sh" "$TRACK_ID"
 
 if [[ "$AWAIT_SUNO" -eq 1 ]]; then
   bash "${ROOT}/scripts/music-await-suno.sh" "$TRACK_ID" --title-hint "$TITLE"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.audiso.jarvis-music-daw-watch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/Mac/Audiso/marketing-pipeline/scripts/music-daw-watch.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>60</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/music-daw-watch-launchagent.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/Mac/Audiso/marketing-pipeline/pipeline_data/jarvis_memory/episodes/music-daw-watch-launchagent.err.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>JARVIS_ROOT</key>
+    <string>/Users/Mac/Audiso/marketing-pipeline</string>
+    <key>PATH</key>
+    <string>/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>

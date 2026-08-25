@@ -9,65 +9,95 @@ Audio binaries stay on Mac. Git keeps structure, briefs, prompts, checklist JSON
 ```
 music/
   README.md
-  .track_index/          # sequence + index.json (small)
-  _inbox/suno/           # raw Suno downloads before track_id assign
-  _library/              # optional shared one-shots / SFX (Mac)
-  _stems/                # optional shared stem cache (Mac)
-  _masters/              # optional shared masters cache (Mac)
-  AUD-MUS-YYYYMMDD-NNN/  # one folder per track
-    music_brief.json
-    checklist.json
-    prompts/
-      style_prompt.txt
-      lyrics_prompt.txt
-      negative_prompt.txt
-    suno/                # exports from Suno
-    stems/               # Demucs / UVR outputs
-    masters/             # final WAV/MP3 + LUFS notes
-    refs/                # reference links / notes
+  .track_index/          # sequence + index.json + music-catalog.json
+  _inbox/suno/
+  AUD-MUS-YYYYMMDD-NNN/
+    music_brief.json     # v2 — ai_disclosure, human_contribution, registration
+    checklist.json       # v2 — 16 stages Phase A–C
+    prompts/             # Suno style + lyrics
+    suno/                # v0 AI draft exports
+    stems/
+    daw/                 # YouTube Stage 1 — MIDI/DAW human edits
+    lyrics/              # YouTube Stage 1 — ai.txt + final.txt (manual rewrite)
+    versions/            # YouTube Stage 2 — v0→vN version chain
+    evidence/            # YouTube Stage 2 — human_contribution_ko.md + manifest
+    masters/
+    registration/        # KOMCA + Copyright Commission + ISRC JSON
+    refs/
 ```
 
 ## Track ID
 
-Format: `AUD-MUS-YYYYMMDD-NNN` (day sequence, zero-padded).
+Format: `AUD-MUS-YYYYMMDD-NNN`
 
 ```bash
-bash scripts/music-new-track.sh
-bash scripts/music-new-track.sh --title "Peacetop hook" --genre "k-pop,ambient" --bpm 96 --purpose "IG reel"
+bash scripts/music-new-track.sh --title "Peacetop hook" --genre "k-pop,ambient" --bpm 96 --purpose "IG reel" --await-suno
+bash scripts/music-new-track.sh --title "Album lead" --important   # Copyright Commission track
 ```
 
-## Suno → stem → master (zero extra API cost)
+## Phase A — Suno → stem → master
 
-**Primary (recommended):** Suno app → Mac `~/Downloads` → **auto import** (30s LaunchAgent)
+1. Create track + await Suno import (LaunchAgent watches `~/Downloads`)
+2. CEO clicks Download in Suno (only manual step)
+3. Stems → DAW edit → master
 
-1. Create track + mark awaiting:
 ```bash
-bash scripts/music-new-track.sh --title "…" --genre "…" --bpm 96 --hook "…" --await-suno
-# or: bash scripts/music-await-suno.sh AUD-MUS-…
-```
-2. Generate in Suno web/app, click **Download** once (only manual step).
-3. Watcher copies to `track/suno/`, marks checklist, writes episode.
-
-Install watcher on Mac (once):
-```bash
-bash scripts/mac-install-music-watch-launchagent.sh
-```
-
-Manual import still works:
-```bash
+bash scripts/mac-install-music-watch-launchagent.sh   # Mac once
 bash scripts/music-suno-checklist.sh AUD-MUS-… --import-suno ~/Downloads/song.mp3
 ```
 
-**Fallback API (official, free tier ~11 min/mo):**
+## YouTube 3-stage human intervention evidence
+
+| Stage | Folder | Script |
+|---|---|---|
+| 1 DAW/MIDI + lyrics rewrite | `daw/`, `lyrics/final.txt` | `music-human-evidence.sh` |
+| 2 Version chain + evidence doc | `versions/`, `evidence/` | auto via `music-daw-watch.sh` |
+| 3 KOMCA + Copyright Commission | `registration/` | `music-komca-pack.sh` |
+
 ```bash
-export ELEVENLABS_API_KEY=…   # Mac .env only — never jarvis_memory
-bash scripts/music-generate-elevenlabs.sh AUD-MUS-… --duration 30 --instrumental
+bash scripts/mac-install-music-daw-watch-launchagent.sh   # Mac — auto-refresh on daw/ changes
+bash scripts/music-human-evidence.sh AUD-MUS-…
 ```
 
-Provider policy: `pipeline_data/jarvis_memory/music_providers.json`
+## Phase B — KOMCA + Copyright Commission
 
-## Checklist stages
+```bash
+bash scripts/music-komca-pack.sh AUD-MUS-…
+# CEO submits at komca.or.kr, then:
+bash scripts/music-komca-mark-submitted.sh AUD-MUS-… --work-code …
+
+# Important tracks only:
+bash scripts/music-copyright-commission-pack.sh AUD-MUS-…
+bash scripts/music-copyright-mark-submitted.sh AUD-MUS-… --registration-no …
+```
+
+## Phase C — ISRC + catalog report
+
+```bash
+bash scripts/music-isrc-assign.sh AUD-MUS-… --distributor DistroKid
+bash scripts/music-catalog-report.sh
+bash scripts/mac-install-music-catalog-report-launchagent.sh   # weekly Mon 09:00 Mac
+```
+
+## Full orchestrator
+
+```bash
+bash scripts/music-pipeline-run.sh AUD-MUS-… --phase all
+bash scripts/music-upgrade-tracks.sh   # migrate existing tracks to v2 folders
+```
+
+## Checklist stages (16)
+
+`brief_ready` → `suno_prompted` → `suno_imported` → `stems_done` →  
+`daw_edit` → `lyrics_revised` → `versions_logged` → `human_evidence_ok` →  
+`master_done` → `komca_pack_ready` → `komca_submitted` →  
+`copyright_commission_pack_ready` → `copyright_commission_submitted` →  
+`isrc_assigned` → `rights_ok` → `delivered`
+
+Template: `pipeline_data/jarvis_memory/templates/music_checklist_stages.json`
 
 ## Steve / Jarvis
 
 Say: `Steve 음악 …` / `작곡 …` / `Suno …` — Jarvis routes to Steve music pipeline.
+
+Provider policy: `pipeline_data/jarvis_memory/music_providers.json`

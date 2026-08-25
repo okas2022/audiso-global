@@ -1,0 +1,152 @@
+{
+  "schema": "audiso.music_brief.v2",
+  "track_id": "AUD-MUS-20260825-003",
+  "title_working": "Peacetop Registration Test",
+  "status": "komca_submitted",
+  "created_at": "2026-08-25T07:40:52Z",
+  "updated_at": "2026-08-25T07:41:20Z",
+  "created_by": "Jarvis",
+  "orchestrator": "Jarvis",
+  "purpose": {
+    "use_case": "Brand anthem",
+    "brand": "Audiso",
+    "campaign_id": null,
+    "channels": [],
+    "duration_target_sec": 30,
+    "language": "ko",
+    "notes": ""
+  },
+  "musical": {
+    "genre": [
+      "k-pop",
+      "ambient"
+    ],
+    "subgenre": [],
+    "bpm": 96,
+    "key": null,
+    "time_signature": "4/4",
+    "mood": [],
+    "energy": null,
+    "reference_tracks": []
+  },
+  "hook": {
+    "one_liner": "Peace on top",
+    "lyric_hook": "",
+    "melody_hook": "",
+    "drop_or_chorus_bar": null
+  },
+  "structure": {
+    "form": [
+      "intro",
+      "verse",
+      "pre",
+      "chorus",
+      "verse",
+      "chorus",
+      "bridge",
+      "chorus",
+      "outro"
+    ],
+    "instrumentation": [],
+    "vocal": "lead + doubles",
+    "instrumental_only": false
+  },
+  "suno": {
+    "model": "",
+    "style_prompt": "",
+    "lyrics_prompt": "",
+    "negative_prompt": "",
+    "seed": null,
+    "weirdness": null,
+    "style_influence": null,
+    "export_paths": []
+  },
+  "ai_disclosure": {
+    "tools": [
+      "Suno"
+    ],
+    "ai_regions": [
+      "initial_draft_audio",
+      "initial_lyrics_draft"
+    ],
+    "not_ai_only": true,
+    "prompt_only": false,
+    "notes": ""
+  },
+  "human_contribution": {
+    "melody_harmony_edits": true,
+    "stem_rearrangement": false,
+    "lyrics_rewrite": "Peace on top — final human lyrics with revised chorus and bridge.",
+    "vocal_direction": false,
+    "new_instrument_performance": false,
+    "summary_ko": "DAW/MIDI 파일 1개에서 멜로디·화성·편곡을 수동 편집함. AI 가사 초안 대비 가사를 수동 개사함 (lyrics/final.txt).",
+    "daw_tools": [],
+    "evidence_paths": [
+      "daw/arrangement.mid",
+      "versions/v0_suno_peacetop.mp3",
+      "versions/v0_suno_v0_peacetop.mp3",
+      "versions/v1_daw_mix.mp3",
+      "masters/peacetop_master.mp3"
+    ]
+  },
+  "registration": {
+    "priority": "important",
+    "komca": {
+      "status": "submitted",
+      "member_id": null,
+      "work_code": "TEST-WORK-001",
+      "submitted_at": "2026-08-25T07:41:19Z",
+      "pack_path": "/workspace/marketing-pipeline/pipeline_data/assets/music/AUD-MUS-20260825-003/registration"
+    },
+    "copyright_commission": {
+      "status": "submitted",
+      "registration_no": "C-2026-TEST-001",
+      "submitted_at": "2026-08-25T07:41:20Z",
+      "fee_krw": null,
+      "fee_krw_estimate": "23600-33600",
+      "portal": "https://www.copyright.or.kr/",
+      "work_type": "복합저작물/편집저작물 (AI 초안 + 인간 추가 창작)",
+      "pack_ready_at": "2026-08-25T07:41:00Z"
+    },
+    "isrc": {
+      "status": "internal_pending",
+      "code": "AUDISO-20260825-003",
+      "assignee": "Audiso",
+      "distributor": null,
+      "assigned_at": "2026-08-25T07:41:02Z",
+      "note": "Replace with official ISRC from distributor before Spotify/YouTube Content ID"
+    }
+  },
+  "pipeline": {
+    "root": "pipeline_data/assets/music/AUD-MUS-20260825-003/",
+    "folders": [
+      "prompts",
+      "suno",
+      "stems",
+      "daw",
+      "versions",
+      "lyrics",
+      "evidence",
+      "masters",
+      "registration",
+      "refs"
+    ],
+    "checklist_script": "scripts/music-suno-checklist.sh",
+    "evidence_script": "scripts/music-human-evidence.sh",
+    "komca_pack_script": "scripts/music-komca-pack.sh",
+    "episode_glob": "pipeline_data/jarvis_memory/episodes/music-*-AUD-MUS-20260825-003.json"
+  },
+  "rights": {
+    "suno_plan": "",
+    "commercial_ok": null,
+    "clearance_notes": "",
+    "isrc": "AUDISO-20260825-003"
+  },
+  "deliverables": {
+    "master_wav": null,
+    "master_mp3": null,
+    "stems_zip": null,
+    "lufs_target": -14,
+    "true_peak_max_db": -1.0
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "audiso.copyright_commission_form.v1",
+  "track_id": "AUD-MUS-20260825-003",
+  "title": "Peacetop Registration Test",
+  "human_contribution": "DAW/MIDI 파일 1개에서 멜로디·화성·편곡을 수동 편집함. AI 가사 초안 대비 가사를 수동 개사함 (lyrics/final.txt).",
+  "ai_disclosure": {
+    "tools": [
+      "Suno"
+    ],
+    "ai_regions": [
+      "initial_draft_audio",
+      "initial_lyrics_draft"
+    ],
+    "not_ai_only": true,
+    "prompt_only": false,
+    "notes": ""
+  },
+  "attachments": "evidence/komca_submit_*.zip, daw/, versions/, masters/",
+  "status": "submitted",
+  "ceo_action": "copyright.or.kr → 일반저작물 등록 → 복합/편집저작물 → 수수료 납부",
+  "registration_no": "C-2026-TEST-001"
+}

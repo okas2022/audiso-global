@@ -1,0 +1,21 @@
+{
+  "schema": "audiso.music_checklist_stages.v1",
+  "stages": [
+    {"id": "brief_ready", "label": "music_brief filled", "phase": "A"},
+    {"id": "suno_prompted", "label": "Suno style+lyrics prompts saved", "phase": "A"},
+    {"id": "suno_imported", "label": "Suno export in suno/ (v0)", "phase": "A"},
+    {"id": "stems_done", "label": "Stem separation in stems/", "phase": "1"},
+    {"id": "daw_edit", "label": "DAW/MIDI human edit in daw/", "phase": "1"},
+    {"id": "lyrics_revised", "label": "Lyrics manual rewrite (lyrics/final.txt)", "phase": "1"},
+    {"id": "versions_logged", "label": "Version chain in versions/ (v0→vN)", "phase": "2"},
+    {"id": "human_evidence_ok", "label": "Human contribution evidence package", "phase": "2"},
+    {"id": "master_done", "label": "Master in masters/", "phase": "A"},
+    {"id": "komca_pack_ready", "label": "KOMCA declaration + evidence ZIP", "phase": "B"},
+    {"id": "komca_submitted", "label": "KOMCA portal submitted", "phase": "3"},
+    {"id": "copyright_commission_pack_ready", "label": "Copyright Commission pack (important)", "phase": "B"},
+    {"id": "copyright_commission_submitted", "label": "Copyright Commission submitted", "phase": "3"},
+    {"id": "isrc_assigned", "label": "ISRC assigned for distribution", "phase": "3"},
+    {"id": "rights_ok", "label": "Commercial rights documented", "phase": "B"},
+    {"id": "delivered", "label": "Published / delivered", "phase": "C"}
+  ]
+}

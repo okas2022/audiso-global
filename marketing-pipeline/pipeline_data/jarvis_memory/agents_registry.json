@@ -46,17 +46,25 @@
         "video_generation",
         "campaign_assets",
         "music_brief",
-        "suno_stem_master_pipeline"
+        "suno_stem_master_pipeline",
+        "komca_registration",
+        "human_contribution_evidence"
       ],
       "paths": {
         "assets": "pipeline_data/assets/",
         "music": "pipeline_data/assets/music/",
         "music_brief_template": "pipeline_data/jarvis_memory/templates/music_brief.json",
+        "music_catalog": "pipeline_data/assets/music/.track_index/music-catalog.json",
         "campaigns": "pipeline_data/campaigns/"
       },
       "scripts": [
         "scripts/music-new-track.sh",
-        "scripts/music-suno-checklist.sh"
+        "scripts/music-suno-checklist.sh",
+        "scripts/music-human-evidence.sh",
+        "scripts/music-komca-pack.sh",
+        "scripts/music-copyright-commission-pack.sh",
+        "scripts/music-isrc-assign.sh",
+        "scripts/music-pipeline-run.sh"
       ],
       "mcp": ["Higgsfield"],
       "invoke": "Say: 'Steve …' / '마케팅 에셋 …' / '음악·Suno·작곡 …' — Jarvis routes to Steve"

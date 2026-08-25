@@ -1,6 +1,6 @@
 {
   "schema": "audiso.music_checklist.v2",
-  "track_id": "AUD-MUS-20260825-002",
+  "track_id": "AUD-MUS-20260825-003",
   "stages": [
     {
       "id": "brief_ready",
@@ -25,52 +25,52 @@
     {
       "id": "daw_edit",
       "label": "DAW/MIDI human edit in daw/",
-      "done": false
+      "done": true
     },
     {
       "id": "lyrics_revised",
       "label": "Lyrics manual rewrite (lyrics/final.txt)",
-      "done": false
+      "done": true
     },
     {
       "id": "versions_logged",
       "label": "Version chain in versions/ (v0→vN)",
-      "done": false
+      "done": true
     },
     {
       "id": "human_evidence_ok",
       "label": "Human contribution evidence package",
-      "done": false
+      "done": true
     },
     {
       "id": "master_done",
       "label": "Master in masters/",
-      "done": false
+      "done": true
     },
     {
       "id": "komca_pack_ready",
       "label": "KOMCA declaration + evidence ZIP",
-      "done": false
+      "done": true
     },
     {
       "id": "komca_submitted",
       "label": "KOMCA portal submitted",
-      "done": false
+      "done": true
     },
     {
       "id": "copyright_commission_pack_ready",
       "label": "Copyright Commission pack (important)",
-      "done": false
+      "done": true
     },
     {
       "id": "copyright_commission_submitted",
       "label": "Copyright Commission submitted",
-      "done": false
+      "done": true
     },
     {
       "id": "isrc_assigned",
       "label": "ISRC assigned for distribution",
-      "done": false
+      "done": true
     },
     {
       "id": "rights_ok",
@@ -83,5 +83,5 @@
       "done": false
     }
   ],
-  "updated_at": "2026-08-25T07:40:52Z"
+  "updated_at": "2026-08-25T07:41:20Z"
 }
