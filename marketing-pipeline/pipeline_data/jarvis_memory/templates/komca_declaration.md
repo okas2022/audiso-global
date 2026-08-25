@@ -10,6 +10,9 @@
 | 트랙 ID | {{track_id}} |
 | 곡명(가칭) | {{title_working}} |
 | 창작자 | {{creator_name}} |
+| 연락처 | {{phone}} |
+| 주소 | {{address}} |
+| 지급계좌 | {{bank_account}} |
 | AI 활용 여부 | **예** |
 
 ## AI 활용 신고

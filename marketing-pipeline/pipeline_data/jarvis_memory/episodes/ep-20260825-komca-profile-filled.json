@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-25T07:52:00Z",
+  "actor": "CEO",
+  "event": "komca_trust_profile_updated",
+  "fields_filled": ["address", "phone", "bank"],
+  "note": "주민번호·이메일만 FILL_ 남음. Mac relay가 pending-komca-trust-and-register 실행 시 포털 폼 자동입력."
+}

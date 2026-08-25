@@ -11,6 +11,14 @@
     "initial_lyrics_draft"
   ],
   "human_contribution_summary_ko": "DAW/MIDI 파일 1개에서 멜로디·화성·편곡을 수동 편집함. AI 가사 초안 대비 가사를 수동 개사함 (lyrics/final.txt).",
+  "applicant_name": "서영준",
+  "applicant_phone": "010-8950-4980",
+  "applicant_address": "서울시 강남구 선릉로 8 래미안 블레스티지 213동 1203호",
+  "bank": {
+    "bank_name": "우리은행",
+    "account_holder": "서영준",
+    "account_number": "126-627716-02-001"
+  },
   "human_contribution_flags": {
     "melody_harmony_edits": true,
     "stem_rearrangement": false,
@@ -34,7 +42,7 @@
     "prompts/negative_prompt.txt",
     "prompts/style_prompt.txt"
   ],
-  "generated_at": "2026-08-25T07:41:00Z",
+  "generated_at": "2026-08-25T07:51:31Z",
   "portal": "https://www.komca.or.kr/",
   "status": "pack_ready",
   "ceo_action": "Login → 음악저작물 신고 → AI 활용 여부 체크 → 본 문서 내용 붙여넣기 → 증빙 업로드"

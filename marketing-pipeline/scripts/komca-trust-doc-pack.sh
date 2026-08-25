@@ -97,6 +97,7 @@ bash scripts/komca-full-automation.sh --track {track_label}
 (root / "checklist/KOMCA_SUBMIT_CHECKLIST.md").write_text(checklist)
 
 app = profile.get("applicant", {})
+bank = profile.get("bank", {})
 trust = profile.get("trust", {})
 application = f"""# KOMCA 신탁계약 신청서 (요약 초안 — 공식 HWP/PDF에 옮겨 적기)
 
@@ -110,7 +111,7 @@ application = f"""# KOMCA 신탁계약 신청서 (요약 초안 — 공식 HWP/P
 - AI 활용: 예 (인간 실질·주도적 기여 있음 — 증빙 첨부)
 
 ## 계좌 (저작권료 지급)
-- {app.get('bank', {}).get('bank_name')} / {app.get('bank', {}).get('account_holder')} / {app.get('bank', {}).get('account_number')}
+- {bank.get('bank_name')} / {bank.get('account_holder')} / {bank.get('account_number')}
 
 ## CEO 서명
 - 서명: _______________
@@ -124,8 +125,10 @@ email_draft = f"""Subject: [저작물등록] {app.get('name_ko')} — AI 보조 
 
 KOMCA 자료팀 귀하,
 
-신탁계약 체결(또는 진행 중) 신탁자 {app.get('name_ko')}입니다.
+신탁계약 체결(또는 진행 중) 신탁자 {app.get('name_ko')} ({app.get('phone')})입니다.
 첨부: 저작물신고 요약, AI 활용·인간 기여 증빙, 버전 이력.
+주소: {app.get('address')}
+지급계좌: {bank.get('bank_name')} {bank.get('account_number')}
 
 곡명 및 신고 상세는 첨부 komca_declaration.md / evidence ZIP 참조.
 
@@ -149,7 +152,7 @@ meta = {
     "ceo_actions_remaining": [
         "신탁계약 서류·신청금 20만원 제출 (방문/우편)",
         "저작물 등록 후 휴대폰 본인인증",
-        "komca_trust_profile.json 실제 정보(FILL_*) 입력"
+        "komca_trust_profile.json 주민번호·이메일(FILL_*) 입력"
     ]
 }
 (root / "pack_manifest.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\\n")

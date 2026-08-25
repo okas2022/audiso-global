@@ -120,6 +120,30 @@ def try_fill_login(page, user: str, password: str) -> bool:
     return True
 
 
+def load_profile() -> dict:
+    if PROFILE_PATH.exists():
+        return json.loads(PROFILE_PATH.read_text())
+    return {}
+
+
+def try_fill_contact_fields(page, profile: dict) -> None:
+    app = profile.get("applicant") or {}
+    phone = app.get("phone_raw") or (app.get("phone") or "").replace("-", "")
+    address = app.get("address") or ""
+    for sel, val in [
+        ('input[name*="phone" i], input[name*="hp" i], input[name*="mobile" i]', phone),
+        ('input[name*="addr" i], textarea[name*="addr" i]', address),
+    ]:
+        if not val:
+            continue
+        try:
+            loc = page.locator(sel).first
+            if loc.count() and loc.is_visible(timeout=1500):
+                loc.fill(val)
+        except Exception:
+            pass
+
+
 def run(mode: str, track_id: str | None, headless: bool) -> int:
     try:
         from playwright.sync_api import sync_playwright
@@ -132,6 +156,7 @@ def run(mode: str, track_id: str | None, headless: bool) -> int:
     BROWSER_PROFILE.mkdir(parents=True, exist_ok=True)
 
     track_pack = load_track_pack(track_id) if track_id else None
+    profile = load_profile()
     write_episode("portal_start", {"mode": mode, "track_id": track_id, "user": user})
 
     with sync_playwright() as p:
@@ -206,6 +231,8 @@ def run(mode: str, track_id: str | None, headless: bool) -> int:
                     except Exception:
                         pass
 
+            try_fill_contact_fields(page, profile)
+
             decl = track_pack.get("declaration")
             if decl and Path(decl).exists():
                 log(f"Use declaration text from: {decl}")
@@ -224,7 +251,7 @@ def run(mode: str, track_id: str | None, headless: bool) -> int:
                 log(f"  ZIP: {z}")
 
             pause_for_ceo(
-                "저작물 등록 폼 작성·첨부 후 '등록진행내역'에서 휴대폰 본인인증을 완료해 주세요."
+                "저작물 등록 폼 작성·첨부 후 '등록진행내역'에서 휴대폰 본인인증(010-8950-4980)을 완료해 주세요."
             )
 
         elif mode == "login":

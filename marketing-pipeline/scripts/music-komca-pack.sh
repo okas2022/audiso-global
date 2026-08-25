@@ -64,6 +64,14 @@ now = "${NOW}"
 
 hc = brief.get("human_contribution") or {}
 ai = brief.get("ai_disclosure") or {}
+profile_path = pathlib.Path("${ROOT}/pipeline_data/jarvis_memory/templates/komca_trust_profile.json")
+profile = json.loads(profile_path.read_text()) if profile_path.exists() else {}
+app = profile.get("applicant") or {}
+bank = profile.get("bank") or {}
+creator = app.get("name_ko") or "서영준"
+phone = app.get("phone") or app.get("phone_raw") or ""
+address = app.get("address") or ""
+bank_line = f"{bank.get('bank_name', '')} {bank.get('account_number', '')} ({bank.get('account_holder', '')})".strip()
 style = (root/"prompts/style_prompt.txt").read_text() if (root/"prompts/style_prompt.txt").exists() else ""
 lyrics = (root/"prompts/lyrics_prompt.txt").read_text() if (root/"prompts/lyrics_prompt.txt").exists() else ""
 
@@ -85,7 +93,10 @@ def chk(v): return "x" if v else " "
 repl = {
     "{{track_id}}": brief.get("track_id", ""),
     "{{title_working}}": brief.get("title_working", ""),
-    "{{creator_name}}": "CEO (youngjoon seo)",
+    "{{creator_name}}": creator,
+    "{{phone}}": phone,
+    "{{address}}": address,
+    "{{bank_account}}": bank_line,
     "{{ai_tools}}": ", ".join(ai.get("tools") or ["Suno"]),
     "{{ai_regions}}": ", ".join(ai.get("ai_regions") or ["initial_draft_audio", "initial_lyrics_draft"]),
     "{{style_prompt}}": style.strip(),
@@ -112,6 +123,10 @@ form = {
     "ai_tools": ai.get("tools") or ["Suno"],
     "ai_regions": ai.get("ai_regions") or [],
     "human_contribution_summary_ko": hc.get("summary_ko"),
+    "applicant_name": creator,
+    "applicant_phone": app.get("phone"),
+    "applicant_address": app.get("address"),
+    "bank": bank,
     "human_contribution_flags": {
         "melody_harmony_edits": hc.get("melody_harmony_edits"),
         "stem_rearrangement": hc.get("stem_rearrangement"),
