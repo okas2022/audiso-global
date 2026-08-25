@@ -1,18 +1,25 @@
-# 너의 행복이 나라면 — Creative brief
+# 너의 행복이 나라면 — Creative brief (v2)
 
-## Mood reference
-- **폴킴**: 따뜻한 피아노 발라드, 감성적 멜로디, 숨결 가까운 보컬
-- **로이킴**: 어�oustic·서정적 가사, 담담하지만 깊은 이별
+## POV
+**헤어지는 여성** — 직설적·시적, 복잡한 문장 없음
 
-## Story (CEO)
-나를 사랑하지 않는 사람을 사랑했고, 그 사람은 다른 사람을 사랑한다.  
-결국 **그 사람의 행복을 위해 놓아주는** 노래.
+## Mood
+- 따뜻한 여성 보컬 발라드 (피아노·어쿠스틱)
+- 담담하지만 아픈 이별
 
-## Suno (Mac)
-1. [suno.com](https://suno.com) → Custom mode
-2. **Style**: `prompts/style_prompt.txt` 내용 붙여넣기
-3. **Lyrics**: `prompts/lyrics_prompt.txt` 전체
-4. Download → Mac `~/Downloads` → LaunchAgent가 `AUD-MUS-20260825-004/suno/` 로 import
+## Core (한 문장)
+너는 나를 사랑하지 않았고, 나는 너를 사랑했다. 그래서 보내준다.
 
-## Track ID
+## Hook
+> 너는 나를 사랑하지 않았어  
+> 나는 너를 사랑했어  
+> 그게 전부야  
+> 그래서 오늘, 너를 보내줄게
+
+## Suno
+1. Style → `prompts/style_prompt.txt` (female vocal)
+2. Lyrics → `prompts/lyrics_prompt.txt`
+3. Download → `AUD-MUS-20260825-004/suno/`
+
+## Track
 AUD-MUS-20260825-004

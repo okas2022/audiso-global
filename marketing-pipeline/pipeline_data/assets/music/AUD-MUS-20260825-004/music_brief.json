@@ -4,7 +4,7 @@
   "title_working": "너의 행복이 나라면",
   "status": "briefed",
   "created_at": "2026-08-25T08:02:56Z",
-  "updated_at": "2026-08-25T08:03:14Z",
+  "updated_at": "2026-08-25T08:17:13Z",
   "created_by": "Steve",
   "orchestrator": "Jarvis",
   "purpose": {
@@ -14,7 +14,7 @@
     "channels": [],
     "duration_target_sec": 30,
     "language": "ko",
-    "notes": "폴킴·로이킴풍: 피아노+기타, 따뜻한 남성 보컬, 서정적 가사"
+    "notes": "여성 보컬·이별하는 여성 시점. 직설적 시어. v2 lyrics."
   },
   "musical": {
     "genre": [
@@ -27,9 +27,9 @@
     "key": null,
     "time_signature": "4/4",
     "mood": [
-      "melancholic",
       "bittersweet",
-      "sincere",
+      "direct",
+      "female POV",
       "letting go"
     ],
     "energy": null,
@@ -39,8 +39,8 @@
     ]
   },
   "hook": {
-    "one_liner": "사랑하지 않는 너를 사랑했고, 놓아줄게 — 네 행복이 나라면",
-    "lyric_hook": "내가 놓아줄게, 너의 행복이 나라면",
+    "one_liner": "너는 나를 사랑하지 않았어 — 나는 너를 사랑했어. 그게 전부야.",
+    "lyric_hook": "그래서 오늘, 너를 보내줄게",
     "melody_hook": "",
     "drop_or_chorus_bar": null
   },
@@ -57,13 +57,13 @@
       "outro"
     ],
     "instrumentation": [],
-    "vocal": "lead + doubles",
+    "vocal": "female lead, intimate",
     "instrumental_only": false
   },
   "suno": {
     "model": "",
-    "style_prompt": "",
-    "lyrics_prompt": "",
+    "style_prompt": "Korean emotional ballad, soft female vocal warm sincere intimate,\nlike Korean indie ballad singer-songwriter, gentle piano and acoustic guitar,\n72 BPM, breathy vulnerable verses, restrained emotional chorus,\nminimal production, light brush drums only in chorus,\nno EDM, no trap, no heavy beat — heartbreak with dignity,\nD major or Bb major, cinematic but quiet, female POV breakup song\n",
+    "lyrics_prompt": "[Intro]\n(피아노만, 작게)\n\n[Verse 1]\n너에게 난 늘 가까웠는데\n너는 늘 먼 곳을 보고 있었어\n네 옆에 있어도 혼자인 기분\n그게 우리였다는 걸 이제 알아\n\n[Pre-Chorus]\n네가 웃을 때 나는 울고 있었고\n네가 향한 곳에 나는 없었어\n\n[Chorus]\n너는 나를 사랑하지 않았어\n나는 너를 사랑했어\n그게 전부야\n그래서 오늘, 너를 보내줄게\n\n[Verse 2]\n네가 다른 사람을 말할 때\n난 고개를 끄덕이며 웃어줬어\n그 미소가 제일 아팠지만\n붙잡지 않는 게 마지막 사랑이야\n\n[Pre-Chorus]\n비를 맞으며 집에 가는 길에\n네 이름을 더 이상 부르지 않기로 해\n\n[Chorus]\n너는 나를 사랑하지 않았어\n나는 너를 사랑했어\n그게 전부야\n그래서 오늘, 너를 보내줄게\n\n[Bridge]\n(피아노 + 잔잔한 스트링)\n네가 행복하면 나도 괜찮은 척할게\n그래도 이 밤만은 솔직해도 되지\n보고 싶어… 그래도 안녕\n\n[Final Chorus]\n너는 나를 사랑하지 않았어\n나는 너를 사랑했어\n그게 전부야\n잘 가… 행복해야 해\n\n[Outro]\n(허밍, 피아노 fade)\n잘 가\n",
     "negative_prompt": "",
     "seed": null,
     "weirdness": null,
