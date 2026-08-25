@@ -1,0 +1,13 @@
+{
+  "id": "mac-task-suno-force-now-why",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T11:53:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "FORCE NOW: Suno generate — Cloud cannot drive CEO Chrome",
+  "instruction": "CEO angry: Chrome open but nothing ran. Cloud Linux cannot CDP Mac Chrome. Run ABSOLUTE: bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh — pull main, reinstall LaunchAgents, CDP default Chrome profile (ss2013), generate AUD-MUS-20260825-004.",
+  "tracks": ["AUD-MUS-20260825-004"],
+  "scripts": ["scripts/mac-suno-force-now.sh"],
+  "ceo_action": "If still idle: Finder double-click marketing-pipeline/scripts/AUDISO-SUNO-NOW.command"
+}

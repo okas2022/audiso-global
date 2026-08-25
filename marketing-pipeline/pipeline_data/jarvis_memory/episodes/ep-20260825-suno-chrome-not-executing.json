@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-25T11:52:00Z",
+  "actor": "Jarvis Cloud",
+  "event": "suno_not_running_on_ceo_chrome_root_cause",
+  "why_chrome_did_nothing": [
+    "This Cloud Agent is Linux VM — no Google Chrome.app, cannot CDP to CEO Mac",
+    "Git mac_tasks were queued but Mac LaunchAgent/worker never marked any suno task done",
+    "Telling CEO to wait for relay was incorrect while Mac executor was not actually running the scripts"
+  ],
+  "fix_shipped": [
+    "mac-suno-force-now.sh — absolute GLOBAL pull + generate + reinstall LaunchAgents",
+    "AUDISO-SUNO-NOW.command — Finder double-click entry on Mac",
+    "LaunchAgent plist now bash -lc absolute path to mac-suno-force-now.sh after git pull"
+  ],
+  "unblock": "On MacBook Pro Finder open: /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/AUDISO-SUNO-NOW.command (after git pull), OR start Cursor My Machine worker macbook-pro-audiso"
+}

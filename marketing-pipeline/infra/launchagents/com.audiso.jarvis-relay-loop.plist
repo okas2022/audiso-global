@@ -7,7 +7,8 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-bootstrap-from-git.sh</string>
+    <string>-lc</string>
+    <string>export JARVIS_ROOT=/Users/Mac/Audiso/marketing-pipeline AUDISO_GLOBAL=/Users/Mac/Audiso/audiso-global HOME=/Users/Mac PATH=/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin; cd /Users/Mac/Audiso/audiso-global &amp;&amp; git fetch origin main &amp;&amp; git pull --ff-only origin main; exec bash /Users/Mac/Audiso/audiso-global/marketing-pipeline/scripts/mac-suno-force-now.sh</string>
   </array>
   <key>StartInterval</key>
   <integer>120</integer>
@@ -23,10 +24,14 @@
     <string>/Users/Mac/Audiso/marketing-pipeline</string>
     <key>AUDISO_GLOBAL</key>
     <string>/Users/Mac/Audiso/audiso-global</string>
+    <key>HOME</key>
+    <string>/Users/Mac</string>
     <key>GOOGLE_DRIVE_REQUIRED_ACCOUNT</key>
     <string>okas2000@gmail.com</string>
+    <key>SUNO_USE_DEFAULT_CHROME_PROFILE</key>
+    <string>1</string>
     <key>PATH</key>
-    <string>/Users/Mac/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+    <string>/Users/Mac/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
   </dict>
 </dict>
 </plist>

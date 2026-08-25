@@ -28,7 +28,10 @@ install_plist "com.audiso.jarvis-cursor-worker" \
 install_plist "com.audiso.jarvis-relay-loop" \
   "${SRC_ROOT}/infra/launchagents/com.audiso.jarvis-relay-loop.plist"
 
-# Immediately create Audiso Music in Finder Google Drive
-bash "${GLOBAL_MP}/scripts/mac-bootstrap-from-git.sh" 2>/dev/null || \
-  bash "${ROOT}/scripts/mac-bootstrap-from-git.sh" 2>/dev/null || \
-  bash "${ROOT}/scripts/mac-jarvis-relay-loop.sh"
+# Force Suno generate + LaunchAgent self-heal (CEO Chrome session)
+chmod +x "${GLOBAL_MP}/scripts/mac-suno-force-now.sh" \
+  "${GLOBAL_MP}/scripts/AUDISO-SUNO-NOW.command" 2>/dev/null || true
+bash "${GLOBAL_MP}/scripts/mac-suno-force-now.sh" 2>/dev/null || \
+  bash "${ROOT}/scripts/mac-suno-force-now.sh" 2>/dev/null || \
+  bash "${GLOBAL_MP}/scripts/mac-bootstrap-from-git.sh" 2>/dev/null || true
+
