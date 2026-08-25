@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-25T08:31:06.730054Z",
+  "event": "cloud_prompt_relay_queued",
+  "task": "pending-relay-20260825T083106.json",
+  "prompt_preview": "AUD-MUS-004 결과를 Google Drive로 스마트폰에서 볼 수 있게: bash scripts/mac-music-phone-pipeline.sh 실행. Suno 생성+stems+Drive 업로드. okas2000@gmail.com Drive 앱 → Audiso Music 폴더.",
+  "target": "MacBook Pro via git pull + relay loop"
+}
