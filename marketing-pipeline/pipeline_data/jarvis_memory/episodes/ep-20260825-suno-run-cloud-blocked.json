@@ -1,0 +1,12 @@
+{
+  "at": "2026-08-25T08:25:30Z",
+  "actor": "Jarvis Cloud",
+  "event": "suno_run_blocked_no_mac_chrome",
+  "attempted": [
+    "cd /Users/Mac/Audiso/marketing-pipeline && git pull",
+    "bash scripts/mac-suno-run-task.sh"
+  ],
+  "result": "symlink to Cloud Linux VM — Playwright Chromium installed but Google Chrome.app missing; cannot reach CEO Suno session",
+  "queued": "pending-suno-generate-004-now.json → Mac relay / My Machine",
+  "ceo_fix": "Open My Machine agent macbook-pro-audiso OR wait relay-loop ~5min after Mac pulls branch"
+}
