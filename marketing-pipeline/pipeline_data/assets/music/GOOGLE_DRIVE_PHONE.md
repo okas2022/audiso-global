@@ -1,44 +1,42 @@
 # Google Drive — 스마트폰에서 결과 보기
 
-## 스마트폰 (iPhone / Android)
+## 계정 (필수)
 
-1. **Google Drive** 앱 설치
-2. **okas2000@gmail.com** 로 로그인
-3. **Audiso Music** → `AUD-MUS-20260825-004_너의 행복이 나라면` 폴더
+**오직 `okas2000@gmail.com` 만 사용.**  
+`okas2000@yonsei.ac.kr` (연세대) 계정으로는 절대 동기화하지 않습니다.
 
-포함 파일: Suno MP3/WAV, stems, 가사, KOMCA 패키지, `PHONE_INDEX.md`
+| 기기 | 로그인 |
+|------|--------|
+| 맥북 Google Drive for desktop | **okas2000@gmail.com** only |
+| 스마트폰 Google Drive 앱 | **okas2000@gmail.com** only |
+
+연세 계정이 열려 있으면: Drive 데스크톱 → Settings → Accounts에서 yonsei 제거 후 Gmail만 추가.
 
 ---
 
-## Mac — 방법 A (추천, OAuth 불필요)
+## 스마트폰
 
-맥북에 **Google Drive for desktop** 설치되어 있으면 자동 동기화:
+1. Google Drive 앱 → **okas2000@gmail.com**
+2. **Audiso Music** → `AUD-MUS-20260825-004_…` 폴더
+
+---
+
+## Mac — 방법 A (추천)
 
 ```bash
-bash scripts/mac-music-drive-desktop-sync.sh AUD-MUS-20260825-004
+bash scripts/mac-music-drive-sync-now.sh AUD-MUS-20260825-004
 ```
 
-Suno 생성 후 자동: `mac-suno-run-task.sh` / `mac-music-phone-pipeline.sh`
+CloudStorage 경로가  
+`~/Library/CloudStorage/GoogleDrive-okas2000@gmail.com/My Drive`  
+인 경우에만 업로드합니다. yonsei 경로는 거부됩니다.
 
 ---
 
-## Mac — 방법 B (공유 링크, OAuth 1회)
-
-1. [Google Cloud Console](https://console.cloud.google.com/) → 프로젝트 생성
-2. **Drive API** 활성화
-3. **OAuth Desktop** 클라이언트 → JSON 다운로드  
-   → `pipeline_data/secrets/google_drive_credentials.json`
-4. `bash scripts/mac-google-drive-setup.sh` → 브라우저에서 허용
-5. `bash scripts/music-drive-upload.sh AUD-MUS-20260825-004 --share-link`
-
-링크는 `registration/drive_manifest.json` 에 저장됩니다.
-
----
-
-## 전체 파이프라인 (Suno + Drive)
+## Mac — 방법 B (OAuth)
 
 ```bash
-bash scripts/mac-music-phone-pipeline.sh
+bash scripts/mac-google-drive-setup.sh
 ```
 
-Mac relay loop가 ~5분 내 자동 실행합니다.
+브라우저에서 **반드시 Gmail** 선택. 연세 계정 선택 시 스크립트가 거부합니다.

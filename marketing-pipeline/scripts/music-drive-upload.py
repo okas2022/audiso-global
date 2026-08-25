@@ -18,12 +18,36 @@ CREDS = SECRETS / "google_drive_credentials.json"
 TOKEN = SECRETS / "google_drive_token.json"
 EP = ROOT / "pipeline_data/jarvis_memory/episodes"
 FOLDER_NAME = os.environ.get("GOOGLE_DRIVE_MUSIC_ROOT", "Audiso Music")
+REQUIRED_ACCOUNT = os.environ.get("GOOGLE_DRIVE_REQUIRED_ACCOUNT", "okas2000@gmail.com").lower()
+BLOCKED_DOMAINS = [
+    d.strip().lower()
+    for d in os.environ.get("GOOGLE_DRIVE_BLOCKED_DOMAINS", "yonsei.ac.kr").split(",")
+    if d.strip()
+]
 
 SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 
 
 def log(msg: str) -> None:
     print(f"[music-drive] {msg}", flush=True)
+
+
+def assert_required_account(service) -> str:
+    """Refuse upload if OAuth session is not okas2000@gmail.com."""
+    about = service.about().get(fields="user(emailAddress,displayName)").execute()
+    email = (about.get("user") or {}).get("emailAddress") or ""
+    email_l = email.lower()
+    log(f"OAuth account: {email or '(unknown)'}")
+    for d in BLOCKED_DOMAINS:
+        if d and d in email_l:
+            log(f"REFUSED: blocked domain account {email} (need {REQUIRED_ACCOUNT})")
+            log("Delete pipeline_data/secrets/google_drive_token.json and re-auth as Gmail")
+            raise SystemExit(3)
+    if email_l != REQUIRED_ACCOUNT:
+        log(f"REFUSED: logged in as {email or 'unknown'}, required {REQUIRED_ACCOUNT}")
+        log("Delete pipeline_data/secrets/google_drive_token.json and re-run mac-google-drive-setup.sh")
+        raise SystemExit(3)
+    return email
 
 
 def now_iso() -> str:
@@ -43,7 +67,7 @@ def phone_index(track_id: str, track_dir: Path, brief: dict) -> str:
         f"updated: {now_iso()}",
         "",
         "## 스마트폰에서",
-        "Google Drive 앱 → Audiso Music → 이 폴더",
+        "Google Drive 앱 (okas2000@gmail.com) → Audiso Music → 이 폴더",
         "",
         "## 파일",
     ]
@@ -159,6 +183,7 @@ def upload_track(track_id: str, share_phone: bool) -> dict:
     z = make_stems_zip(track_dir)
 
     service, MediaFileUpload = get_drive_service()
+    account = assert_required_account(service)
     root_id = find_or_create_folder(service, FOLDER_NAME, None)
     track_folder_id = find_or_create_folder(service, f"{track_id}_{brief.get('title_working','')[:30]}", root_id)
 
@@ -195,11 +220,12 @@ def upload_track(track_id: str, share_phone: bool) -> dict:
         "schema": "audiso.music_drive_manifest.v1",
         "track_id": track_id,
         "title": brief.get("title_working"),
+        "google_account": account,
         "uploaded_at": now_iso(),
         "drive_folder_id": track_folder_id,
         "drive_folder_link": folder_link,
         "files": uploaded,
-        "phone_hint": "Google Drive app → Audiso Music → track folder",
+        "phone_hint": f"Google Drive app ({REQUIRED_ACCOUNT}) → Audiso Music → track folder",
     }
     manifest_path = track_dir / "registration/drive_manifest.json"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
