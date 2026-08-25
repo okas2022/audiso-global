@@ -1,0 +1,13 @@
+{
+  "id": "mac-task-create-audiso-music-mydrive",
+  "status": "pending",
+  "priority": "urgent",
+  "created_at": "2026-08-25T09:50:00Z",
+  "created_by": "Jarvis Cloud",
+  "assignee": "Mac Cursor Agent",
+  "title": "URGENT: 내 드라이브에 Audiso Music 폴더 생성",
+  "instruction": "CEO confirmed Audiso Music missing on Mac Google Drive. Run: bash scripts/mac-create-audiso-music-mydrive.sh AUD-MUS-20260825-004. Creates folder in My Drive (내 드라이브) for okas2000@gmail.com ONLY. Opens Finder. Requires Google Drive for desktop signed into Gmail (not yonsei).",
+  "tracks": ["AUD-MUS-20260825-004"],
+  "scripts": ["scripts/mac-create-audiso-music-mydrive.sh"],
+  "ceo_action": "Mac: Drive desktop = okas2000@gmail.com only. Then Finder/Phone → 내 드라이브 → Audiso Music"
+}
